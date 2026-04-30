@@ -1,0 +1,14 @@
+.env
+.env.local
+.env.production
+.env.*
+*.key
+*.pem
+credentials.json
+service-account.json
+secrets.json
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
