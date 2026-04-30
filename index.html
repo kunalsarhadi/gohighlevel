@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi Family Deals — Alberta's Premier Multi-Family Investment Firm</title>
+  <meta name="description" content="Scale to 50+ doors in 4 years. 5% down, 50-year amortization. Edmonton's institutional-grade multi-family investment opportunity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
+      --navy-border: #162438; --gold: #C9A84C; --gold-light: #E2C97A;
+      --gold-muted: #9A7A34; --slate: #2A3F58; --text-primary: #EEF2F7;
+      --text-muted: #7A95B0; --text-subtle: #4A6480;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+    .nav-logo span { color: var(--text-primary); font-weight: 400; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--navy-deep); }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 72px; background: var(--navy-deep); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,168,76,0.04) 0%, transparent 50%); pointer-events: none; }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .hero-inner { max-width: 1280px; margin: 0 auto; padding: 6rem 2rem 4rem; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+    .hero-headline { font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; max-width: 900px; margin-bottom: 2rem; }
+    .hero-headline .accent { color: var(--gold); display: block; }
+    .hero-subline { font-size: 1.1rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-bottom: 3rem; letter-spacing: 0.03em; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary { background: var(--gold); color: var(--navy-deep); padding: 1rem 2.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--text-muted); padding: 1rem 2rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--navy-border); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s, border-color 0.2s; }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold-muted); }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 5rem; border-top: 1px solid var(--navy-border); padding-top: 3rem; max-width: 700px; }
+    .hero-stat { padding-right: 2rem; }
+    .hero-stat + .hero-stat { padding-left: 2rem; border-left: 1px solid var(--navy-border); }
+    .hero-stat-number { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+    .hero-stat-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-subtle); }
+    .section { padding: 7rem 2rem; }
+    .section-inner { max-width: 1280px; margin: 0 auto; }
+    .section-label { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+    .section-title { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 600; line-height: 1.15; margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; max-width: 560px; letter-spacing: 0.02em; }
+    .comparison-section { background: var(--navy-deep); padding: 7rem 2rem; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-top: 4rem; }
+    .comparison-header { background: var(--navy-card); padding: 1.5rem 2rem; text-align: center; }
+    .comparison-header.highlight { background: linear-gradient(135deg, #0C1828 0%, #0F1E35 100%); border-top: 2px solid var(--gold); }
+    .comparison-header-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 0.4rem; }
+    .comparison-header-title { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; }
+    .comparison-header.highlight .comparison-header-title { color: var(--gold); }
+    .comparison-cell { background: var(--navy-card); padding: 1.4rem 2rem; display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; gap: 0.2rem; }
+    .comparison-cell.label-cell { justify-content: flex-start; text-align: left; background: var(--navy-primary); }
+    .comparison-cell.highlight { background: linear-gradient(180deg, #0C1828 0%, #0A1420 100%); }
+    .comparison-cell-value { font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 700; }
+    .comparison-cell-value.good { color: var(--gold); }
+    .comparison-cell-value.bad { color: #5A7A9A; }
+    .comparison-cell-sub { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); }
+    .comparison-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+    .comparison-label-sub { font-size: 0.62rem; color: var(--text-subtle); margin-top: 0.2rem; }
+    .advantages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-top: 4rem; }
+    .advantage-card { background: var(--navy-card); padding: 2.5rem 2rem; position: relative; transition: background 0.2s; }
+    .advantage-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+    .advantage-card:hover { background: #0F1E35; }
+    .advantage-card:hover::before { transform: scaleX(1); }
+    .advantage-icon { width: 2.5rem; height: 2.5rem; margin-bottom: 1.5rem; color: var(--gold); }
+    .advantage-amount { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); margin-bottom: 0.4rem; line-height: 1; }
+    .advantage-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 0.8rem; }
+    .advantage-desc { font-size: 0.85rem; font-weight: 300; color: var(--text-muted); line-height: 1.65; }
+    .steps-section { padding: 7rem 2rem; background: var(--navy-primary); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 4rem; position: relative; }
+    .steps-grid::before { content: ''; position: absolute; top: 3rem; left: calc(16.67% + 1rem); right: calc(16.67% + 1rem); height: 1px; background: linear-gradient(90deg, var(--gold-muted), var(--gold), var(--gold-muted)); }
+    .step-card { padding: 0 2.5rem; text-align: center; }
+    .step-number { width: 4rem; height: 4rem; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); background: var(--navy-primary); }
+    .step-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 1rem; }
+    .step-desc { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+    .cta-section { padding: 6rem 2rem; background: var(--navy-deep); border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
+    .cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .cta-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.2; margin-bottom: 1.2rem; }
+    .cta-sub { font-size: 0.95rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; margin-bottom: 2.5rem; letter-spacing: 0.02em; }
+    footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; }
+    .footer-logo span { color: var(--text-subtle); font-weight: 400; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.7rem; color: var(--text-subtle); letter-spacing: 0.05em; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1px; background: var(--text-muted); display: block; transition: all 0.2s; }
+    .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); z-index: 49; padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--gold); }
+    @media (max-width: 900px) {
+      .nav-links { display: none; } .nav-cta { display: none; } .hamburger { display: flex; }
+      .hero-stats { grid-template-columns: 1fr; gap: 1.5rem; max-width: 300px; }
+      .hero-stat + .hero-stat { border-left: none; padding-left: 0; border-top: 1px solid var(--navy-border); padding-top: 1.5rem; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .comparison-header:not(.highlight) { display: none; }
+      .comparison-cell:not(.highlight):not(.label-cell) { display: none; }
+      .advantages-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: 3rem; } .steps-grid::before { display: none; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .hero-inner { padding: 4rem 1.5rem 3rem; } .section { padding: 5rem 1.5rem; }
+      .comparison-section { padding: 5rem 1.5rem; } .steps-section { padding: 5rem 1.5rem; } .cta-section { padding: 4rem 1.5rem; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body>
+    <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MULTI FAMILY <span>DEALS</span></a>
+      <ul class="nav-links">
+        <li><a href="about.html">The Strategy</a></li>
+        <li><a href="inventory.html">Active Inventory</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Book a Call</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="about.html">The Strategy</a>
+      <a href="inventory.html">Active Inventory</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Book a Call</a>
+    </nav>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Edmonton, Alberta — MLI Select Program</div>
+      <h1 class="hero-headline">Scale to 50 Doors.<br /><span class="accent">$80,000 Gets You In.</span> Not $400,000.</h1>
+      <p class="hero-subline">While Ontario and BC investors tie up $400K to acquire a single property, our clients enter Alberta's institutional-grade multi-family market for as little as 5% down — with 50-year amortization and zero provincial tax friction.</p>
+      <div class="hero-actions">
+        <a href="inventory.html" class="btn-primary">View Active Inventory</a>
+        <a href="contact.html" class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Book Strategy Call
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-number">5%</div><div class="hero-stat-label">Minimum Down Payment</div></div>
+        <div class="hero-stat"><div class="hero-stat-number">50 Yr</div><div class="hero-stat-label">Amortization Period</div></div>
+        <div class="hero-stat"><div class="hero-stat-number">4 Yrs</div><div class="hero-stat-label">Path to 50+ Doors</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="comparison-section">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">The Alberta Advantage</div>
+        <h2 class="section-title">The Numbers Investors<br />In Ontario Aren't Seeing</h2>
+        <p class="section-subtitle">A side-by-side analysis of what it truly costs to enter each market — and what your capital produces from day one.</p>
+      </div>
+      <div class="comparison-grid reveal" style="transition-delay:0.1s">
+        <div class="comparison-header label-cell" style="background:var(--navy-primary);border:none"></div>
+        <div class="comparison-header"><div class="comparison-header-label">High Barrier Market</div><div class="comparison-header-title" style="color:var(--text-muted)">Ontario / BC</div></div>
+        <div class="comparison-header highlight"><div class="comparison-header-label">Our Market</div><div class="comparison-header-title">Edmonton, Alberta</div></div>
+        <div class="comparison-cell label-cell"><div class="comparison-label">Minimum Down Payment</div><div class="comparison-label-sub">Per acquisition</div></div>
+        <div class="comparison-cell"><div class="comparison-cell-value bad">20%</div><div class="comparison-cell-sub">~$400,000+</div></div>
+        <div class="comparison-cell highlight"><div class="comparison-cell-value good">5%</div><div class="comparison-cell-sub">~$80,000</div></div>
+        <div class="comparison-cell label-cell"><div class="comparison-label">Amortization Period</div><div class="comparison-label-sub">Affects monthly cashflow</div></div>
+        <div class="comparison-cell"><div class="comparison-cell-value bad">25 Yr</div><div class="comparison-cell-sub">Conventional</div></div>
+        <div class="comparison-cell highlight"><div class="comparison-cell-value good">50 Yr</div><div class="comparison-cell-sub">MLI Select Program</div></div>
+        <div class="comparison-cell label-cell"><div class="comparison-label">Provincial Sales Tax</div><div class="comparison-label-sub">On new construction</div></div>
+        <div class="comparison-cell"><div class="comparison-cell-value bad">13% HST</div><div class="comparison-cell-sub">Ontario</div></div>
+        <div class="comparison-cell highlight"><div class="comparison-cell-value good">None</div><div class="comparison-cell-sub">Alberta has no PST or HST</div></div>
+        <div class="comparison-cell label-cell"><div class="comparison-label">Land Transfer Tax</div><div class="comparison-label-sub">At closing</div></div>
+        <div class="comparison-cell"><div class="comparison-cell-value bad">Up to 2%</div><div class="comparison-cell-sub">+ Toronto LTT</div></div>
+        <div class="comparison-cell highlight"><div class="comparison-cell-value good">None</div><div class="comparison-cell-sub">Zero LTT in Alberta</div></div>
+        <div class="comparison-cell label-cell"><div class="comparison-label">Development Charges</div><div class="comparison-label-sub">Per unit, new builds</div></div>
+        <div class="comparison-cell"><div class="comparison-cell-value bad">$50K–$130K</div><div class="comparison-cell-sub">Per unit (GTA)</div></div>
+        <div class="comparison-cell highlight"><div class="comparison-cell-value good">None</div><div class="comparison-cell-sub">Zero development charges</div></div>
+        <div class="comparison-cell label-cell"><div class="comparison-label">Capital Per Door</div><div class="comparison-label-sub">Acquisition capacity</div></div>
+        <div class="comparison-cell"><div class="comparison-cell-value bad">1–2 Doors</div><div class="comparison-cell-sub">$400K deployed</div></div>
+        <div class="comparison-cell highlight"><div class="comparison-cell-value good">5–6 Doors</div><div class="comparison-cell-sub">Same $400K deployed</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--navy-primary)">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Economic Arbitrage</div>
+        <h2 class="section-title">Three Tax Advantages<br />Ontario Investors Don't Have</h2>
+        <p class="section-subtitle">Alberta's legislative environment was designed to attract capital. These are not incentives — they are permanent structural advantages.</p>
+      </div>
+      <div class="advantages-grid">
+        <div class="advantage-card reveal" style="transition-delay:0.05s">
+          <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="advantage-amount">0%</div>
+          <div class="advantage-title">No Provincial Sales Tax</div>
+          <p class="advantage-desc">Alberta has no provincial sales tax and no HST. On a $2M acquisition, that's $260,000 that stays in your portfolio — not the government's.</p>
+        </div>
+        <div class="advantage-card reveal" style="transition-delay:0.1s">
+          <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"/></svg>
+          <div class="advantage-amount">$0</div>
+          <div class="advantage-title">No Land Transfer Tax</div>
+          <p class="advantage-desc">Unlike Ontario where LTT can add $40,000–$80,000 per closing, Alberta charges zero land transfer tax. Every acquisition saves you tens of thousands at the table.</p>
+        </div>
+        <div class="advantage-card reveal" style="transition-delay:0.15s">
+          <svg class="advantage-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/></svg>
+          <div class="advantage-amount">$0</div>
+          <div class="advantage-title">No Development Charges</div>
+          <p class="advantage-desc">GTA developers pay $50,000–$130,000 per unit in development charges. Edmonton's growth-friendly policy eliminates this entirely, dramatically improving your pro-forma from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-section">
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 5rem">
+        <div class="section-label" style="justify-content:center"><span style="width:1.5rem;height:1px;background:var(--gold);display:block"></span>The Process</div>
+        <h2 class="section-title">Three Steps to Passive Cash Flow</h2>
+        <p class="section-subtitle" style="margin:0 auto">From first conversation to rent deposits hitting your account. Our turn-key structure removes every obstacle between you and ownership.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal" style="transition-delay:0.05s">
+          <div class="step-number">01</div>
+          <div class="step-title">Select Your Asset</div>
+          <p class="step-desc">Browse our curated Edmonton inventory — 6 to 10-plex builds in high-growth corridors. We share full pro-forma and debt analysis. You choose the asset that fits your capital and timeline.</p>
+        </div>
+        <div class="step-card reveal" style="transition-delay:0.1s">
+          <div class="step-number">02</div>
+          <div class="step-title">Secure 95% Financing</div>
+          <p class="step-desc">We structure your acquisition through CMHC's MLI Select program — 5% down, 50-year amortization. Our team manages the full financing process. You bring the deposit. We bring the leverage.</p>
+        </div>
+        <div class="step-card reveal" style="transition-delay:0.15s">
+          <div class="step-number">03</div>
+          <div class="step-title">Collect Passive Cash Flow</div>
+          <p class="step-desc">Our professional management team handles every aspect of operations — leasing, maintenance, reporting. Out-of-province owners receive monthly statements and direct deposits. No landlord duties required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center"><span style="display:block;width:1.5rem;height:1px;background:var(--gold)"></span>Take The First Step<span style="display:block;width:1.5rem;height:1px;background:var(--gold)"></span></div>
+      <h2 class="cta-title">Your Next Acquisition<br />Starts With One Conversation</h2>
+      <p class="cta-sub">Qualified investors receive a full pro-forma analysis, debt structure breakdown, and a personalized 50-door roadmap — at no cost. Spots are limited per quarter.</p>
+      <a href="contact.html" class="btn-primary">Book Your Strategy Call</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MULTI FAMILY <span>DEALS</span></div>
+      <ul class="footer-links">
+        <li><a href="about.html">Strategy</a></li>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© 2025 Multi Family Deals. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') mobileNav.classList.toggle('open'); });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
