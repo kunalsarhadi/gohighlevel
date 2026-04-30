@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Active Inventory — Multi Family Deals</title>
-  <meta name="description" content="Browse available 6–10 plex multi-family assets in Edmonton's growth corridors. Request full pro-forma and debt analysis." />
+  <meta name="description" content="Browse available 6–20 plex multi-family assets in Edmonton's growth corridors. Request full pro-forma and debt analysis." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -18,6 +18,8 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+
+    /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
@@ -34,6 +36,7 @@
     .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
     .mobile-nav a:hover { color: var(--gold); }
 
+    /* HERO */
     .page-hero { padding: 9rem 2rem 5rem; background: var(--navy-deep); position: relative; overflow: hidden; }
     .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
     .page-hero-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
@@ -43,45 +46,97 @@
     .page-title span { color: var(--gold); }
     .page-subtitle { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 580px; letter-spacing: 0.02em; }
 
+    /* STATUS BAR */
+    .status-bar { background: var(--navy-card); border-bottom: 1px solid var(--navy-border); padding: 1rem 2rem; }
+    .status-bar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .status-pills { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .status-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    .status-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; display: block; }
+    .status-pill.available { color: #4CAF8A; }
+    .status-pill.available::before { background: #4CAF8A; }
+    .status-pill.sc { color: var(--gold-muted); }
+    .status-pill.sc::before { background: var(--gold-muted); }
+    .status-pill.cs { color: var(--text-subtle); }
+    .status-pill.cs::before { background: var(--text-subtle); border: 1px solid var(--text-subtle); background: transparent; }
+    .status-updated { font-size: 0.68rem; letter-spacing: 0.08em; color: var(--text-subtle); }
+
     /* PRIVACY NOTICE */
-    .privacy-bar { background: var(--navy-card); border-bottom: 1px solid var(--navy-border); padding: 1rem 2rem; }
+    .privacy-bar { background: var(--navy-deep); border-bottom: 1px solid var(--navy-border); padding: 0.9rem 2rem; }
     .privacy-bar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 0.75rem; }
     .privacy-icon { width: 1rem; height: 1rem; color: var(--gold); flex-shrink: 0; }
     .privacy-text { font-size: 0.72rem; font-weight: 400; color: var(--text-subtle); letter-spacing: 0.04em; }
     .privacy-text strong { color: var(--text-muted); font-weight: 500; }
 
-    /* INVENTORY GRID */
-    .inventory-section { padding: 5rem 2rem 7rem; background: var(--navy-primary); }
+    /* INVENTORY SECTIONS */
+    .inventory-section { padding: 4rem 2rem; background: var(--navy-primary); }
+    .inventory-section + .inventory-section { border-top: 1px solid var(--navy-border); }
     .inventory-inner { max-width: 1280px; margin: 0 auto; }
-    .inventory-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
-    .section-label { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
-    .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
-    .inventory-count { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); }
+    .inventory-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .section-label { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: currentColor; }
+    .section-label.muted { color: var(--gold-muted); }
+    .section-label.subtle { color: var(--text-subtle); }
+    .section-title { font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 600; }
+    .inventory-count { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); }
     .inventory-count span { color: var(--gold); }
+    .inventory-count span.muted { color: var(--gold-muted); }
+    .inventory-count span.subtle { color: var(--text-subtle); }
 
+    /* CARDS GRID */
     .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
 
+    /* ASSET CARD */
     .asset-card { background: var(--navy-card); display: flex; flex-direction: column; position: relative; transition: background 0.2s; cursor: pointer; }
     .asset-card:hover { background: #0F1E35; }
-    .asset-card-top { padding: 2rem 2rem 1.5rem; border-bottom: 1px solid var(--navy-border); flex: 1; }
-    .asset-badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 1px solid; margin-bottom: 1.2rem; }
-    .asset-badge.available { color: #4CAF8A; border-color: #4CAF8A; background: rgba(76,175,138,0.08); }
-    .asset-badge.reserved { color: var(--gold); border-color: var(--gold-muted); background: rgba(201,168,76,0.08); }
-    .asset-badge.sold { color: var(--text-subtle); border-color: var(--text-subtle); background: transparent; }
+    .asset-card-top { padding: 1.8rem 1.8rem 1.4rem; border-bottom: 1px solid var(--navy-border); flex: 1; }
+    .asset-badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 1px solid; margin-bottom: 1rem; }
     .asset-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; display: block; }
-    .asset-name { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; line-height: 1.3; }
-    .asset-location { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 1.5rem; }
-    .asset-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
-    .asset-stat { background: var(--navy-primary); padding: 0.9rem 1rem; }
-    .asset-stat-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 0.3rem; }
-    .asset-stat-value { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: var(--gold); }
-    .asset-stat-value.neutral { color: var(--text-primary); font-size: 0.9rem; }
-    .asset-card-bottom { padding: 1.2rem 2rem; }
-    .asset-cta { display: flex; align-items: center; justify-content: space-between; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); text-decoration: none; transition: gap 0.2s; }
+    .asset-badge.available { color: #4CAF8A; border-color: #4CAF8A; background: rgba(76,175,138,0.08); }
+    .asset-badge.sc { color: var(--gold-muted); border-color: var(--gold-muted); background: rgba(154,122,52,0.1); }
+    .asset-badge.coming-soon { color: var(--text-subtle); border-color: var(--text-subtle); background: transparent; }
+    .asset-badge.sold { color: var(--text-subtle); border-color: #1E3352; background: transparent; }
+    .asset-name { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; line-height: 1.3; }
+    .asset-package { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 0.4rem; }
+    .asset-location { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 1.4rem; }
+    .asset-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
+    .asset-stat { background: var(--navy-primary); padding: 0.75rem 0.8rem; }
+    .asset-stat-label { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 0.25rem; }
+    .asset-stat-value { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); }
+    .asset-stat-value.neutral { color: var(--text-muted); font-size: 0.82rem; font-weight: 500; font-family: 'Josefin Sans', sans-serif; letter-spacing: 0.02em; }
+    .asset-card-bottom { padding: 1rem 1.8rem; }
+    .asset-cta { display: flex; align-items: center; justify-content: space-between; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
     .asset-cta:hover { color: var(--gold-light); }
-    .asset-cta svg { width: 1rem; height: 1rem; transition: transform 0.2s; }
+    .asset-cta svg { width: 0.9rem; height: 0.9rem; transition: transform 0.2s; flex-shrink: 0; }
     .asset-card:hover .asset-cta svg { transform: translateX(4px); }
-    .asset-card.sold-card { opacity: 0.5; pointer-events: none; }
+
+    /* SC SECTION — dimmed */
+    .sc-section { background: var(--navy-deep); }
+    .sc-section .cards-grid { opacity: 0.65; }
+    .sc-section .asset-card:hover { background: #0A1525; }
+    .sc-section .asset-stat { background: #070F1C; }
+
+    /* COMING SOON SECTION */
+    .cs-section { background: var(--navy-deep); }
+    .cs-section .cards-grid { opacity: 0.5; }
+    .cs-section .asset-card { cursor: default; pointer-events: none; }
+    .cs-section .asset-card-bottom a { pointer-events: auto; cursor: pointer; }
+    .cs-section .asset-stat { background: #070F1C; }
+
+    /* SOLD SECTION — collapsed */
+    .sold-section { background: var(--navy-deep); padding: 2.5rem 2rem; }
+    .collapse-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; background: var(--navy-card); border: 1px solid var(--navy-border); padding: 1.2rem 1.8rem; cursor: pointer; transition: background 0.2s; font-family: inherit; }
+    .collapse-btn:hover { background: #0F1E35; }
+    .collapse-btn-left { display: flex; align-items: center; gap: 1rem; }
+    .collapse-btn-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-subtle); }
+    .collapse-btn-title { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 600; color: var(--text-subtle); }
+    .collapse-count-badge { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); background: var(--navy-primary); border: 1px solid var(--navy-border); padding: 0.2rem 0.6rem; }
+    .collapse-icon { width: 1rem; height: 1rem; color: var(--text-subtle); transition: transform 0.3s ease; flex-shrink: 0; }
+    .collapse-btn[aria-expanded="true"] .collapse-icon { transform: rotate(180deg); }
+    .sold-grid-wrap { display: none; margin-top: 1px; }
+    .sold-grid-wrap.open { display: block; }
+    .sold-section .cards-grid { opacity: 0.4; }
+    .sold-section .asset-card { cursor: default; pointer-events: none; }
+    .sold-section .asset-stat { background: #070F1C; }
 
     /* GATEKEEPER */
     .gatekeeper { background: var(--navy-deep); padding: 5rem 2rem; border-top: 1px solid var(--navy-border); }
@@ -117,11 +172,14 @@
       .cards-grid { grid-template-columns: 1fr; }
       .gatekeeper-grid { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
+      .status-pills { gap: 1rem; }
     }
     @media (max-width: 600px) {
       .page-hero { padding: 7rem 1.5rem 4rem; }
-      .inventory-section { padding: 4rem 1.5rem 5rem; }
+      .inventory-section { padding: 3rem 1.5rem; }
+      .sold-section { padding: 2rem 1.5rem; }
       .gatekeeper { padding: 4rem 1.5rem; }
+      .asset-stats { grid-template-columns: repeat(2, 1fr); }
     }
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -153,155 +211,434 @@
     <div class="page-hero-inner">
       <div class="page-eyebrow">Edmonton Growth Corridor</div>
       <h1 class="page-title">Active <span>Inventory</span></h1>
-      <p class="page-subtitle">Curated 6–10 plex assets in Edmonton's highest-growth corridors. Each property is pre-analyzed for MLI Select eligibility, cash flow, and 50-year amortization structuring. Exact addresses released after strategy call.</p>
+      <p class="page-subtitle">Curated 6–20 plex assets in Edmonton's highest-growth corridors. Each property is pre-analyzed for MLI Select eligibility, cash flow, and 50-year amortization structuring. Exact addresses released after strategy call.</p>
     </div>
   </section>
+
+  <!-- STATUS SUMMARY BAR -->
+  <div class="status-bar">
+    <div class="status-bar-inner">
+      <div class="status-pills">
+        <span class="status-pill available">5 Available</span>
+        <span class="status-pill sc">2 Sold Conditional</span>
+        <span class="status-pill cs">1 Coming Soon</span>
+      </div>
+      <div class="status-updated">Updated April 2026</div>
+    </div>
+  </div>
 
   <div class="privacy-bar">
     <div class="privacy-bar-inner">
       <svg class="privacy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
-      <p class="privacy-text"><strong>Privacy Protected:</strong> Exact addresses are withheld to protect seller privacy and prevent unsolicited contact. Full details — including address, pro-forma, and debt analysis — are shared exclusively on your strategy call.</p>
+      <p class="privacy-text"><strong>Privacy Protected:</strong> Exact addresses are withheld to protect seller privacy. Full details — including address, pro-forma, and debt analysis — are shared exclusively on your strategy call.</p>
     </div>
   </div>
 
-  <section class="inventory-section">
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 1: AVAILABLE                           -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="inventory-section" id="available">
     <div class="inventory-inner">
       <div class="inventory-header reveal">
         <div>
-          <div class="section-label">Current Listings</div>
-          <div style="font-family:'Cinzel',serif;font-size:1.4rem;font-weight:600;">Available Assets</div>
+          <div class="section-label">Active Listings</div>
+          <div class="section-title">Available Now</div>
         </div>
-        <div class="inventory-count"><span>5</span> Properties Listed &nbsp;·&nbsp; Updated April 2025</div>
+        <div class="inventory-count"><span>5</span> Properties Ready to Acquire</div>
       </div>
 
       <div class="cards-grid">
 
-        <!-- ASSET 1 -->
+        <!-- 6 PLEX MILLWOODS -->
         <div class="asset-card reveal" style="transition-delay:0.05s">
           <div class="asset-card-top">
             <div class="asset-badge available">Available</div>
-            <div class="asset-name">Edmonton Growth Corridor — 10 Plex</div>
-            <div class="asset-location">North Edmonton · New Build</div>
+            <div class="asset-name">6 Plex</div>
+            <div class="asset-package">6 Plex Millwoods Package</div>
+            <div class="asset-location">Millwoods · Edmonton</div>
             <div class="asset-stats">
-              <div class="asset-stat"><div class="asset-stat-label">Units</div><div class="asset-stat-value">10</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">5% Deposit</div><div class="asset-stat-value">~$95K</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Est. Cash Flow</div><div class="asset-stat-value">$3,200/mo</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Amortization</div><div class="asset-stat-value neutral">50 Years</div></div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">DSCR</div>
+                <div class="asset-stat-value">1.22</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Deposit</div>
+                <div class="asset-stat-value">5%</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Completion</div>
+                <div class="asset-stat-value neutral">Early 2026</div>
+              </div>
             </div>
           </div>
           <div class="asset-card-bottom">
             <a href="contact.html" class="asset-cta">
-              Request Full Pro-Forma & Debt Analysis
+              Request Full Pro-Forma
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- ASSET 2 -->
+        <!-- 8 PLEX HIGH PARK -->
         <div class="asset-card reveal" style="transition-delay:0.08s">
           <div class="asset-card-top">
             <div class="asset-badge available">Available</div>
-            <div class="asset-name">Edmonton Growth Corridor — 8 Plex</div>
-            <div class="asset-location">West Edmonton · New Build</div>
+            <div class="asset-name">8 Plex</div>
+            <div class="asset-package">8 Plex High Park Package</div>
+            <div class="asset-location">High Park · Edmonton</div>
             <div class="asset-stats">
-              <div class="asset-stat"><div class="asset-stat-label">Units</div><div class="asset-stat-value">8</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">5% Deposit</div><div class="asset-stat-value">~$80K</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Est. Cash Flow</div><div class="asset-stat-value">$2,600/mo</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Amortization</div><div class="asset-stat-value neutral">50 Years</div></div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">DSCR</div>
+                <div class="asset-stat-value">1.26</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Deposit</div>
+                <div class="asset-stat-value">5%</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Completion</div>
+                <div class="asset-stat-value neutral">Early 2026</div>
+              </div>
             </div>
           </div>
           <div class="asset-card-bottom">
             <a href="contact.html" class="asset-cta">
-              Request Full Pro-Forma & Debt Analysis
+              Request Full Pro-Forma
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- ASSET 3 -->
+        <!-- 8 PLEX MCQUEEN -->
         <div class="asset-card reveal" style="transition-delay:0.11s">
           <div class="asset-card-top">
-            <div class="asset-badge reserved">Reserved</div>
-            <div class="asset-name">Edmonton Growth Corridor — 9 Plex</div>
-            <div class="asset-location">South Edmonton · New Build</div>
+            <div class="asset-badge available">Available</div>
+            <div class="asset-name">8 Plex</div>
+            <div class="asset-package">8 Plex McQueen Package</div>
+            <div class="asset-location">McQueen · Edmonton</div>
             <div class="asset-stats">
-              <div class="asset-stat"><div class="asset-stat-label">Units</div><div class="asset-stat-value">9</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">5% Deposit</div><div class="asset-stat-value">~$87K</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Est. Cash Flow</div><div class="asset-stat-value">$2,900/mo</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Amortization</div><div class="asset-stat-value neutral">50 Years</div></div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">DSCR</div>
+                <div class="asset-stat-value">1.20</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Deposit</div>
+                <div class="asset-stat-value">5%</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Completion</div>
+                <div class="asset-stat-value neutral">Early 2026</div>
+              </div>
             </div>
           </div>
           <div class="asset-card-bottom">
             <a href="contact.html" class="asset-cta">
-              Join Waitlist for This Asset
+              Request Full Pro-Forma
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- ASSET 4 -->
+        <!-- 8 PLEX SHERBROOKE -->
         <div class="asset-card reveal" style="transition-delay:0.14s">
           <div class="asset-card-top">
             <div class="asset-badge available">Available</div>
-            <div class="asset-name">Edmonton Growth Corridor — 6 Plex</div>
-            <div class="asset-location">East Edmonton · New Build</div>
+            <div class="asset-name">8 Plex</div>
+            <div class="asset-package">8 Plex Sherbrooke Package</div>
+            <div class="asset-location">Sherbrooke · Edmonton</div>
             <div class="asset-stats">
-              <div class="asset-stat"><div class="asset-stat-label">Units</div><div class="asset-stat-value">6</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">5% Deposit</div><div class="asset-stat-value">~$62K</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Est. Cash Flow</div><div class="asset-stat-value">$1,900/mo</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Amortization</div><div class="asset-stat-value neutral">50 Years</div></div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">DSCR</div>
+                <div class="asset-stat-value">1.25</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Deposit</div>
+                <div class="asset-stat-value">7.5%</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Completion</div>
+                <div class="asset-stat-value neutral">Early 2026</div>
+              </div>
             </div>
           </div>
           <div class="asset-card-bottom">
             <a href="contact.html" class="asset-cta">
-              Request Full Pro-Forma & Debt Analysis
+              Request Full Pro-Forma
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- ASSET 5 -->
+        <!-- 20 PLEX MCDOUGALL -->
         <div class="asset-card reveal" style="transition-delay:0.17s">
           <div class="asset-card-top">
             <div class="asset-badge available">Available</div>
-            <div class="asset-name">Edmonton Growth Corridor — 7 Plex</div>
-            <div class="asset-location">Central Edmonton · New Build</div>
+            <div class="asset-name">20 Plex</div>
+            <div class="asset-package">20 Plex McDougall Package</div>
+            <div class="asset-location">Central McDougall, Downtown · Edmonton</div>
             <div class="asset-stats">
-              <div class="asset-stat"><div class="asset-stat-label">Units</div><div class="asset-stat-value">7</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">5% Deposit</div><div class="asset-stat-value">~$70K</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Est. Cash Flow</div><div class="asset-stat-value">$2,200/mo</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Amortization</div><div class="asset-stat-value neutral">50 Years</div></div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">DSCR</div>
+                <div class="asset-stat-value">1.30</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Deposit</div>
+                <div class="asset-stat-value">5%</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Completion</div>
+                <div class="asset-stat-value neutral">Summer 2026</div>
+              </div>
             </div>
           </div>
           <div class="asset-card-bottom">
             <a href="contact.html" class="asset-cta">
-              Request Full Pro-Forma & Debt Analysis
+              Request Full Pro-Forma
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- COMING SOON -->
-        <div class="asset-card reveal" style="transition-delay:0.2s; opacity: 0.5;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 2: SOLD CONDITIONAL                    -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="inventory-section sc-section" id="sold-conditional">
+    <div class="inventory-inner">
+      <div class="inventory-header reveal">
+        <div>
+          <div class="section-label muted">Under Offer</div>
+          <div class="section-title" style="color:var(--text-muted)">Sold Conditional</div>
+        </div>
+        <div class="inventory-count"><span class="muted">2</span> Properties — Conditional Offers Active</div>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- 6 PLEX BOONIE DOON SC -->
+        <div class="asset-card reveal" style="transition-delay:0.05s">
           <div class="asset-card-top">
-            <div class="asset-badge" style="color:var(--text-subtle);border-color:var(--text-subtle)">Coming Soon</div>
-            <div class="asset-name">Edmonton Growth Corridor — 10 Plex</div>
-            <div class="asset-location">Northwest Edmonton · Q3 2025</div>
+            <div class="asset-badge sc">Sold Conditional</div>
+            <div class="asset-name">6 Plex</div>
+            <div class="asset-package">Bonnie Doon</div>
+            <div class="asset-location">Bonnie Doon · Edmonton</div>
             <div class="asset-stats">
-              <div class="asset-stat"><div class="asset-stat-label">Units</div><div class="asset-stat-value neutral">10</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">5% Deposit</div><div class="asset-stat-value neutral">TBA</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Est. Cash Flow</div><div class="asset-stat-value neutral">TBA</div></div>
-              <div class="asset-stat"><div class="asset-stat-label">Amortization</div><div class="asset-stat-value neutral">50 Years</div></div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">DSCR</div>
+                <div class="asset-stat-value" style="color:var(--gold-muted)">1.23</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Deposit</div>
+                <div class="asset-stat-value" style="color:var(--gold-muted)">5%</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Completion</div>
+                <div class="asset-stat-value neutral">Fall 2025</div>
+              </div>
             </div>
           </div>
           <div class="asset-card-bottom">
-            <a href="contact.html" class="asset-cta" style="pointer-events:auto;opacity:1">
-              Join Early Access List
+            <a href="contact.html" class="asset-cta" style="color:var(--gold-muted)">
+              Join Waitlist — May Become Available
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
             </a>
           </div>
         </div>
 
+        <!-- 8 PLEX PRINCE CHARLES SC -->
+        <div class="asset-card reveal" style="transition-delay:0.08s">
+          <div class="asset-card-top">
+            <div class="asset-badge sc">Sold Conditional</div>
+            <div class="asset-name">8 Plex</div>
+            <div class="asset-package">Prince Charles</div>
+            <div class="asset-location">Prince Charles · Edmonton</div>
+            <div class="asset-stats">
+              <div class="asset-stat">
+                <div class="asset-stat-label">DSCR</div>
+                <div class="asset-stat-value" style="color:var(--gold-muted)">1.24</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Deposit</div>
+                <div class="asset-stat-value" style="color:var(--gold-muted)">5%</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Completion</div>
+                <div class="asset-stat-value neutral">Early 2026</div>
+              </div>
+            </div>
+          </div>
+          <div class="asset-card-bottom">
+            <a href="contact.html" class="asset-cta" style="color:var(--gold-muted)">
+              Join Waitlist — May Become Available
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 3: COMING SOON                         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="inventory-section cs-section" id="coming-soon">
+    <div class="inventory-inner">
+      <div class="inventory-header reveal">
+        <div>
+          <div class="section-label subtle">Pipeline</div>
+          <div class="section-title" style="color:var(--text-subtle)">Coming Soon</div>
+        </div>
+        <div class="inventory-count"><span class="subtle">1</span> Property — Not Yet Released</div>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- 9 PLEX PRINCE CHARLES OH -->
+        <div class="asset-card reveal" style="transition-delay:0.05s">
+          <div class="asset-card-top">
+            <div class="asset-badge coming-soon">Coming Soon</div>
+            <div class="asset-name">9 Plex</div>
+            <div class="asset-package">Prince Charles</div>
+            <div class="asset-location">Prince Charles · Edmonton</div>
+            <div class="asset-stats">
+              <div class="asset-stat">
+                <div class="asset-stat-label">DSCR</div>
+                <div class="asset-stat-value neutral">1.28</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Deposit</div>
+                <div class="asset-stat-value neutral">5%</div>
+              </div>
+              <div class="asset-stat">
+                <div class="asset-stat-label">Completion</div>
+                <div class="asset-stat-value neutral">Early 2026</div>
+              </div>
+            </div>
+          </div>
+          <div class="asset-card-bottom" style="pointer-events:auto">
+            <a href="contact.html" class="asset-cta" style="color:var(--text-subtle);pointer-events:auto">
+              Get Early Access Notification
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 4: PREVIOUSLY SOLD (COLLAPSED)         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="sold-section" id="previously-sold">
+    <div class="inventory-inner">
+      <button class="collapse-btn reveal" id="soldToggle" aria-expanded="false" aria-controls="soldGrid">
+        <div class="collapse-btn-left">
+          <span class="collapse-btn-label">Archive</span>
+          <span class="collapse-btn-title">Previously Sold</span>
+          <span class="collapse-count-badge">3 Properties</span>
+        </div>
+        <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+
+      <div class="sold-grid-wrap" id="soldGrid" role="region" aria-label="Previously sold properties">
+        <div class="cards-grid">
+
+          <!-- 8 PLEX MELTWATER SOLD -->
+          <div class="asset-card">
+            <div class="asset-card-top">
+              <div class="asset-badge sold">Sold</div>
+              <div class="asset-name">8 Plex</div>
+              <div class="asset-package">Meltwater</div>
+              <div class="asset-location">Meltwater · Edmonton</div>
+              <div class="asset-stats">
+                <div class="asset-stat">
+                  <div class="asset-stat-label">DSCR</div>
+                  <div class="asset-stat-value neutral">1.19</div>
+                </div>
+                <div class="asset-stat">
+                  <div class="asset-stat-label">Deposit</div>
+                  <div class="asset-stat-value neutral">5%</div>
+                </div>
+                <div class="asset-stat">
+                  <div class="asset-stat-label">Completion</div>
+                  <div class="asset-stat-value neutral">Late 2025</div>
+                </div>
+              </div>
+            </div>
+            <div class="asset-card-bottom">
+              <span class="asset-cta" style="color:var(--text-subtle);cursor:default">
+                Property Sold
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- 8 PLEX ELMWOOD SOLD -->
+          <div class="asset-card">
+            <div class="asset-card-top">
+              <div class="asset-badge sold">Sold</div>
+              <div class="asset-name">8 Plex</div>
+              <div class="asset-package">Elmwood</div>
+              <div class="asset-location">Elmwood · Edmonton</div>
+              <div class="asset-stats">
+                <div class="asset-stat">
+                  <div class="asset-stat-label">DSCR</div>
+                  <div class="asset-stat-value neutral">1.23</div>
+                </div>
+                <div class="asset-stat">
+                  <div class="asset-stat-label">Deposit</div>
+                  <div class="asset-stat-value neutral">5%</div>
+                </div>
+                <div class="asset-stat">
+                  <div class="asset-stat-label">Completion</div>
+                  <div class="asset-stat-value neutral">Early 2026</div>
+                </div>
+              </div>
+            </div>
+            <div class="asset-card-bottom">
+              <span class="asset-cta" style="color:var(--text-subtle);cursor:default">
+                Property Sold
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- 9 PLEX EASTWOOD SOLD -->
+          <div class="asset-card">
+            <div class="asset-card-top">
+              <div class="asset-badge sold">Sold</div>
+              <div class="asset-name">9 Plex</div>
+              <div class="asset-package">Eastwood</div>
+              <div class="asset-location">Eastwood · Edmonton</div>
+              <div class="asset-stats">
+                <div class="asset-stat">
+                  <div class="asset-stat-label">DSCR</div>
+                  <div class="asset-stat-value neutral">1.26</div>
+                </div>
+                <div class="asset-stat">
+                  <div class="asset-stat-label">Deposit</div>
+                  <div class="asset-stat-value neutral">5%</div>
+                </div>
+                <div class="asset-stat">
+                  <div class="asset-stat-label">Completion</div>
+                  <div class="asset-stat-value neutral">Fall 2025</div>
+                </div>
+              </div>
+            </div>
+            <div class="asset-card-bottom">
+              <span class="asset-cta" style="color:var(--text-subtle);cursor:default">
+                Property Sold
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -317,21 +654,24 @@
       <div class="gatekeeper-grid reveal" style="transition-delay:0.1s">
         <div class="gatekeeper-item">
           <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="Your full name" />
+          <input type="text" id="name" placeholder="Your full name" autocomplete="name" />
         </div>
         <div class="gatekeeper-item">
           <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="your@email.com" />
+          <input type="email" id="email" placeholder="your@email.com" autocomplete="email" />
         </div>
         <div class="gatekeeper-item">
           <label for="asset">Asset of Interest</label>
           <select id="asset">
             <option value="" disabled selected>Select a property</option>
-            <option>Edmonton Growth Corridor — 10 Plex (North)</option>
-            <option>Edmonton Growth Corridor — 8 Plex (West)</option>
-            <option>Edmonton Growth Corridor — 9 Plex (South) — Waitlist</option>
-            <option>Edmonton Growth Corridor — 6 Plex (East)</option>
-            <option>Edmonton Growth Corridor — 7 Plex (Central)</option>
+            <option>6 Plex — Millwoods (Available)</option>
+            <option>8 Plex — High Park (Available)</option>
+            <option>8 Plex — McQueen (Available)</option>
+            <option>8 Plex — Sherbrooke (Available)</option>
+            <option>20 Plex — Central McDougall (Available)</option>
+            <option>6 Plex — Bonnie Doon (Sold Conditional — Waitlist)</option>
+            <option>8 Plex — Prince Charles (Sold Conditional — Waitlist)</option>
+            <option>9 Plex — Prince Charles (Coming Soon)</option>
             <option>All Available Properties</option>
           </select>
         </div>
@@ -366,10 +706,19 @@
     const mobileNav = document.getElementById('mobileNav');
     hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
     hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') mobileNav.classList.toggle('open'); });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const soldToggle = document.getElementById('soldToggle');
+    const soldGrid = document.getElementById('soldGrid');
+    soldToggle.addEventListener('click', () => {
+      const expanded = soldToggle.getAttribute('aria-expanded') === 'true';
+      soldToggle.setAttribute('aria-expanded', String(!expanded));
+      soldGrid.classList.toggle('open', !expanded);
+    });
   </script>
 </body>
 </html>
