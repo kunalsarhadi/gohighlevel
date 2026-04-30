@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Strategy — Multi Family Deals</title>
+  <meta name="description" content="Why we focus on 6–10 plex builds in Edmonton. Turn-key management for out-of-province investors. Your partner in the 50-door journey." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
+      --navy-border: #162438; --gold: #C9A84C; --gold-light: #E2C97A;
+      --gold-muted: #9A7A34; --text-primary: #EEF2F7;
+      --text-muted: #7A95B0; --text-subtle: #4A6480;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+    .nav-logo span { color: var(--text-primary); font-weight: 400; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--navy-deep); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1px; background: var(--text-muted); display: block; }
+    .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); z-index: 49; padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    .page-hero { padding: 9rem 2rem 5rem; background: var(--navy-deep); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
+    .page-hero-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+    .page-title { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.08; margin-bottom: 1.5rem; max-width: 700px; }
+    .page-title span { color: var(--gold); }
+    .page-subtitle { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 560px; letter-spacing: 0.02em; }
+
+    .section { padding: 6rem 2rem; }
+    .section-inner { max-width: 1280px; margin: 0 auto; }
+    .section-label { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.15; margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 580px; letter-spacing: 0.02em; margin-bottom: 3rem; }
+
+    /* WHY 6-10 PLEX */
+    .why-section { background: var(--navy-primary); padding: 6rem 2rem; }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-top: 3rem; }
+    .why-card { background: var(--navy-card); padding: 2.5rem 2rem; position: relative; }
+    .why-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+    .why-card:hover::before { transform: scaleX(1); }
+    .why-card:hover { background: #0F1E35; }
+    .why-number { font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 700; color: var(--navy-border); line-height: 1; margin-bottom: 1.2rem; }
+    .why-title { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 0.8rem; }
+    .why-desc { font-size: 0.88rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+    .why-desc strong { color: var(--gold); font-weight: 500; }
+
+    /* TWO COL LAYOUT */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .two-col-text .section-subtitle { margin-bottom: 0; }
+
+    /* MANAGEMENT SECTION */
+    .mgmt-section { background: var(--navy-deep); padding: 6rem 2rem; border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); }
+    .mgmt-steps { display: flex; flex-direction: column; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-top: 3rem; }
+    .mgmt-step { background: var(--navy-card); padding: 2rem 2.5rem; display: grid; grid-template-columns: 3rem 1fr; gap: 1.5rem; align-items: start; transition: background 0.2s; }
+    .mgmt-step:hover { background: #0F1E35; }
+    .mgmt-step-num { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: var(--gold); padding-top: 2px; }
+    .mgmt-step-title { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 0.5rem; }
+    .mgmt-step-desc { font-size: 0.88rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+
+    /* PARTNER SECTION */
+    .partner-section { background: var(--navy-primary); padding: 6rem 2rem; }
+    .partner-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-top: 3rem; }
+    .partner-stat { background: var(--navy-card); padding: 2.5rem 2rem; text-align: center; }
+    .partner-stat-number { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 700; color: var(--gold); margin-bottom: 0.4rem; line-height: 1; }
+    .partner-stat-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-subtle); }
+
+    /* MANIFESTO */
+    .manifesto { background: var(--navy-deep); padding: 6rem 2rem; border-top: 1px solid var(--navy-border); }
+    .manifesto-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .manifesto-quote { font-family: 'Cinzel', serif; font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 400; line-height: 1.6; color: var(--text-primary); margin-bottom: 2rem; }
+    .manifesto-quote span { color: var(--gold); }
+    .manifesto-sub { font-size: 0.85rem; font-weight: 300; color: var(--text-subtle); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* CTA */
+    .cta-section { padding: 6rem 2rem; background: var(--navy-primary); text-align: center; }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+    .cta-sub { font-size: 0.95rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; margin-bottom: 2.5rem; }
+    .btn-primary { background: var(--gold); color: var(--navy-deep); padding: 1rem 2.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; }
+    .footer-logo span { color: var(--text-subtle); font-weight: 400; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.7rem; color: var(--text-subtle); letter-spacing: 0.05em; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; } .nav-cta { display: none; } .hamburger { display: flex; }
+      .why-grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; gap: 3rem; }
+      .partner-stats { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .page-hero { padding: 7rem 1.5rem 4rem; }
+      .section { padding: 4rem 1.5rem; }
+      .why-section, .mgmt-section, .partner-section, .manifesto, .cta-section { padding: 4rem 1.5rem; }
+      .partner-stats { grid-template-columns: 1fr; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MULTI FAMILY <span>DEALS</span></a>
+      <ul class="nav-links">
+        <li><a href="about.html" class="active">The Strategy</a></li>
+        <li><a href="inventory.html">Active Inventory</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Book a Call</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="about.html">The Strategy</a>
+      <a href="inventory.html">Active Inventory</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Book a Call</a>
+    </nav>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">About Multi Family Deals</div>
+      <h1 class="page-title">We Don't Sell Properties.<br /><span>We Build Portfolios.</span></h1>
+      <p class="page-subtitle">Multi Family Deals is an Edmonton-based investment firm focused on one outcome: helping investors scale to 50+ doors in 4 years through the CMHC MLI Select program. We are not brokers. We are partners.</p>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">The Asset Class</div>
+        <h2 class="section-title">Why We Focus on 6–10 Plexes</h2>
+        <p class="section-subtitle">Not condos. Not single family. Not 100-unit towers. The 6–10 plex is the most efficient vehicle for the MLI Select program — and the fastest path to 50 doors.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal" style="transition-delay:0.05s">
+          <div class="why-number">01</div>
+          <div class="why-title">MLI Select Sweet Spot</div>
+          <p class="why-desc">CMHC's MLI Select program is optimized for <strong>6+ unit residential buildings</strong>. This is where the 5% down and 50-year amortization unlocks. Smaller assets don't qualify. Larger towers require institutional capital.</p>
+        </div>
+        <div class="why-card reveal" style="transition-delay:0.08s">
+          <div class="why-number">02</div>
+          <div class="why-title">Maximum Leverage Per Dollar</div>
+          <p class="why-desc">A single 8-plex at 5% down requires <strong>~$80,000</strong>. The same capital deployed in Ontario buys you one condo with 20% down and no cash flow. In Edmonton, it buys you 8 doors with day-one positive returns.</p>
+        </div>
+        <div class="why-card reveal" style="transition-delay:0.11s">
+          <div class="why-number">03</div>
+          <div class="why-title">Fastest Path to 50 Doors</div>
+          <p class="why-desc">Each acquisition adds 6–10 doors at a time. With <strong>5–6 acquisitions over 4 years</strong>, investors reach the 50-door threshold — the level at which property income becomes fully self-sustaining and refinancing unlocks further capital.</p>
+        </div>
+        <div class="why-card reveal" style="transition-delay:0.14s">
+          <div class="why-number">04</div>
+          <div class="why-title">Passive by Design</div>
+          <p class="why-desc">Unlike single-family rentals that demand hands-on management, <strong>6–10 plex assets are professionally managed</strong> as a single entity. One management agreement. One monthly statement. Zero landlord calls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mgmt-section">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Turn-Key Operations</div>
+        <h2 class="section-title">How We Manage<br />From Any Province</h2>
+        <p class="section-subtitle">The majority of our investors live in Ontario, BC, or Quebec. Distance is not a barrier. Our turn-key structure was built specifically for out-of-province owners.</p>
+      </div>
+      <div class="mgmt-steps">
+        <div class="mgmt-step reveal" style="transition-delay:0.05s">
+          <div class="mgmt-step-num">01</div>
+          <div>
+            <div class="mgmt-step-title">Acquisition & Setup</div>
+            <p class="mgmt-step-desc">We handle the full acquisition process — financing, legal, inspections, and title transfer. You sign documents remotely. Your property is tenanted and operational before your first mortgage payment.</p>
+          </div>
+        </div>
+        <div class="mgmt-step reveal" style="transition-delay:0.08s">
+          <div class="mgmt-step-num">02</div>
+          <div>
+            <div class="mgmt-step-title">Professional Property Management</div>
+            <p class="mgmt-step-desc">Our licensed property management team handles all tenant relations, lease agreements, maintenance requests, and unit turnovers. You are never called about a broken appliance or a lease renewal.</p>
+          </div>
+        </div>
+        <div class="mgmt-step reveal" style="transition-delay:0.11s">
+          <div class="mgmt-step-num">03</div>
+          <div>
+            <div class="mgmt-step-title">Monthly Reporting & Direct Deposits</div>
+            <p class="mgmt-step-desc">Every month you receive a detailed income statement, occupancy report, and maintenance log. Net cash flow is deposited directly to your account. Full transparency, zero administration.</p>
+          </div>
+        </div>
+        <div class="mgmt-step reveal" style="transition-delay:0.14s">
+          <div class="mgmt-step-num">04</div>
+          <div>
+            <div class="mgmt-step-title">Annual Portfolio Review</div>
+            <p class="mgmt-step-desc">Each year we review your portfolio performance, refinancing opportunities, and the next acquisition target on your 50-door roadmap. Your portfolio grows on a schedule — not by accident.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partner-section">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">The Partnership</div>
+        <h2 class="section-title">We Are the "We"<br />in Your 50-Door Journey</h2>
+        <p class="section-subtitle">Most firms sell you a property and disappear. We stay for the entire journey. Our success is tied directly to yours — we only grow when your portfolio grows.</p>
+      </div>
+      <div class="partner-stats">
+        <div class="partner-stat reveal" style="transition-delay:0.05s">
+          <div class="partner-stat-number">5%</div>
+          <div class="partner-stat-label">Down Payment Required</div>
+        </div>
+        <div class="partner-stat reveal" style="transition-delay:0.08s">
+          <div class="partner-stat-number">50 Yr</div>
+          <div class="partner-stat-label">Amortization Period</div>
+        </div>
+        <div class="partner-stat reveal" style="transition-delay:0.11s">
+          <div class="partner-stat-number">4 Yrs</div>
+          <div class="partner-stat-label">To 50+ Doors</div>
+        </div>
+        <div class="partner-stat reveal" style="transition-delay:0.14s">
+          <div class="partner-stat-number">$0</div>
+          <div class="partner-stat-label">Management Calls to You</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="manifesto-inner reveal">
+      <p class="manifesto-quote">"The investor who owns <span>50 doors in Edmonton</span> with 5% down will always outperform the investor who owns <span>5 doors in Toronto</span> with 20% down. The math is not close."</p>
+      <div class="manifesto-sub">— Multi Family Deals, Managing Broker</div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center"><span style="width:1.5rem;height:1px;background:var(--gold);display:block"></span>Ready to Start</div>
+      <h2 class="cta-title">Let's Map Out Your<br />50-Door Roadmap</h2>
+      <p class="cta-sub">Book a free 30-minute strategy call. We'll show you exactly how your available capital translates into doors — and build your acquisition timeline from day one.</p>
+      <a href="contact.html" class="btn-primary">Book Your Strategy Call</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MULTI FAMILY <span>DEALS</span></div>
+      <ul class="footer-links"><li><a href="about.html">Strategy</a></li><li><a href="inventory.html">Inventory</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul>
+      <div class="footer-copy">© 2025 Multi Family Deals. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') mobileNav.classList.toggle('open'); });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
