@@ -61,6 +61,20 @@
     .status-updated { font-size: 0.68rem; letter-spacing: 0.08em; color: var(--text-subtle); }
 
     /* PRIVACY NOTICE */
+    .network-banner { background: var(--navy-card); border-bottom: 2px solid rgba(201,168,76,0.2); padding: 2.5rem 2rem; position: relative; overflow: hidden; }
+    .network-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 120% at 80% 50%, rgba(201,168,76,0.05) 0%, transparent 65%); pointer-events: none; }
+    .network-banner-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; position: relative; z-index: 1; }
+    .network-banner-left { display: flex; align-items: flex-start; gap: 1.2rem; }
+    .network-icon { width: 2.8rem; height: 2.8rem; border-radius: 50%; background: rgba(37,211,102,0.12); border: 1px solid rgba(37,211,102,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .network-icon svg { width: 1.3rem; height: 1.3rem; }
+    .network-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #25D366; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; }
+    .network-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #25D366; display: block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .network-title { font-family: 'Cinzel', serif; font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem; }
+    .network-desc { font-size: 0.85rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; max-width: 520px; }
+    .network-cta { background: #25D366; color: #000; padding: 0.85rem 2rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; transition: background 0.2s, transform 0.15s; flex-shrink: 0; white-space: nowrap; }
+    .network-cta:hover { background: #20ba57; transform: translateY(-1px); }
+    @media (max-width: 768px) { .network-banner-inner { flex-direction: column; } .network-cta { width: 100%; justify-content: center; } }
     .privacy-bar { background: var(--navy-deep); border-bottom: 1px solid var(--navy-border); padding: 0.9rem 2rem; }
     .privacy-bar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 0.75rem; }
     .privacy-icon { width: 1rem; height: 1rem; color: var(--gold); flex-shrink: 0; }
@@ -268,6 +282,26 @@
     <div class="privacy-bar-inner">
       <svg class="privacy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
       <p class="privacy-text"><strong>Exclusive Access:</strong> Exact addresses, full pro-forma financials, debt structure, and deal terms are shared only during your strategy call — protecting both buyer and seller through the process.</p>
+    </div>
+  </div>
+
+  <!-- PRIVATE INVESTOR NETWORK -->
+  <div class="network-banner">
+    <div class="network-banner-inner">
+      <div class="network-banner-left">
+        <div class="network-icon">
+          <svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.659 1.438 5.167L2 22l4.985-1.31A9.939 9.939 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18a7.946 7.946 0 01-4.077-1.123l-.292-.173-3.036.796.811-2.96-.19-.303A7.946 7.946 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        </div>
+        <div>
+          <div class="network-label">Private Investor Network</div>
+          <div class="network-title">Get Listings Before They Go Public</div>
+          <p class="network-desc">New properties are shared with our private WhatsApp group the moment they're available — before they appear on this page. 200+ active investors are already inside.</p>
+        </div>
+      </div>
+      <a href="https://chat.whatsapp.com/BYNf65k8iSf3fNOIrkZUvZ" target="_blank" rel="noopener" class="network-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.659 1.438 5.167L2 22l4.985-1.31A9.939 9.939 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18a7.946 7.946 0 01-4.077-1.123l-.292-.173-3.036.796.811-2.96-.19-.303A7.946 7.946 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Join the Network
+      </a>
     </div>
   </div>
 
