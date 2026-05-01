@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Reviews — Team Sarhadi Real Estate</title>
+  <meta name="description" content="What investors say about working with Kunal and Ankit Sarhadi — multi-family acquisitions, CMHC MLI Select, and investment property purchases in Edmonton and Alberta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
+      --navy-border: #162438; --gold: #C9A84C; --gold-light: #E2C97A;
+      --gold-muted: #9A7A34; --text-primary: #EEF2F7;
+      --text-muted: #7A95B0; --text-subtle: #4A6480;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+    .nav-logo span { color: var(--text-primary); font-weight: 400; }
+    .nav-links { display: flex; gap: 1.4rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--navy-deep); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1px; background: var(--text-muted); display: block; }
+    .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); z-index: 49; padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* HERO */
+    .page-hero { padding: 9rem 2rem 5rem; background: var(--navy-deep); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 65%); pointer-events: none; }
+    .page-hero-inner { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .page-eyebrow::before, .page-eyebrow::after { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+    .page-title { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.2rem; }
+    .page-title span { color: var(--gold); }
+    .page-subtitle { font-size: 0.95rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 580px; margin: 0 auto 2.5rem; }
+
+    /* STATS BAR */
+    .stats-bar { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--navy-border); }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; }
+    .stat-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-subtle); margin-top: 0.2rem; display: block; }
+
+    /* STAR RATING */
+    .stars { display: flex; gap: 2px; margin-bottom: 0.75rem; }
+    .star { width: 14px; height: 14px; fill: var(--gold); }
+    .star.empty { fill: var(--navy-border); }
+
+    /* FEATURED REVIEW (large) */
+    .featured-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 0; }
+    .section-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2.5rem; }
+    .section-label::before { content: ''; display: block; width: 1.2rem; height: 1px; background: currentColor; }
+
+    .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
+    .featured-card { background: var(--navy-card); padding: 2.5rem; position: relative; }
+    .featured-card.gold-border { border-left: 2px solid var(--gold); }
+    .review-quote { font-size: 0.92rem; font-weight: 300; color: var(--text-muted); line-height: 1.85; margin-bottom: 1.5rem; font-style: italic; }
+    .review-quote strong { color: var(--text-primary); font-weight: 500; font-style: normal; }
+    .review-quote .highlight { color: var(--gold); font-style: normal; font-weight: 500; }
+    .reviewer-row { display: flex; align-items: center; gap: 1rem; }
+    .reviewer-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-muted), var(--gold)); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 700; color: var(--navy-deep); flex-shrink: 0; }
+    .reviewer-name { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
+    .reviewer-meta { font-size: 0.7rem; color: var(--text-subtle); margin-top: 0.1rem; }
+    .google-badge { position: absolute; top: 1.5rem; right: 1.5rem; display: flex; align-items: center; gap: 0.35rem; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-subtle); }
+    .google-badge svg { width: 14px; height: 14px; }
+
+    /* GRID REVIEWS */
+    .reviews-section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
+    .review-card { background: var(--navy-card); padding: 2rem; position: relative; transition: background 0.2s; }
+    .review-card:hover { background: rgba(12, 24, 40, 0.95); }
+    .review-text { font-size: 0.83rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+    .review-text .highlight { color: var(--gold); font-weight: 500; }
+
+    /* DIVIDER */
+    .section-divider { border: none; border-top: 1px solid var(--navy-border); max-width: 1100px; margin: 0 auto; }
+
+    /* CTA BAND */
+    .cta-band { background: var(--navy-deep); border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); padding: 4rem 2rem; text-align: center; }
+    .cta-band h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 600; margin-bottom: 0.75rem; }
+    .cta-band p { font-size: 0.88rem; font-weight: 300; color: var(--text-muted); max-width: 480px; margin: 0 auto 2rem; line-height: 1.7; }
+    .btn-primary { background: var(--gold); color: var(--navy-deep); padding: 0.95rem 2.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-ghost { background: transparent; color: var(--text-muted); padding: 0.95rem 2rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--navy-border); text-decoration: none; display: inline-block; transition: color 0.2s, border-color 0.2s; margin-left: 1rem; }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* TEAM SECTION */
+    .team-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-top: 2.5rem; }
+    .team-card { background: var(--navy-card); padding: 2.5rem; }
+    .team-name { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .team-role { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .team-brokerage { font-size: 0.75rem; color: var(--text-subtle); margin-bottom: 1.2rem; }
+    .team-desc { font-size: 0.85rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* FOOTER */
+    footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; }
+    .footer-logo span { color: var(--text-muted); font-weight: 400; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.7rem; color: var(--text-subtle); letter-spacing: 0.04em; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 768px) {
+      .featured-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .stats-bar { gap: 2rem; }
+      .btn-ghost { margin-left: 0; margin-top: 0.75rem; display: block; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MULTI FAMILY <span>DEALS</span></a>
+      <ul class="nav-links">
+        <li><a href="about.html">The Strategy</a></li>
+        <li><a href="inventory.html">Active Inventory</a></li>
+        <li><a href="buying-process.html">Buying Process</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="guide.html" style="color:var(--gold)">Free Guide</a></li>
+        <li><a href="contact.html">Book a Call</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="about.html">The Strategy</a>
+      <a href="inventory.html">Active Inventory</a>
+      <a href="buying-process.html">Buying Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="guide.html" style="color:var(--gold)">Free Investor Guide</a>
+      <a href="contact.html">Book a Call</a>
+    </nav>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Google Reviews</div>
+      <h1 class="page-title">What Investors Say About<br /><span>Team Sarhadi</span></h1>
+      <p class="page-subtitle">Kunal and Ankit Sarhadi have guided investors through multi-family acquisitions, CMHC MLI Select applications, and investment property purchases across Alberta and Ontario.</p>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-value">5.0</span>
+          <span class="stat-label">Average Rating</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">100+</span>
+          <span class="stat-label">Google Reviews</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">Multi</span>
+          <span class="stat-label">Family Specialists</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">AB · ON</span>
+          <span class="stat-label">Markets Served</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED: MULTI-FAMILY FOCUSED -->
+  <div class="featured-section reveal">
+    <div class="section-label">Investor Clients</div>
+    <div class="featured-grid">
+
+      <div class="featured-card gold-border">
+        <div class="google-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Verified
+        </div>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">"Working with Kunal and his team was a real pleasure. The support was perfect. <strong>They have many contacts, especially in the <span class="highlight">multi-unit housing sector</span>.</strong> They have excellent control over the entire acquisition process, from start to finish."</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">NG</div>
+          <div>
+            <div class="reviewer-name">Nestor Gahungu</div>
+            <div class="reviewer-meta">Multi-Unit Investor &nbsp;·&nbsp; 6 months ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card gold-border">
+        <div class="google-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Verified
+        </div>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">"Kunal has done an excellent job of <strong>securing the <span class="highlight">multi family property</span>, and educating me on the process</strong>, including getting me through all the requirements to move forward and make an educated decision. Thanks again Kunal."</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">CF</div>
+          <div>
+            <div class="reviewer-name">Chad Finnebraaten</div>
+            <div class="reviewer-meta">Multi-Family Purchaser &nbsp;·&nbsp; 1 year ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card gold-border">
+        <div class="google-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Verified
+        </div>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">"Ankit and Kunal help me <strong>find a great deal on a <span class="highlight">multifamily property</span></strong> and I couldn't be more grateful for their assistance. They are very knowledgeable and thorough with their information and get back to you in a very timely fashion."</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">LP</div>
+          <div>
+            <div class="reviewer-name">Linzie Payne</div>
+            <div class="reviewer-meta">Multi-Family Investor &nbsp;·&nbsp; Local Guide &nbsp;·&nbsp; 1 year ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-card gold-border">
+        <div class="google-badge">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Verified
+        </div>
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">"Kunal and Ankit were amazing to guide me through with my <span class="highlight">multifamily purchase</span>. Thank you guys!"</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">SM</div>
+          <div>
+            <div class="reviewer-name">Sasha Mishin</div>
+            <div class="reviewer-meta">Multi-Family Purchaser &nbsp;·&nbsp; 11 months ago</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GRID: MORE INVESTOR REVIEWS -->
+  <div class="reviews-section reveal">
+    <div class="section-label">More Investor Experiences</div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"<strong>This is my second investment property I bought with them</strong> and hope there will be more in the future."</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">NM</div>
+          <div>
+            <div class="reviewer-name">Nelson Melendez Villegas</div>
+            <div class="reviewer-meta">Repeat Investor &nbsp;·&nbsp; Local Guide &nbsp;·&nbsp; 10 months ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"As a <strong>property manager in Alberta</strong>, I've seen Kunal provide <span class="highlight">unparalleled service to his investor clients</span>. Industry best!"</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">NJ</div>
+          <div>
+            <div class="reviewer-name">Nathan Jespersen</div>
+            <div class="reviewer-meta">Alberta Property Manager &nbsp;·&nbsp; 1 year ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Thank you Ankit and Kunal for helping us buy our <strong>first investment property in Alberta</strong>. I didn't ask anything that Kunal was not able to answer. I spoke to few realtors and they always say 'let me get back to you' — Kunal always had an answer."</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">DC</div>
+          <div>
+            <div class="reviewer-name">Darlene Caluag</div>
+            <div class="reviewer-meta">Alberta Investment Property &nbsp;·&nbsp; 2 years ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Kunal and his team were awesome. My wife and I <strong>worked with them while living in Toronto for a property located in Alberta</strong> and they accommodated all of our needs/wants no matter the time difference."</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">BK</div>
+          <div>
+            <div class="reviewer-name">Babyche Khiye</div>
+            <div class="reviewer-meta">Toronto Buyer → Alberta Property &nbsp;·&nbsp; 2 years ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Kunal is a highly knowledgeable and honest individual. <strong>He not only guides you about which property would be a great fit with your <span class="highlight">investment objectives</span></strong> but also expertly navigates the entire process."</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">NQ</div>
+          <div>
+            <div class="reviewer-name">Nouman Qureshi</div>
+            <div class="reviewer-meta">Investment Property &nbsp;·&nbsp; 2 years ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.898L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"I had a great experience working with Kunal to buy an <strong>investment property in Calgary, AB</strong>. He was knowledgeable and was thorough. He provided me with all the information I requested and communicated throughout. <span class="highlight">I look forward to working with him in future.</span>"</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">N</div>
+          <div>
+            <div class="reviewer-name">NilushaN</div>
+            <div class="reviewer-meta">Calgary Investment Property &nbsp;·&nbsp; Local Guide &nbsp;·&nbsp; 2 years ago</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <hr class="section-divider" />
+  <div class="team-section reveal">
+    <div class="section-label">Meet the Team</div>
+    <h2 style="font-size:1.4rem;font-weight:600;margin-bottom:0.5rem;">Team Sarhadi Real Estate</h2>
+    <p style="font-size:0.88rem;color:var(--text-muted);font-weight:300;max-width:560px;line-height:1.75;">Kunal and Ankit Sarhadi are identical twin brothers and licensed real estate professionals specializing in multi-family investment properties across Edmonton and Alberta.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-name">Kunal Sarhadi</div>
+        <div class="team-role">Real Estate Broker</div>
+        <div class="team-brokerage">Homelife Miracle Realty Inc.</div>
+        <p class="team-desc">Kunal leads multi-family acquisitions, CMHC MLI Select applications, and investor education. His focus is helping Ontario-based investors access the Edmonton multi-family market through the right financing structure.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Ankit Sarhadi</div>
+        <div class="team-role">Real Estate Agent</div>
+        <div class="team-brokerage">Homelife Miracle Realty Inc.</div>
+        <p class="team-desc">Ankit brings deep expertise in client service, property search, and the end-to-end buying process. Known for his availability, thoroughness, and genuine client-first approach — as reflected consistently across reviews.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band reveal">
+    <h2>Ready to Start Your Multi-Family Journey?</h2>
+    <p>Book a free 30-minute strategy call. We'll match your available capital to the right property and walk through the current pro-forma together.</p>
+    <a href="contact.html" class="btn-primary">Book a Strategy Call</a>
+    <a href="guide.html" class="btn-ghost">Download Free Guide</a>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MULTI FAMILY <span>DEALS</span></div>
+      <ul class="footer-links">
+        <li><a href="about.html">Strategy</a></li>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="buying-process.html">Buying Process</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="guide.html">Free Guide</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2025 Multi Family Deals. Not financial or investment advice. CMHC MLI Select program terms subject to change.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') mobileNav.classList.toggle('open'); });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
