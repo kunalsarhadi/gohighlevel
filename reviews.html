@@ -40,7 +40,7 @@
     .page-hero { padding: 9rem 2rem 5rem; background: var(--navy-deep); position: relative; overflow: hidden; }
     .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 65%); pointer-events: none; }
     .page-hero-inner { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
     .page-eyebrow::before, .page-eyebrow::after { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
     .page-title { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.08; margin-bottom: 1.2rem; }
     .page-title span { color: var(--gold); }
@@ -51,7 +51,7 @@
     .stat-item { text-align: center; }
     .stat-value { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; }
     .stat-item.featured .stat-value { font-size: 2.4rem; }
-    .stat-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.2rem; display: block; }
+    .stat-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.2rem; display: block; }
 
     /* STAR RATING */
     .stars { display: flex; gap: 2px; margin-bottom: 0.75rem; }
@@ -60,7 +60,7 @@
 
     /* FEATURED REVIEW (large) */
     .featured-section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem 0; }
-    .section-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2.5rem; }
+    .section-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2.5rem; }
     .section-label::before { content: ''; display: block; width: 1.2rem; height: 1px; background: currentColor; }
 
     .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
@@ -72,7 +72,7 @@
     .reviewer-row { display: flex; align-items: center; gap: 1rem; }
     .reviewer-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-muted), var(--gold)); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 700; color: var(--navy-deep); flex-shrink: 0; }
     .reviewer-name { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
-    .reviewer-meta { font-size: 0.7rem; color: var(--text-subtle); margin-top: 0.1rem; }
+    .reviewer-meta { font-size: 0.78rem; color: var(--text-subtle); margin-top: 0.1rem; }
     .google-badge { position: absolute; top: 1.5rem; right: 1.5rem; display: flex; align-items: center; gap: 0.35rem; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-subtle); }
     .google-badge svg { width: 14px; height: 14px; }
 
@@ -119,7 +119,7 @@
     .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
     .footer-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold); }
-    .footer-copy { font-size: 0.7rem; color: var(--text-subtle); letter-spacing: 0.04em; }
+    .footer-copy { font-size: 0.78rem; color: var(--text-subtle); letter-spacing: 0.04em; }
 
     /* RESPONSIVE */
     @media (max-width: 1200px) {
@@ -133,6 +133,8 @@
       .stats-bar { gap: 2rem; }
       .btn-ghost { margin-left: 0; margin-top: 0.75rem; display: block; text-align: center; }
     }
+      @media (min-width: 1440px) { html { font-size: 17px; } }
+    @media (min-width: 1920px) { html { font-size: 18.5px; } }
   </style>
 </head>
 <body>
