@@ -36,12 +36,18 @@
 
     .page-hero { padding: 9rem 2rem 5rem; background: var(--navy-deep); position: relative; overflow: hidden; }
     .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
-    .page-hero-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-hero-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+    .page-hero-text {}
+    .page-hero-aside { display: flex; flex-direction: column; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); min-width: 220px; }
+    .page-hero-stat { background: var(--navy-card); padding: 1.6rem 2rem; }
+    .page-hero-stat-number { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+    .page-hero-stat-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
     .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
     .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
     .page-title { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.08; margin-bottom: 1.5rem; max-width: 700px; }
     .page-title span { color: var(--gold); }
     .page-subtitle { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 560px; letter-spacing: 0.02em; }
+    @media (max-width: 900px) { .page-hero-inner { grid-template-columns: 1fr; } .page-hero-aside { display: none; } }
 
     .section { padding: 6rem 2rem; }
     .section-inner { max-width: 1280px; margin: 0 auto; }
@@ -135,7 +141,6 @@
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="guide.html" style="color:var(--gold)">Free Guide</a></li>
-        <li><a href="contact.html">Book a Call</a></li>
       </ul>
       <a href="contact.html" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
@@ -153,9 +158,29 @@
 
   <section class="page-hero">
     <div class="page-hero-inner">
-      <div class="page-eyebrow">About Multi Family Deals</div>
-      <h1 class="page-title">We Don't Sell Properties.<br /><span>We Build Portfolios.</span></h1>
-      <p class="page-subtitle">Multi Family Deals is the investment platform of <strong style="color:var(--gold-light)">Kunal Sarhadi</strong>, a licensed real estate broker with Homelife Miracle Realty Inc. Based in Ontario and specializing in Edmonton's multi-family market, Kunal helps investors across Canada access 6–20 plex assets through the CMHC MLI Select program. His role is to connect you with the right property, the right financing team, and the right operators — not to provide financial or investment advice.</p>
+      <div class="page-hero-text">
+        <div class="page-eyebrow">About Multi Family Deals</div>
+        <h1 class="page-title">We Don't Sell Properties.<br /><span>We Build Portfolios.</span></h1>
+        <p class="page-subtitle">Multi Family Deals is the investment platform of <strong style="color:var(--gold-light)">Kunal Sarhadi</strong>, a licensed real estate broker with Homelife Miracle Realty Inc. Based in Ontario and specializing in Edmonton's multi-family market, Kunal helps investors across Canada access 6–20 plex assets through the CMHC MLI Select program. His role is to connect you with the right property, the right financing team, and the right operators — not to provide financial or investment advice.</p>
+      </div>
+      <div class="page-hero-aside">
+        <div class="page-hero-stat">
+          <div class="page-hero-stat-number">5%</div>
+          <div class="page-hero-stat-label">Minimum Down Payment</div>
+        </div>
+        <div class="page-hero-stat">
+          <div class="page-hero-stat-number">50 Yr</div>
+          <div class="page-hero-stat-label">Amortization Period</div>
+        </div>
+        <div class="page-hero-stat">
+          <div class="page-hero-stat-number">$0</div>
+          <div class="page-hero-stat-label">HST · LTT · Dev Charges</div>
+        </div>
+        <div class="page-hero-stat">
+          <div class="page-hero-stat-number">150+</div>
+          <div class="page-hero-stat-label">Google Reviews</div>
+        </div>
+      </div>
     </div>
   </section>
 

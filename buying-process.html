@@ -78,6 +78,11 @@
     .step-tag { display: inline-block; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--navy-border); color: var(--text-subtle); padding: 0.25rem 0.7rem; margin-top: 0.75rem; }
     .step-tag.green { border-color: rgba(76,175,138,0.35); color: #4CAF8A; }
     .step-tag.gold { border-color: rgba(201,168,76,0.35); color: var(--gold); }
+    .timeline-phase { display: grid; grid-template-columns: 5.5rem 1fr; gap: 2rem; padding: 2rem 0 0.5rem; position: relative; }
+    .timeline-phase-spacer { position: relative; z-index: 1; }
+    .timeline-phase-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); background: var(--navy-primary); padding: 0.3rem 0; }
+    .timeline-phase-bar { height: 1px; background: var(--navy-border); margin-top: 0.75rem; }
+    @media (max-width: 600px) { .timeline-phase { grid-template-columns: 3.5rem 1fr; gap: 1rem; } }
 
     /* WHAT TO EXPECT STRIP */
     .expect-strip { background: var(--navy-deep); border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); padding: 4rem 2rem; }
@@ -137,7 +142,6 @@
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="guide.html" style="color:var(--gold)">Free Guide</a></li>
-        <li><a href="contact.html">Book a Call</a></li>
       </ul>
       <a href="contact.html" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
@@ -182,6 +186,11 @@
 
       <div class="timeline">
 
+        <div class="timeline-phase">
+          <div class="timeline-phase-spacer"></div>
+          <div><div class="timeline-phase-label">Phase 1 — Pre-Approval</div><div class="timeline-phase-bar"></div></div>
+        </div>
+
         <div class="timeline-step reveal">
           <div class="step-num-wrap">
             <div class="step-num">01</div>
@@ -215,6 +224,11 @@
           </div>
         </div>
 
+        <div class="timeline-phase">
+          <div class="timeline-phase-spacer"></div>
+          <div><div class="timeline-phase-label">Phase 2 — Secure the Deal</div><div class="timeline-phase-bar"></div></div>
+        </div>
+
         <div class="timeline-step reveal">
           <div class="step-num-wrap">
             <div class="step-num">04</div>
@@ -246,6 +260,11 @@
             <div class="step-desc">The full application package is submitted to CMHC. This stage typically takes 60 to 90 days while CMHC reviews the project and issues the Certificate of Insurance (COI).</div>
             <div class="step-tag">60–90 Day CMHC Window</div>
           </div>
+        </div>
+
+        <div class="timeline-phase">
+          <div class="timeline-phase-spacer"></div>
+          <div><div class="timeline-phase-label">Phase 3 — Close &amp; Launch</div><div class="timeline-phase-bar"></div></div>
         </div>
 
         <div class="timeline-step reveal">

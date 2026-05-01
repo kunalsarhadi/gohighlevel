@@ -261,6 +261,28 @@
       background: var(--navy-card);
       overflow: hidden;
       min-height: 700px;
+      position: relative;
+    }
+    .calendly-skeleton {
+      position: absolute;
+      inset: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .calendly-skeleton.loaded { opacity: 0; }
+    .skel {
+      background: linear-gradient(90deg, var(--navy-card) 25%, rgba(255,255,255,0.04) 50%, var(--navy-card) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.6s infinite;
+      border-radius: 4px;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
     .calendly-inline-widget {
       min-width: 320px;
@@ -295,11 +317,11 @@
       margin-bottom: 0.3rem;
     }
     .trust-item-label {
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-subtle);
+      color: var(--text-muted);
     }
 
     /* FOOTER */
@@ -490,14 +512,63 @@
     </div>
   </section>
 
+  <!-- WHO YOU'LL MEET -->
+  <section style="background:var(--navy-deep);border-top:1px solid var(--navy-border);padding:3rem 2rem;">
+    <div style="max-width:1000px;margin:0 auto;">
+      <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:0.75rem;"><span style="display:block;width:1.5rem;height:1px;background:var(--gold)"></span>Who You'll Speak With</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--navy-border);border:1px solid var(--navy-border);">
+        <div style="background:var(--navy-card);padding:2rem;">
+          <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Kunal Sarhadi</div>
+          <div style="font-size:0.82rem;font-weight:500;color:var(--text-primary);margin-bottom:0.2rem;">Real Estate Broker</div>
+          <div style="font-size:0.75rem;color:var(--text-subtle);margin-bottom:0.75rem;">Homelife Miracle Realty Inc.</div>
+          <div style="font-size:0.82rem;"><a href="tel:4162007010" style="color:var(--text-muted);text-decoration:none;">416-200-7010</a></div>
+          <div style="font-size:0.78rem;margin-top:0.3rem;"><a href="mailto:sales@teamsarhadi.com" style="color:var(--gold);text-decoration:none;">sales@teamsarhadi.com</a></div>
+        </div>
+        <div style="background:var(--navy-card);padding:2rem;">
+          <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Ankit Sarhadi</div>
+          <div style="font-size:0.82rem;font-weight:500;color:var(--text-primary);margin-bottom:0.2rem;">Real Estate Broker</div>
+          <div style="font-size:0.75rem;color:var(--text-subtle);margin-bottom:0.75rem;">Homelife Miracle Realty Inc.</div>
+          <div style="font-size:0.82rem;"><a href="tel:4162002620" style="color:var(--text-muted);text-decoration:none;">416-200-2620</a></div>
+          <div style="font-size:0.78rem;margin-top:0.3rem;"><a href="mailto:info@teamsarhadi.com" style="color:var(--gold);text-decoration:none;">info@teamsarhadi.com</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CALENDLY -->
   <section class="calendly-section">
     <div class="calendly-inner">
       <div class="calendly-header reveal">
         <div class="calendly-label">Select a Time</div>
         <h2 class="calendly-title">Choose Your Strategy Call Slot</h2>
+        <p style="font-size:0.9rem;color:var(--text-muted);margin-top:0.5rem;font-weight:300;">Select a 30-minute slot — we'll send a confirmation immediately.</p>
       </div>
       <div class="calendly-embed-wrap reveal" style="transition-delay:0.1s">
+        <div class="calendly-skeleton" id="calendlySkeleton">
+          <div class="skel" style="height:2rem;width:40%"></div>
+          <div class="skel" style="height:1rem;width:60%"></div>
+          <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+            <div class="skel" style="height:5rem;flex:1"></div>
+            <div class="skel" style="height:5rem;flex:1"></div>
+            <div class="skel" style="height:5rem;flex:1"></div>
+            <div class="skel" style="height:5rem;flex:1"></div>
+            <div class="skel" style="height:5rem;flex:1"></div>
+            <div class="skel" style="height:5rem;flex:1"></div>
+            <div class="skel" style="height:5rem;flex:1"></div>
+          </div>
+          <div class="skel" style="height:1rem;width:30%"></div>
+          <div style="display:flex;gap:0.75rem">
+            <div class="skel" style="height:4rem;flex:1"></div>
+            <div class="skel" style="height:4rem;flex:1"></div>
+            <div class="skel" style="height:4rem;flex:1"></div>
+          </div>
+          <div style="display:flex;gap:0.75rem">
+            <div class="skel" style="height:4rem;flex:1"></div>
+            <div class="skel" style="height:4rem;flex:1"></div>
+            <div class="skel" style="height:4rem;flex:1"></div>
+          </div>
+          <div class="skel" style="height:3rem;width:50%;margin-top:auto;align-self:center"></div>
+        </div>
         <div
           class="calendly-inline-widget"
           data-url="https://calendly.com/kunalsarhadi/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0C1828&text_color=EEF2F7&primary_color=C9A84C"
@@ -520,26 +591,6 @@
       <div class="trust-item">
         <div class="trust-item-number">$0</div>
         <div class="trust-item-label">HST · LTT · Dev Charges</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIRECT CONTACT -->
-  <section style="background:var(--navy-deep);border-top:1px solid var(--navy-border);padding:3rem 2rem;">
-    <div style="max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--navy-border);border:1px solid var(--navy-border);">
-      <div style="background:var(--navy-card);padding:2rem;">
-        <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Kunal Sarhadi</div>
-        <div style="font-size:0.82rem;font-weight:500;color:var(--text-primary);margin-bottom:0.2rem;">Real Estate Broker</div>
-        <div style="font-size:0.75rem;color:var(--text-subtle);margin-bottom:0.75rem;">Homelife Miracle Realty Inc.</div>
-        <div style="font-size:0.82rem;"><a href="tel:4162007010" style="color:var(--text-muted);text-decoration:none;">416-200-7010</a></div>
-        <div style="font-size:0.78rem;margin-top:0.3rem;"><a href="mailto:sales@teamsarhadi.com" style="color:var(--gold);text-decoration:none;">sales@teamsarhadi.com</a></div>
-      </div>
-      <div style="background:var(--navy-card);padding:2rem;">
-        <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Ankit Sarhadi</div>
-        <div style="font-size:0.82rem;font-weight:500;color:var(--text-primary);margin-bottom:0.2rem;">Real Estate Broker</div>
-        <div style="font-size:0.75rem;color:var(--text-subtle);margin-bottom:0.75rem;">Homelife Miracle Realty Inc.</div>
-        <div style="font-size:0.82rem;"><a href="tel:4162002620" style="color:var(--text-muted);text-decoration:none;">416-200-2620</a></div>
-        <div style="font-size:0.78rem;margin-top:0.3rem;"><a href="mailto:info@teamsarhadi.com" style="color:var(--gold);text-decoration:none;">info@teamsarhadi.com</a></div>
       </div>
     </div>
   </section>
@@ -567,6 +618,19 @@
       entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Calendly skeleton — dismiss once widget posts its ready/profile message
+    const skel = document.getElementById('calendlySkeleton');
+    if (skel) {
+      const dismissSkel = () => skel.classList.add('loaded');
+      window.addEventListener('message', (e) => {
+        if (e.data && typeof e.data === 'object' && e.data.event && e.data.event.indexOf('calendly') === 0) {
+          dismissSkel();
+        }
+      });
+      // Fallback: dismiss after 5s regardless
+      setTimeout(dismissSkel, 5000);
+    }
   </script>
 </body>
 </html>

@@ -55,6 +55,17 @@
     .btn-ghost { background: transparent; color: var(--text-muted); padding: 0.85rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--navy-border); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s, border-color 0.2s; margin-top: 0.75rem; width: 100%; justify-content: center; }
     .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
 
+    /* WHAT'S INSIDE */
+    .whats-inside { background: var(--navy-primary); border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); padding: 3rem 2rem; }
+    .whats-inside-inner { max-width: 900px; margin: 0 auto; }
+    .whats-inside-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .whats-inside-label::before { content: ''; display: block; width: 1.2rem; height: 1px; background: var(--gold); }
+    .whats-inside-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
+    .whats-inside-item { background: var(--navy-card); padding: 1.2rem 1.4rem; display: flex; align-items: flex-start; gap: 0.75rem; }
+    .whats-inside-num { font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--gold-muted); font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+    .whats-inside-text { font-size: 0.8rem; font-weight: 500; color: var(--text-primary); letter-spacing: 0.03em; line-height: 1.4; }
+    @media print { .whats-inside { display: none; } }
+
     /* GUIDE CONTENT */
     .guide-body { max-width: 900px; margin: 0 auto; padding: 4rem 2rem 6rem; }
     .guide-section { margin-bottom: 3rem; }
@@ -187,7 +198,6 @@
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="guide.html" style="color:var(--gold)">Free Guide</a></li>
-        <li><a href="contact.html">Book a Call</a></li>
       </ul>
       <a href="contact.html" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
@@ -217,6 +227,21 @@
         <p class="hero-cta-sub">Print to PDF or save for offline reading. Share with your accountant or spouse before your strategy call.</p>
         <button onclick="window.print()" class="btn-primary">Print / Save as PDF</button>
         <a href="contact.html" class="btn-ghost">Book a Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="whats-inside">
+    <div class="whats-inside-inner">
+      <div class="whats-inside-label">What's Inside</div>
+      <div class="whats-inside-grid">
+        <div class="whats-inside-item"><span class="whats-inside-num">01</span><span class="whats-inside-text">What Is CMHC MLI Select?</span></div>
+        <div class="whats-inside-item"><span class="whats-inside-num">02</span><span class="whats-inside-text">Alberta vs. Ontario — Side-by-Side Comparison</span></div>
+        <div class="whats-inside-item"><span class="whats-inside-num">03</span><span class="whats-inside-text">Deposit Math &amp; Capital Requirements</span></div>
+        <div class="whats-inside-item"><span class="whats-inside-num">04</span><span class="whats-inside-text">Investor Eligibility Requirements</span></div>
+        <div class="whats-inside-item"><span class="whats-inside-num">05</span><span class="whats-inside-text">The 9-Step Buying Process</span></div>
+        <div class="whats-inside-item"><span class="whats-inside-num">06</span><span class="whats-inside-text">Property Management &amp; Operations</span></div>
+        <div class="whats-inside-item"><span class="whats-inside-num">07</span><span class="whats-inside-text">Your Next Step</span></div>
       </div>
     </div>
   </section>

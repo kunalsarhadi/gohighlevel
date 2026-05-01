@@ -50,7 +50,8 @@
     .stats-bar { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--navy-border); }
     .stat-item { text-align: center; }
     .stat-value { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; }
-    .stat-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-subtle); margin-top: 0.2rem; display: block; }
+    .stat-item.featured .stat-value { font-size: 2.4rem; }
+    .stat-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.2rem; display: block; }
 
     /* STAR RATING */
     .stars { display: flex; gap: 2px; margin-bottom: 0.75rem; }
@@ -146,7 +147,6 @@
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="reviews.html" class="active">Reviews</a></li>
         <li><a href="guide.html" style="color:var(--gold)">Free Guide</a></li>
-        <li><a href="contact.html">Book a Call</a></li>
       </ul>
       <a href="contact.html" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
@@ -179,7 +179,7 @@
           <span class="stat-value">5.0</span>
           <span class="stat-label">Average Rating</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item featured">
           <span class="stat-value">150+</span>
           <span class="stat-label">Google Reviews</span>
         </div>

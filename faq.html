@@ -49,10 +49,10 @@
 
     /* CATEGORY NAV */
     .faq-nav { position: sticky; top: 5rem; }
-    .faq-nav-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--navy-border); }
+    .faq-nav-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--navy-border); }
     .faq-nav-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .faq-nav-list li a { display: block; padding: 0.8rem 1rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-subtle); text-decoration: none; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
-    .faq-nav-list li a:hover, .faq-nav-list li a.active { color: var(--gold); border-left-color: var(--gold); }
+    .faq-nav-list li a { display: block; padding: 0.8rem 1rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; border-left: 2px solid var(--navy-border); transition: color 0.2s, border-color 0.2s, background 0.2s; }
+    .faq-nav-list li a:hover, .faq-nav-list li a.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,168,76,0.05); }
 
     /* FAQ GROUPS */
     .faq-groups { display: flex; flex-direction: column; gap: 4rem; }
@@ -62,18 +62,18 @@
     /* ACCORDION */
     .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
     .faq-item { background: var(--navy-card); overflow: hidden; }
-    .faq-question { width: 100%; background: none; border: none; color: var(--text-primary); padding: 1.6rem 2rem; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; line-height: 1.5; transition: background 0.2s; }
+    .faq-question { width: 100%; background: none; border: none; color: var(--text-primary); padding: 1.6rem 2rem; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.04em; line-height: 1.5; transition: background 0.2s; }
     .faq-question:hover { background: #0F1E35; }
     .faq-question.open { color: var(--gold); background: #0F1E35; }
     .faq-icon { width: 1.2rem; height: 1.2rem; flex-shrink: 0; color: var(--gold-muted); transition: transform 0.3s; }
     .faq-question.open .faq-icon { transform: rotate(45deg); color: var(--gold); }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-answer.open { max-height: 600px; }
-    .faq-answer-inner { padding: 0 2rem 1.8rem; font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; border-top: 1px solid var(--navy-border); padding-top: 1.4rem; }
+    .faq-answer.open { max-height: 800px; }
+    .faq-answer-inner { padding: 0 2rem 1.8rem; font-size: 0.92rem; font-weight: 300; color: #9AAEC4; line-height: 1.85; border-top: 1px solid var(--navy-border); padding-top: 1.4rem; }
     .faq-answer-inner strong { color: var(--text-primary); font-weight: 500; }
     .faq-answer-inner .highlight { color: var(--gold); font-weight: 500; }
     .faq-answer-inner ul { padding-left: 1.2rem; margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; }
-    .faq-answer-inner ul li { color: var(--text-muted); }
+    .faq-answer-inner ul li { color: #9AAEC4; }
 
     /* CTA */
     .cta-section { padding: 6rem 2rem; background: var(--navy-deep); border-top: 1px solid var(--navy-border); text-align: center; position: relative; overflow: hidden; }
@@ -123,7 +123,6 @@
         <li><a href="faq.html" class="active">FAQ</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="guide.html" style="color:var(--gold)">Free Guide</a></li>
-        <li><a href="contact.html">Book a Call</a></li>
       </ul>
       <a href="contact.html" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
