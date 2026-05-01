@@ -252,7 +252,7 @@
         <span class="status-pill sc">4 Sold Conditional</span>
         <span class="status-pill cs">4 Coming Soon</span>
       </div>
-      <div class="status-updated">Updated May 2026</div>
+      <div class="status-updated">Last updated: <span id="inventoryDate"></span></div>
     </div>
   </div>
 
@@ -366,6 +366,7 @@
         </div>
         <div class="inventory-count"><span>5</span> Properties Ready to Acquire</div>
       </div>
+      <p style="font-size:0.68rem;color:var(--text-subtle);letter-spacing:0.03em;margin-bottom:2rem;line-height:1.6;">Cash flow figures are based on projected pro-forma analysis and are for illustrative purposes only. Actual results will vary. Consult your lawyer and mortgage broker before making any investment decision.</p>
 
       <div class="cards-grid">
 
@@ -807,6 +808,10 @@
   </footer>
 
   <script>
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const now = new Date();
+    document.getElementById('inventoryDate').textContent = months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
     hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
