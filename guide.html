@@ -136,19 +136,42 @@
 
     /* PRINT */
     @media print {
-      nav, .mobile-nav, .hero-cta-box, .btn-primary, .btn-ghost, footer { display: none !important; }
+      nav, .mobile-nav, .hero-cta-box, .btn-primary, .btn-ghost, footer, .guide-divider { display: none !important; }
       body { background: #fff; color: #111; font-size: 11pt; }
       .page-hero { background: #fff; padding: 2rem 0 1.5rem; }
       .page-title { color: #111; font-size: 20pt; }
       .page-subtitle, .guide-p { color: #333; }
       .guide-section-label, .guide-section h2 { color: #8B6914; }
-      .guide-card { background: #f9f9f9; border: 1px solid #ddd; }
+      .guide-card { background: #f9f9f9; border: 1px solid #ddd; break-inside: avoid; page-break-inside: avoid; }
+      .stat-row { break-inside: avoid; page-break-inside: avoid; }
       .stat-cell { background: #f4f4f4; border: 1px solid #ddd; }
       .stat-value { color: #8B6914; }
-      .guide-disclaimer { background: #f9f9f9; border: 1px solid #ddd; }
-      .contact-card { border: 1px solid #8B6914; background: #fffdf5; }
+      .compare-grid { break-inside: avoid; page-break-inside: avoid; }
+      .compare-cell { background: #f4f4f4; border: 1px solid #ddd; }
+      .compare-cell.header { background: #eee; }
+      .compare-cell.highlight { background: #fffde7; }
+      .check-item { break-inside: avoid; page-break-inside: avoid; }
+      .step-row { break-inside: avoid; page-break-inside: avoid; }
+      .guide-disclaimer { background: #f9f9f9; border: 1px solid #ddd; break-inside: avoid; page-break-inside: avoid; }
+      .contact-card { border: 1px solid #8B6914; background: #fffdf5; break-inside: avoid; page-break-inside: avoid; }
       .reveal { opacity: 1; transform: none; }
       .page-hero::before { display: none; }
+
+      /* Each section starts on a new page */
+      .guide-section {
+        break-before: page;
+        page-break-before: always;
+        padding-top: 1rem;
+      }
+      /* First section can follow the hero without a forced break */
+      .guide-section:first-child {
+        break-before: auto;
+        page-break-before: auto;
+      }
+      /* Keep each section's content together as much as possible */
+      .guide-section {
+        break-inside: avoid-page;
+      }
     }
   </style>
 </head>
