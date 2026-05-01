@@ -187,6 +187,30 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* BUNDLED INCENTIVES */
+    .incentives-section { background: var(--navy-deep); border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); padding: 4rem 2rem; }
+    .incentives-inner { max-width: 1280px; margin: 0 auto; }
+    .incentives-header { margin-bottom: 2rem; }
+    .incentives-cmhc { display: flex; align-items: center; gap: 0; background: var(--navy-card); border: 1px solid var(--navy-border); margin-bottom: 2rem; flex-wrap: wrap; }
+    .cmhc-stat { padding: 1.5rem 2.5rem; text-align: center; }
+    .cmhc-stat-value { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 700; color: var(--gold); }
+    .cmhc-stat-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-subtle); margin-top: 0.2rem; }
+    .cmhc-divider { width: 1px; align-self: stretch; background: var(--navy-border); }
+    .cmhc-blurb { padding: 1.2rem 2rem; flex: 1; min-width: 200px; }
+    .cmhc-blurb-title { font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 600; color: var(--gold); margin-bottom: 0.4rem; letter-spacing: 0.05em; }
+    .cmhc-blurb-text { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.65; }
+    .cmhc-blurb-text strong { color: var(--text-primary); font-weight: 500; }
+    .incentives-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-bottom: 1.5rem; }
+    .incentive-item { background: var(--navy-card); padding: 1.2rem 1.4rem; display: flex; align-items: flex-start; gap: 0.75rem; }
+    .incentive-item.incentive-peace { background: rgba(201,168,76,0.04); }
+    .incentive-check { width: 1.1rem; height: 1.1rem; flex-shrink: 0; color: #4CAF8A; margin-top: 0.1rem; }
+    .incentive-check.gold { color: var(--gold); }
+    .incentive-name { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.02em; margin-bottom: 0.2rem; }
+    .incentive-note { font-size: 0.73rem; font-weight: 300; color: var(--text-subtle); line-height: 1.5; }
+    .incentives-disclaimer { font-size: 0.7rem; color: var(--text-subtle); letter-spacing: 0.03em; line-height: 1.6; }
+    @media (max-width: 900px) { .incentives-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .incentives-grid { grid-template-columns: 1fr; } .cmhc-stat { padding: 1.2rem 1.5rem; } }
   </style>
 </head>
 <body>
@@ -196,6 +220,7 @@
       <ul class="nav-links">
         <li><a href="about.html">The Strategy</a></li>
         <li><a href="inventory.html" class="active">Active Inventory</a></li>
+        <li><a href="buying-process.html">Buying Process</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Book a Call</a></li>
       </ul>
@@ -205,6 +230,7 @@
     <nav class="mobile-nav" id="mobileNav">
       <a href="about.html">The Strategy</a>
       <a href="inventory.html">Active Inventory</a>
+      <a href="buying-process.html">Buying Process</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Book a Call</a>
     </nav>
@@ -236,6 +262,97 @@
       <p class="privacy-text"><strong>Privacy Protected:</strong> Exact addresses are withheld to protect seller privacy. Full details — including address, pro-forma, and debt analysis — are shared exclusively on your strategy call.</p>
     </div>
   </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- BUNDLED INCENTIVES                             -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="incentives-section">
+    <div class="incentives-inner">
+      <div class="incentives-header reveal">
+        <div class="section-label" style="color:var(--gold)">Special Offer</div>
+        <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:600;margin-bottom:0.4rem;">Bundled Incentives on Every Package</h2>
+        <p style="font-size:0.85rem;font-weight:300;color:var(--text-muted);line-height:1.7;max-width:620px;">Every available property comes fully loaded. These are not extras — they're built into every purchase agreement.</p>
+      </div>
+
+      <div class="incentives-cmhc reveal" style="transition-delay:0.08s">
+        <div class="cmhc-stat">
+          <div class="cmhc-stat-value">5%</div>
+          <div class="cmhc-stat-label">Deposit Required</div>
+        </div>
+        <div class="cmhc-divider"></div>
+        <div class="cmhc-stat">
+          <div class="cmhc-stat-value">95%</div>
+          <div class="cmhc-stat-label">CMHC Funding Available</div>
+        </div>
+        <div class="cmhc-divider"></div>
+        <div class="cmhc-blurb">
+          <div class="cmhc-blurb-title">CMHC MLI Select</div>
+          <div class="cmhc-blurb-text">Qualification is based on your <strong>net worth</strong> — not personal income. Does not appear on your personal credit bureau.</div>
+        </div>
+      </div>
+
+      <div class="incentives-grid reveal" style="transition-delay:0.12s">
+        <div class="incentive-item">
+          <svg class="incentive-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          <div>
+            <div class="incentive-name">Mortgage Broker Fees</div>
+            <div class="incentive-note">Included when using Developer's preferred broker</div>
+          </div>
+        </div>
+        <div class="incentive-item">
+          <svg class="incentive-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          <div>
+            <div class="incentive-name">Appliances Package</div>
+            <div class="incentive-note">Included in every unit</div>
+          </div>
+        </div>
+        <div class="incentive-item">
+          <svg class="incentive-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          <div>
+            <div class="incentive-name">Window Coverings</div>
+            <div class="incentive-note">Included in every unit</div>
+          </div>
+        </div>
+        <div class="incentive-item">
+          <svg class="incentive-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          <div>
+            <div class="incentive-name">Landscaping</div>
+            <div class="incentive-note">Completed and included</div>
+          </div>
+        </div>
+        <div class="incentive-item">
+          <svg class="incentive-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          <div>
+            <div class="incentive-name">CMHC Compliant Build</div>
+            <div class="incentive-note">Property built to CMHC requirements</div>
+          </div>
+        </div>
+        <div class="incentive-item">
+          <svg class="incentive-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          <div>
+            <div class="incentive-name">Warranty Program</div>
+            <div class="incentive-note">Up to 10 years coverage</div>
+          </div>
+        </div>
+        <div class="incentive-item incentive-peace">
+          <svg class="incentive-check gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          <div>
+            <div class="incentive-name">Conditional Agreement</div>
+            <div class="incentive-note">On project viability — exit without penalty if CMHC declines</div>
+          </div>
+        </div>
+        <div class="incentive-item incentive-peace">
+          <svg class="incentive-check gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          <div>
+            <div class="incentive-name">In-House Property Management</div>
+            <div class="incentive-note">Available from day one — hands-off income</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="incentives-disclaimer reveal" style="transition-delay:0.16s">Full terms and conditions, including details of these provisions, will be outlined in the Agreement of Purchase and Sale.</div>
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════ -->
   <!-- SECTION 1: AVAILABLE                           -->
@@ -684,7 +801,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">MULTI FAMILY <span>DEALS</span></div>
-      <ul class="footer-links"><li><a href="about.html">Strategy</a></li><li><a href="inventory.html">Inventory</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul>
+      <ul class="footer-links"><li><a href="about.html">Strategy</a></li><li><a href="inventory.html">Inventory</a></li><li><a href="buying-process.html">Buying Process</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul>
       <div class="footer-copy">© 2025 Multi Family Deals. All rights reserved.</div>
     </div>
   </footer>

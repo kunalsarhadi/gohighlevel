@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buying Process — Multi Family Deals</title>
+  <meta name="description" content="A clear 9-step guide to purchasing a CMHC MLI Select multi-family property with Multi Family Deals. From pre-qualification to project completion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
+      --navy-border: #162438; --gold: #C9A84C; --gold-light: #E2C97A;
+      --gold-muted: #9A7A34; --text-primary: #EEF2F7;
+      --text-muted: #7A95B0; --text-subtle: #4A6480;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+    .nav-logo span { color: var(--text-primary); font-weight: 400; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--navy-deep); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1px; background: var(--text-muted); display: block; }
+    .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); z-index: 49; padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* HERO */
+    .page-hero { padding: 9rem 2rem 5rem; background: var(--navy-deep); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
+    .page-hero-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+    .page-title { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; line-height: 1.08; margin-bottom: 1.5rem; max-width: 700px; }
+    .page-title span { color: var(--gold); }
+    .page-subtitle { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 580px; letter-spacing: 0.02em; }
+
+    /* HERO STATS */
+    .hero-stats { display: grid; grid-template-columns: repeat(3, auto); gap: 0; margin-top: 4rem; border-top: 1px solid var(--navy-border); padding-top: 2.5rem; max-width: 600px; }
+    .hero-stat { padding-right: 2.5rem; }
+    .hero-stat + .hero-stat { padding-left: 2.5rem; border-left: 1px solid var(--navy-border); }
+    .hero-stat-value { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--gold); }
+    .hero-stat-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin-top: 0.2rem; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* STEPS SECTION */
+    .steps-section { padding: 6rem 2rem; background: var(--navy-primary); }
+    .steps-inner { max-width: 1280px; margin: 0 auto; }
+    .section-label { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: currentColor; }
+    .section-heading { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 600; margin-bottom: 3.5rem; }
+
+    /* TIMELINE */
+    .timeline { display: grid; grid-template-columns: 1fr; gap: 0; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 2.75rem; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), var(--navy-border) 85%); }
+    .timeline-step { display: grid; grid-template-columns: 5.5rem 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--navy-border); position: relative; align-items: flex-start; }
+    .timeline-step:last-child { border-bottom: none; }
+    .step-num-wrap { display: flex; flex-direction: column; align-items: center; position: relative; }
+    .step-num { width: 3rem; height: 3rem; border: 1px solid var(--gold); background: var(--navy-primary); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 700; color: var(--gold); flex-shrink: 0; position: relative; z-index: 1; }
+    .timeline-step.final .step-num { background: var(--gold); color: var(--navy-deep); border-color: var(--gold); }
+    .step-body { padding-top: 0.4rem; }
+    .step-title { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-primary); }
+    .step-desc { font-size: 0.88rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; letter-spacing: 0.02em; }
+    .step-tag { display: inline-block; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--navy-border); color: var(--text-subtle); padding: 0.25rem 0.7rem; margin-top: 0.75rem; }
+    .step-tag.green { border-color: rgba(76,175,138,0.35); color: #4CAF8A; }
+    .step-tag.gold { border-color: rgba(201,168,76,0.35); color: var(--gold); }
+
+    /* WHAT TO EXPECT STRIP */
+    .expect-strip { background: var(--navy-deep); border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); padding: 4rem 2rem; }
+    .expect-inner { max-width: 1280px; margin: 0 auto; }
+    .expect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-top: 2.5rem; }
+    .expect-card { background: var(--navy-card); padding: 2rem 1.75rem; }
+    .expect-icon { font-size: 1.4rem; margin-bottom: 1rem; }
+    .expect-title { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--gold); }
+    .expect-text { font-size: 0.83rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+
+    /* DISCLAIMER */
+    .disclaimer { background: var(--navy-deep); padding: 3rem 2rem; border-top: 1px solid var(--navy-border); }
+    .disclaimer-inner { max-width: 860px; margin: 0 auto; }
+    .disclaimer-text { font-size: 0.75rem; font-weight: 300; color: var(--text-subtle); line-height: 1.8; letter-spacing: 0.02em; }
+
+    /* CTA SECTION */
+    .cta-section { padding: 6rem 2rem; background: var(--navy-primary); border-top: 1px solid var(--navy-border); text-align: center; }
+    .cta-inner { max-width: 700px; margin: 0 auto; }
+    .btn-primary { background: var(--gold); color: var(--navy-deep); padding: 1rem 2.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--text-muted); padding: 1rem 2rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--navy-border); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s, border-color 0.2s; }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+
+    /* FOOTER */
+    footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; }
+    .footer-logo span { color: var(--text-muted); font-weight: 400; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.7rem; color: var(--text-subtle); letter-spacing: 0.05em; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .timeline::before { left: 1.75rem; }
+      .timeline-step { grid-template-columns: 3.5rem 1fr; gap: 1rem; }
+      .step-num { width: 2.4rem; height: 2.4rem; font-size: 0.78rem; }
+      .expect-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hero-stat + .hero-stat { padding-left: 0; border-left: none; border-top: 1px solid var(--navy-border); padding-top: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MULTI FAMILY <span>DEALS</span></a>
+      <ul class="nav-links">
+        <li><a href="about.html">The Strategy</a></li>
+        <li><a href="inventory.html">Active Inventory</a></li>
+        <li><a href="buying-process.html" class="active">Buying Process</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Book a Call</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="about.html">The Strategy</a>
+      <a href="inventory.html">Active Inventory</a>
+      <a href="buying-process.html">Buying Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Book a Call</a>
+    </nav>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Investor Roadmap</div>
+      <h1 class="page-title">The <span>Buying Process</span></h1>
+      <p class="page-subtitle">From your first conversation to owning a fully leased multi-family asset — here is exactly what to expect at each stage of a CMHC MLI Select purchase.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">9</div>
+          <div class="hero-stat-label">Steps to Close</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">5%</div>
+          <div class="hero-stat-label">Deposit Required</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">60–90</div>
+          <div class="hero-stat-label">Day CMHC Window</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps-section">
+    <div class="steps-inner">
+      <div class="section-label reveal">Step-by-Step</div>
+      <h2 class="section-heading reveal" style="transition-delay:0.05s">From First Call to Final Close</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-step reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">01</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Pre Qualification</div>
+            <div class="step-desc">Initial consultation to understand your financial position and determine investor eligibility. We assess net worth, available capital, and investment goals to confirm fit with the MLI Select program.</div>
+            <div class="step-tag">Initial Consultation</div>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">02</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Allocation Request</div>
+            <div class="step-desc">Once qualified, a worksheet is submitted to the Builder on your behalf to formally request purchase allocation for your selected property.</div>
+            <div class="step-tag">Builder Submission</div>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">03</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Due Diligence</div>
+            <div class="step-desc">Our preferred mortgage broker simultaneously qualifies both the investor and the project. This includes a review of property viability, projected cash flow, and CMHC MLI Select eligibility criteria.</div>
+            <div class="step-tag">Broker + Project Review</div>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">04</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Lender Satisfied</div>
+            <div class="step-desc">The lender issues a Letter of Intent outlining the mortgage terms and conditions. This confirms the financing structure before you commit to the purchase.</div>
+            <div class="step-tag gold">Letter of Intent Issued</div>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">05</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Deal Firmed</div>
+            <div class="step-desc">The first deposit is submitted to the Builder, firming the agreement. The purchase is now conditional on CMHC approval and project viability as outlined in the APS.</div>
+            <div class="step-tag gold">Deposit Submitted</div>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">06</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Preparation &amp; Submission</div>
+            <div class="step-desc">The full application package is submitted to CMHC. This stage typically takes 60 to 90 days while CMHC reviews the project and issues the Certificate of Insurance (COI).</div>
+            <div class="step-tag">60–90 Day CMHC Window</div>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">07</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">CMHC Acceptance</div>
+            <div class="step-desc">CMHC approves the project and insurance is confirmed. Your lawyer is introduced at this stage to begin preparation for closing.</div>
+            <div class="step-tag green">CMHC Approved</div>
+          </div>
+        </div>
+
+        <div class="timeline-step reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">08</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Pre Leasing Before Completion</div>
+            <div class="step-desc">While construction completes, property management begins advertising and leasing units — so the asset is generating income before you even take title.</div>
+            <div class="step-tag green">Revenue Begins</div>
+          </div>
+        </div>
+
+        <div class="timeline-step final reveal">
+          <div class="step-num-wrap">
+            <div class="step-num">09</div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Project Completion</div>
+            <div class="step-desc">Congratulations — you have closed on your multi-family investment. The property is fully leased, professionally managed, and producing income under the 50-year amortization structure.</div>
+            <div class="step-tag green">Keys in Hand</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="expect-strip">
+    <div class="expect-inner">
+      <div class="section-label reveal">What to Expect</div>
+      <h2 class="section-heading reveal" style="transition-delay:0.05s">Built for Passive Investors</h2>
+      <div class="expect-grid">
+        <div class="expect-card reveal">
+          <div class="expect-icon">🏦</div>
+          <div class="expect-title">No Personal Income Qualification</div>
+          <div class="expect-text">CMHC MLI Select qualifies you based on net worth — not your T4. It does not appear on your personal credit bureau.</div>
+        </div>
+        <div class="expect-card reveal" style="transition-delay:0.08s">
+          <div class="expect-icon">🔒</div>
+          <div class="expect-title">Conditional Agreement Protection</div>
+          <div class="expect-text">Your agreement is conditional on project and CMHC viability. If CMHC doesn't approve, you can exit without penalty.</div>
+        </div>
+        <div class="expect-card reveal" style="transition-delay:0.16s">
+          <div class="expect-icon">🏘️</div>
+          <div class="expect-title">Delivered Stabilized</div>
+          <div class="expect-text">You don't close until all units are leased and the full LTV Certificate of Insurance is released. No vacancy risk at handover.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="disclaimer">
+    <div class="disclaimer-inner">
+      <p class="disclaimer-text">This document is for general information purposes only and is based on assumptions. Past performance is not indicative of future results. The information provided herein does not constitute financial, investment, or legal advice. Every purchase is unique. No guarantees or warranties are made regarding the accuracy or reliability of this content. Please consult with your lawyer and lender for guidance specific to your transaction.</p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="section-label reveal" style="justify-content:center">Ready to Start?</div>
+      <h2 class="reveal" style="font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;margin-bottom:1rem;transition-delay:0.05s">Begin with a Strategy Call</h2>
+      <p class="reveal" style="font-size:0.95rem;font-weight:300;color:var(--text-muted);line-height:1.75;transition-delay:0.1s">Step 1 starts with a 30-minute call where we assess your eligibility and walk you through the right property for your goals. No commitment required.</p>
+      <div class="cta-buttons reveal" style="transition-delay:0.15s">
+        <a href="contact.html" class="btn-primary">Book Your Strategy Call</a>
+        <a href="inventory.html" class="btn-ghost">View Active Inventory <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MULTI FAMILY <span>DEALS</span></div>
+      <ul class="footer-links">
+        <li><a href="about.html">Strategy</a></li>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="buying-process.html">Buying Process</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© 2025 Multi Family Deals. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') mobileNav.classList.toggle('open'); });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
