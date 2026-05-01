@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMHC MLI Select Investor Guide — Multi Family Deals</title>
+  <meta name="description" content="Free investor guide: how CMHC MLI Select works, investor requirements, deposit structure, buying process, and bundled incentives. By Kunal Sarhadi, Real Estate Broker." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
+      --navy-border: #162438; --gold: #C9A84C; --gold-light: #E2C97A;
+      --gold-muted: #9A7A34; --text-primary: #EEF2F7;
+      --text-muted: #7A95B0; --text-subtle: #4A6480;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+    .nav-logo span { color: var(--text-primary); font-weight: 400; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--navy-deep); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1px; background: var(--text-muted); display: block; }
+    .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); z-index: 49; padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* HERO */
+    .page-hero { padding: 9rem 2rem 4rem; background: var(--navy-deep); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+    .hero-text { flex: 1; min-width: 280px; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+    .page-title { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.2rem; }
+    .page-title span { color: var(--gold); }
+    .page-subtitle { font-size: 0.95rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; margin-bottom: 2rem; }
+    .hero-cta-box { background: var(--navy-card); border: 1px solid var(--navy-border); padding: 2rem; min-width: 260px; flex-shrink: 0; }
+    .hero-cta-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .hero-cta-title { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .hero-cta-sub { font-size: 0.78rem; color: var(--text-subtle); margin-bottom: 1.2rem; line-height: 1.6; }
+    .btn-primary { background: var(--gold); color: var(--navy-deep); padding: 0.85rem 2rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-ghost { background: transparent; color: var(--text-muted); padding: 0.85rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--navy-border); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s, border-color 0.2s; margin-top: 0.75rem; width: 100%; justify-content: center; }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* GUIDE CONTENT */
+    .guide-body { max-width: 900px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .guide-section { margin-bottom: 3rem; }
+    .guide-section-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .guide-section-label::before { content: ''; display: block; width: 1.2rem; height: 1px; background: currentColor; }
+    .guide-section h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
+    .guide-card { background: var(--navy-card); border: 1px solid var(--navy-border); padding: 1.75rem 2rem; margin-bottom: 1px; }
+    .guide-card:first-of-type { border-bottom: none; }
+    .guide-p { font-size: 0.88rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 0.75rem; }
+    .guide-p:last-child { margin-bottom: 0; }
+    .guide-p strong { color: var(--text-primary); font-weight: 500; }
+    .guide-p .gold { color: var(--gold); font-weight: 500; }
+
+    /* STAT ROW */
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin: 1.5rem 0; }
+    .stat-cell { background: var(--navy-card); padding: 1.4rem 1.2rem; text-align: center; }
+    .stat-value { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: var(--gold); }
+    .stat-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin-top: 0.25rem; }
+
+    /* CHECKLIST */
+    .checklist { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.75rem 0; }
+    .check-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+    .check-item svg { flex-shrink: 0; margin-top: 0.1rem; color: #4CAF8A; width: 1rem; height: 1rem; }
+    .check-item svg.gold { color: var(--gold); }
+    .check-item strong { color: var(--text-primary); font-weight: 500; }
+
+    /* STEPS */
+    .steps-list { display: flex; flex-direction: column; gap: 0; }
+    .step-row { display: grid; grid-template-columns: 2.4rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--navy-border); align-items: flex-start; }
+    .step-row:last-child { border-bottom: none; }
+    .step-num-sm { width: 2.4rem; height: 2.4rem; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .step-title-sm { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; }
+    .step-desc-sm { font-size: 0.8rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+
+    /* COMPARISON */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin: 1.2rem 0; }
+    .compare-cell { background: var(--navy-card); padding: 0.9rem 1rem; font-size: 0.8rem; }
+    .compare-cell.header { background: var(--navy-deep); font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 600; color: var(--text-subtle); letter-spacing: 0.05em; }
+    .compare-cell.highlight { background: rgba(201,168,76,0.05); }
+    .compare-cell .good { color: #4CAF8A; font-weight: 600; }
+    .compare-cell .bad { color: var(--text-subtle); }
+    .compare-cell .label { color: var(--text-muted); font-size: 0.75rem; }
+
+    /* DIVIDER */
+    .guide-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+
+    /* DISCLAIMER */
+    .guide-disclaimer { background: var(--navy-deep); border: 1px solid var(--navy-border); padding: 1.5rem 2rem; font-size: 0.72rem; color: var(--text-subtle); line-height: 1.8; letter-spacing: 0.03em; margin-top: 3rem; }
+
+    /* CONTACT CARD */
+    .contact-card { background: var(--navy-card); border: 1px solid var(--gold-muted); padding: 2rem; margin-top: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .contact-info-name { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .contact-info-role { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .contact-info-brokerage { font-size: 0.75rem; color: var(--text-subtle); }
+    .contact-info-phone { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* FOOTER */
+    footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; }
+    .footer-logo span { color: var(--text-muted); font-weight: 400; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.7rem; color: var(--text-subtle); letter-spacing: 0.04em; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .page-hero-inner { flex-direction: column; }
+    }
+
+    /* PRINT */
+    @media print {
+      nav, .mobile-nav, .hero-cta-box, .btn-primary, .btn-ghost, footer { display: none !important; }
+      body { background: #fff; color: #111; font-size: 11pt; }
+      .page-hero { background: #fff; padding: 2rem 0 1.5rem; }
+      .page-title { color: #111; font-size: 20pt; }
+      .page-subtitle, .guide-p { color: #333; }
+      .guide-section-label, .guide-section h2 { color: #8B6914; }
+      .guide-card { background: #f9f9f9; border: 1px solid #ddd; }
+      .stat-cell { background: #f4f4f4; border: 1px solid #ddd; }
+      .stat-value { color: #8B6914; }
+      .guide-disclaimer { background: #f9f9f9; border: 1px solid #ddd; }
+      .contact-card { border: 1px solid #8B6914; background: #fffdf5; }
+      .reveal { opacity: 1; transform: none; }
+      .page-hero::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MULTI FAMILY <span>DEALS</span></a>
+      <ul class="nav-links">
+        <li><a href="about.html">The Strategy</a></li>
+        <li><a href="inventory.html">Active Inventory</a></li>
+        <li><a href="buying-process.html">Buying Process</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Book a Call</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="about.html">The Strategy</a>
+      <a href="inventory.html">Active Inventory</a>
+      <a href="buying-process.html">Buying Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Book a Call</a>
+    </nav>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="hero-text">
+        <div class="page-eyebrow">Free Investor Guide</div>
+        <h1 class="page-title">The CMHC MLI Select<br /><span>Investor Guide</span></h1>
+        <p class="page-subtitle">Everything you need to understand before acquiring a multi-family property in Edmonton. Program mechanics, investor requirements, deposit math, and the full buying process — in plain language.</p>
+        <p style="font-size:0.75rem;color:var(--text-subtle);">By Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc.</p>
+      </div>
+      <div class="hero-cta-box">
+        <div class="hero-cta-label">Save or Print</div>
+        <div class="hero-cta-title">Download This Guide</div>
+        <p class="hero-cta-sub">Print to PDF or save for offline reading. Share with your accountant or spouse before your strategy call.</p>
+        <button onclick="window.print()" class="btn-primary">Print / Save as PDF</button>
+        <a href="contact.html" class="btn-ghost">Book a Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="guide-body">
+
+    <!-- SECTION 1: WHAT IS MLI SELECT -->
+    <div class="guide-section reveal">
+      <div class="guide-section-label">Section 01</div>
+      <h2>What Is CMHC MLI Select?</h2>
+      <div class="guide-card">
+        <p class="guide-p"><strong>CMHC MLI Select (Multi-Unit Mortgage Loan Insurance Select)</strong> is a federal mortgage insurance program that enables investors to purchase 6+ unit new-build rental properties with significantly better financing terms than conventional lending.</p>
+        <p class="guide-p">Instead of the 20–25% down payment required on conventional investment properties, MLI Select reduces your entry cost to <span class="gold">5% down</span>, while extending your amortization to <span class="gold">50 years</span> — which dramatically lowers your monthly debt payment and improves projected cash flow.</p>
+        <p class="guide-p">The program uses a <strong>points-based system</strong> across three social outcome pillars: Affordability, Energy Efficiency, and Accessibility. Projects reaching 40+ points unlock the maximum financing terms.</p>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-cell">
+          <div class="stat-value">5%</div>
+          <div class="stat-label">Minimum Down</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value">50 yr</div>
+          <div class="stat-label">Amortization</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value">95%</div>
+          <div class="stat-label">CMHC Financing</div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <p class="guide-p"><strong>Why does 50-year amortization matter?</strong> On a $1.5M mortgage at current rates, a 25-year amortization costs approximately $8,900/month. A 50-year amortization costs approximately $6,200/month. That is a <span class="gold">$2,700/month difference in projected cash flow</span> on a single asset — the difference between negative and positive returns in most markets.</p>
+      </div>
+    </div>
+
+    <hr class="guide-divider" />
+
+    <!-- SECTION 2: WHY EDMONTON -->
+    <div class="guide-section reveal">
+      <div class="guide-section-label">Section 02</div>
+      <h2>Why Edmonton?</h2>
+
+      <div class="compare-grid">
+        <div class="compare-cell header"></div>
+        <div class="compare-cell header">Ontario / BC</div>
+        <div class="compare-cell header highlight">Edmonton, Alberta</div>
+        <div class="compare-cell"><span class="label">Minimum Down (MLI Select)</span></div>
+        <div class="compare-cell"><span class="bad">20–25% conventional</span></div>
+        <div class="compare-cell highlight"><span class="good">5% MLI Select</span></div>
+        <div class="compare-cell"><span class="label">Amortization</span></div>
+        <div class="compare-cell"><span class="bad">25 years</span></div>
+        <div class="compare-cell highlight"><span class="good">50 years</span></div>
+        <div class="compare-cell"><span class="label">Provincial Sales Tax</span></div>
+        <div class="compare-cell"><span class="bad">13% HST (Ontario)</span></div>
+        <div class="compare-cell highlight"><span class="good">None</span></div>
+        <div class="compare-cell"><span class="label">Land Transfer Tax</span></div>
+        <div class="compare-cell"><span class="bad">Up to 2% + Toronto LTT</span></div>
+        <div class="compare-cell highlight"><span class="good">None</span></div>
+        <div class="compare-cell"><span class="label">Development Charges</span></div>
+        <div class="compare-cell"><span class="bad">$50K–$130K per unit</span></div>
+        <div class="compare-cell highlight"><span class="good">None</span></div>
+      </div>
+
+      <div class="guide-card">
+        <p class="guide-p">Edmonton is Canada's fastest-growing major city by population (2023–2024), with consistent interprovincial migration from Ontario and BC. Vacancy rates in target corridors remain below 5%, supported by the energy sector, major post-secondary institutions (U of A, NAIT, MacEwan), and ongoing infrastructure investment.</p>
+        <p class="guide-p"><strong>Entry price advantage:</strong> New multi-family builds in Edmonton cost significantly less per door than comparable Ontario or BC assets — meaning your capital acquires more doors, at better financing terms, with lower tax friction.</p>
+      </div>
+    </div>
+
+    <hr class="guide-divider" />
+
+    <!-- SECTION 3: INVESTOR REQUIREMENTS -->
+    <div class="guide-section reveal">
+      <div class="guide-section-label">Section 03</div>
+      <h2>Investor Requirements</h2>
+      <div class="guide-card">
+        <p class="guide-p">CMHC MLI Select is open to Canadian borrowers — investors, developers, and property managers — acquiring 5+ unit residential properties. You do not need high personal income. CMHC qualifies the loan primarily on the building's <strong>Debt Service Coverage Ratio (DSCR of 1.10)</strong> — the property's projected rental income must cover at least 110% of its debt obligations.</p>
+
+        <div class="checklist" style="margin-top:1rem;">
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>5% deposit</strong> on hand at time of purchase</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>Additional 5% in liquid form</strong> as a contingency reserve</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>Net worth of at least 25%</strong> of the total project cost</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="gold"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong style="color:var(--gold)">Canadian assets only</strong> count toward the net worth calculation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="guide-divider" />
+
+    <!-- SECTION 4: THE DEPOSIT MATH -->
+    <div class="guide-section reveal">
+      <div class="guide-section-label">Section 04</div>
+      <h2>How the Deposit Math Works</h2>
+      <div class="guide-card">
+        <p class="guide-p">Deposit requirements are 5% of the total purchase price. Closing costs (legal fees, title insurance, adjustments) typically add $8,000–$15,000 on top.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--navy-border);border:1px solid var(--navy-border);margin:1rem 0;">
+          <div style="background:var(--navy-deep);padding:1rem 1.2rem;">
+            <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:0.4rem;">6-Plex</div>
+            <div style="font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;color:var(--gold);">~$80,000</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.2rem;">5% of ~$1.6M purchase</div>
+            <div style="font-size:0.72rem;color:var(--text-subtle);margin-top:0.5rem;">+ $8k–$15k closing costs</div>
+          </div>
+          <div style="background:var(--navy-card);padding:1rem 1.2rem;">
+            <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:0.4rem;">8-Plex</div>
+            <div style="font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;color:var(--gold);">~$120,000</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.2rem;">5% of ~$2.4M purchase</div>
+            <div style="font-size:0.72rem;color:var(--text-subtle);margin-top:0.5rem;">+ $8k–$15k closing costs</div>
+          </div>
+        </div>
+
+        <p class="guide-p">Cash flow figures on the inventory page are projected estimates based on pro-forma analysis, net of property management fees. <strong>Actual results will vary.</strong> Consult your mortgage broker and accountant before making any purchase decision.</p>
+      </div>
+    </div>
+
+    <hr class="guide-divider" />
+
+    <!-- SECTION 5: BUNDLED INCENTIVES -->
+    <div class="guide-section reveal">
+      <div class="guide-section-label">Section 05</div>
+      <h2>What's Included with Every Property</h2>
+      <div class="guide-card">
+        <p class="guide-p">Every available property in our inventory comes with a bundled package of inclusions — negotiated with the Builder and built into the purchase agreement.</p>
+
+        <div class="checklist" style="margin-top:1rem;">
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>$0 Mortgage Broker Fees</strong> — when using the Developer's preferred broker</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>Appliances Package</strong> — included in every unit</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>Window Coverings</strong> — included in every unit</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>Landscaping</strong> — completed and included</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>CMHC-Compliant Build</strong> — property built to program requirements</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            <span><strong>Warranty Program</strong> — up to 10 years coverage</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="gold"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+            <span><strong>Conditional Agreement on Project Viability</strong> — exit without penalty if CMHC declines</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="gold"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+            <span><strong>In-House Property Management</strong> — available from completion</span>
+          </div>
+        </div>
+        <p class="guide-p" style="margin-top:1rem;font-size:0.72rem;color:var(--text-subtle);">Full terms and conditions, including details of these provisions, will be outlined in the Agreement of Purchase and Sale.</p>
+      </div>
+    </div>
+
+    <hr class="guide-divider" />
+
+    <!-- SECTION 6: BUYING PROCESS -->
+    <div class="guide-section reveal">
+      <div class="guide-section-label">Section 06</div>
+      <h2>The 9-Step Buying Process</h2>
+      <div class="guide-card">
+        <div class="steps-list">
+          <div class="step-row">
+            <div class="step-num-sm">01</div>
+            <div>
+              <div class="step-title-sm">Pre Qualification</div>
+              <div class="step-desc-sm">Initial consultation to assess net worth, available capital, and investment goals. Confirm fit with MLI Select requirements.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-sm">02</div>
+            <div>
+              <div class="step-title-sm">Allocation Request</div>
+              <div class="step-desc-sm">A worksheet is submitted to the Builder on your behalf to formally request purchase allocation for your selected property.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-sm">03</div>
+            <div>
+              <div class="step-title-sm">Due Diligence</div>
+              <div class="step-desc-sm">Preferred mortgage broker qualifies both the investor and the project — reviewing cash flow projections and CMHC eligibility.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-sm">04</div>
+            <div>
+              <div class="step-title-sm">Lender Satisfied</div>
+              <div class="step-desc-sm">The lender issues a Letter of Intent confirming the financing structure and mortgage terms.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-sm">05</div>
+            <div>
+              <div class="step-title-sm">Deal Firmed</div>
+              <div class="step-desc-sm">First deposit submitted to the Builder. Agreement is now conditional on CMHC approval and project viability as per the APS.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-sm">06</div>
+            <div>
+              <div class="step-title-sm">CMHC Submission</div>
+              <div class="step-desc-sm">Full application package submitted to CMHC. This stage typically takes 60–90 days for review and Certificate of Insurance (COI) issuance.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-sm">07</div>
+            <div>
+              <div class="step-title-sm">CMHC Acceptance</div>
+              <div class="step-desc-sm">CMHC approves the project. Your lawyer is introduced to begin preparation for closing.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-sm">08</div>
+            <div>
+              <div class="step-title-sm">Pre-Leasing</div>
+              <div class="step-desc-sm">Property management begins marketing and leasing units before completion. The goal is maximum occupancy at handover — actual tenancy levels will vary by project.</div>
+            </div>
+          </div>
+          <div class="step-row" style="border-bottom:none;">
+            <div class="step-num-sm" style="background:var(--gold);color:var(--navy-deep);border-color:var(--gold);">09</div>
+            <div>
+              <div class="step-title-sm">Project Completion</div>
+              <div class="step-desc-sm">You close on the property. The building is professionally managed under the 50-year amortization structure. Actual occupancy at closing will depend on market conditions and project timing.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="guide-divider" />
+
+    <!-- SECTION 7: RISK -->
+    <div class="guide-section reveal">
+      <div class="guide-section-label">Section 07</div>
+      <h2>Key Risks to Understand</h2>
+      <div class="guide-card">
+        <div class="checklist">
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-muted)"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+            <span><strong>CMHC approval is not guaranteed.</strong> If the project is declined, your deposit is returned per the APS. Review your specific agreement with your lawyer.</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-muted)"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+            <span><strong>Tenancy at closing is not guaranteed.</strong> The goal is maximum occupancy at handover. Actual tenancy will vary by project and market conditions.</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-muted)"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+            <span><strong>Cash flow figures are projections.</strong> Actual returns depend on occupancy, rent rates, expenses, and financing terms at close. Past performance does not predict future results.</span>
+          </div>
+          <div class="check-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-muted)"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+            <span><strong>CMHC program terms may change.</strong> Eligibility criteria, LTV ratios, amortization terms, and rates are subject to change at CMHC's discretion. Verify current terms with your mortgage broker.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="guide-divider" />
+
+    <!-- CONTACT -->
+    <div class="guide-section reveal">
+      <div class="guide-section-label">Next Step</div>
+      <h2>Book Your Strategy Call</h2>
+      <p class="guide-p">A 30-minute strategy call is where we match your available capital to the right property, walk through the current pro-forma, and build your acquisition timeline. No cost. No obligation.</p>
+
+      <div class="contact-card">
+        <div>
+          <div class="contact-info-name">Kunal Sarhadi</div>
+          <div class="contact-info-role">Real Estate Broker</div>
+          <div class="contact-info-brokerage">Homelife Miracle Realty Inc.</div>
+          <div class="contact-info-phone">416-200-7010</div>
+        </div>
+        <a href="contact.html" class="btn-primary">Book a Strategy Call</a>
+      </div>
+    </div>
+
+    <div class="guide-disclaimer reveal">
+      <strong>Disclaimer:</strong> This guide is for general information purposes only and is based on assumptions. It does not constitute financial, investment, legal, or tax advice. Every purchase is unique. No guarantees or warranties are made regarding the accuracy or reliability of this content. Consult your lawyer, mortgage broker, and accountant before making any investment decision. CMHC MLI Select program terms, eligibility criteria, rates, and amortization periods are subject to change at CMHC's discretion — verify current terms with your mortgage broker. Kunal Sarhadi is a licensed real estate broker with Homelife Miracle Realty Inc. and is not a financial advisor or investment counsel.
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MULTI FAMILY <span>DEALS</span></div>
+      <ul class="footer-links">
+        <li><a href="about.html">Strategy</a></li>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="buying-process.html">Buying Process</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2025 Multi Family Deals. Not financial or investment advice. CMHC MLI Select program terms subject to change.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') mobileNav.classList.toggle('open'); });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
