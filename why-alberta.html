@@ -191,7 +191,7 @@
       <a href="buying-process.html">Buying Process</a>
       <a href="faq.html">FAQ</a>
       <a href="reviews.html">Reviews</a>
-      <a href="guide.html" style="color:var(--gold)">Free Investor Guide</a>
+      <a href="guide.html" style="color:var(--gold)">Free Guide</a>
       <a href="contact.html">Book Strategy Call</a>
     </nav>
   </nav>
@@ -472,6 +472,8 @@
         <li><a href="inglewood.html">Portfolio</a></li>
         <li><a href="buying-process.html">Buying Process</a></li>
         <li><a href="faq.html">FAQ</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="guide.html">Free Guide</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2025 Multi Family Deals. Not financial or investment advice. Statistics are sourced from publicly available government and industry reports and are subject to change.</div>
@@ -482,7 +484,7 @@
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
     hamburger.addEventListener('click', () => { mobileNav.classList.toggle('open'); });
-    hamburger.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); mobileNav.classList.toggle('open'); } });
+    hamburger.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { mobileNav.classList.toggle('open'); } });
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
