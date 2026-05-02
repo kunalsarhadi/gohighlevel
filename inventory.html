@@ -21,7 +21,7 @@
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
-    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
     .nav-logo span { color: var(--text-primary); font-weight: 400; }
     .nav-links { display: flex; gap: 0.5rem; list-style: none; }
@@ -285,7 +285,7 @@
       <a href="contact.html" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
     </div>
-    <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav" id="mobileNav">
       <a href="about.html">The Strategy</a>
       <a href="why-alberta.html">Why Alberta</a>
       <a href="inventory.html">Active Inventory</a>
@@ -295,7 +295,7 @@
       <a href="reviews.html">Reviews</a>
       <a href="guide.html" style="color:var(--gold)">Free Guide</a>
       <a href="contact.html">Book Strategy Call</a>
-    </nav>
+    </div>
   </nav>
 
   <section class="page-hero">

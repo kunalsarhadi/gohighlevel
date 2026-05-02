@@ -34,7 +34,7 @@
     .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); z-index: 49; padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.2rem; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
-    .mobile-nav a:hover { color: var(--gold); }
+    .mobile-nav a:hover, .mobile-nav a.active { color: var(--gold); }
 
     /* HERO */
     .page-hero { padding: 9rem 2rem 4rem; background: var(--navy-deep); position: relative; overflow: hidden; }
@@ -148,7 +148,8 @@
     /* PRINT */
     @media print {
       nav, .mobile-nav, .hero-cta-box, .btn-primary, .btn-ghost, footer { display: none !important; }
-      .guide-divider { display: block !important; height: 0 !important; border: none !important; margin: 0 !important; break-after: page; page-break-after: always; }
+      .guide-divider { display: none !important; }
+      .guide-section:not(:first-child) { break-before: page; page-break-before: always; }
       body { background: #fff; color: #111; font-size: 11pt; }
       .page-hero { background: #fff; padding: 2rem 0 2rem; break-after: page; page-break-after: always; }
       .guide-body { padding: 1.5rem 2rem 3rem; }
@@ -160,7 +161,7 @@
       .compare-cell .bad { color: #666; }
       .step-num-sm { border-color: #8B6914; color: #8B6914; }
       .check-item svg { color: #2E7D52 !important; }
-      .guide-card { background: #f9f9f9; border: 1px solid #ddd; break-inside: avoid; page-break-inside: avoid; }
+      .guide-card { background: #f9f9f9; border: 1px solid #ddd; break-inside: auto; page-break-inside: auto; }
       .stat-row { break-inside: avoid; page-break-inside: avoid; }
       .stat-cell { background: #f4f4f4; border: 1px solid #ddd; }
       .stat-value { color: #8B6914; }
@@ -212,7 +213,7 @@
       <a href="contact.html" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
     </div>
-    <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav" id="mobileNav">
       <a href="about.html">The Strategy</a>
       <a href="why-alberta.html">Why Alberta</a>
       <a href="inventory.html">Active Inventory</a>
@@ -220,9 +221,9 @@
       <a href="buying-process.html">Buying Process</a>
       <a href="faq.html">FAQ</a>
       <a href="reviews.html">Reviews</a>
-      <a href="guide.html" style="color:var(--gold)">Free Guide</a>
+      <a href="guide.html" class="active">Free Guide</a>
       <a href="contact.html">Book Strategy Call</a>
-    </nav>
+    </div>
   </nav>
 
   <section class="page-hero">
