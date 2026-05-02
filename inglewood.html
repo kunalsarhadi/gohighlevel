@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>9-Plex Inglewood — Completed Project | Multi Family Deals</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
@@ -16,6 +16,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
     a { color: inherit; text-decoration: none; }
 
     /* NAV */
@@ -174,7 +175,7 @@
       <li><a href="about.html">The Strategy</a></li>
       <li><a href="why-alberta.html">Why Alberta</a></li>
       <li><a href="inventory.html">Active Inventory</a></li>
-      <li><a href="inglewood.html" class="active">Completed</a></li>
+      <li><a href="inglewood.html" class="active">Portfolio</a></li>
       <li><a href="buying-process.html">Buying Process</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="reviews.html">Reviews</a></li>
@@ -189,7 +190,7 @@
   <a href="about.html">The Strategy</a>
   <a href="why-alberta.html">Why Alberta</a>
   <a href="inventory.html">Active Inventory</a>
-  <a href="inglewood.html" class="active">Completed</a>
+  <a href="inglewood.html" class="active">Portfolio</a>
   <a href="buying-process.html">Buying Process</a>
   <a href="faq.html">FAQ</a>
   <a href="reviews.html">Reviews</a>
@@ -199,7 +200,7 @@
 <!-- HERO -->
 <section class="project-hero">
   <div class="project-hero-inner">
-    <div class="project-eyebrow reveal">Completed Project</div>
+    <div class="project-eyebrow reveal">Portfolio — Completed Development</div>
     <h1 class="reveal">9-Plex <span>Inglewood</span><br>Edmonton, Alberta</h1>
     <p class="reveal">A purpose-built 9-unit multi-family property delivered under the CMHC MLI Select program. Three distinct suite types across three floors — each finished to attract long-term tenants and qualify for maximum amortization benefits.</p>
     <div class="project-stats reveal">
@@ -234,7 +235,7 @@
 
     <div class="suite-tabs reveal">
       <button class="suite-tab active" data-tab="primary">Primary Suite</button>
-      <button class="suite-tab" data-tab="basement">Basement Suite</button>
+      <button class="suite-tab" data-tab="secondary">Secondary Suite</button>
       <button class="suite-tab" data-tab="garden">Garden Suite</button>
     </div>
 
@@ -242,30 +243,33 @@
     <div class="suite-panel active" id="tab-primary">
       <div class="suite-header">
         <div class="suite-title">Primary Suite</div>
-        <div class="suite-desc">The main-floor unit featuring an open-concept kitchen and living area, full-size bedrooms, and in-suite laundry.</div>
+        <div class="suite-desc">3-bedroom, 2.5-bathroom primary suite with open-concept kitchen and living area, full-size bedrooms, ensuite in the primary bedroom, and in-suite laundry.</div>
       </div>
       <div class="gallery-grid">
         <div class="gallery-card featured">
-          <img src="images/inglewood/primary/01.jpg" alt="Primary suite living area" draggable="false" loading="lazy">
+          <img src="images/inglewood/primary/01.jpg" alt="Primary suite exterior" draggable="false" loading="lazy">
         </div>
         <div class="gallery-card">
           <img src="images/inglewood/primary/02.jpg" alt="Primary suite kitchen" draggable="false" loading="lazy">
         </div>
         <div class="gallery-card">
-          <img src="images/inglewood/primary/03.jpg" alt="Primary suite bedroom" draggable="false" loading="lazy">
+          <img src="images/inglewood/primary/03.jpg" alt="Primary suite living area" draggable="false" loading="lazy">
         </div>
         <div class="gallery-card">
-          <img src="images/inglewood/primary/04.jpg" alt="Primary suite bathroom" draggable="false" loading="lazy">
+          <img src="images/inglewood/primary/04.jpg" alt="Primary suite bedroom" draggable="false" loading="lazy">
+        </div>
+        <div class="gallery-card">
+          <img src="images/inglewood/primary/05.jpg" alt="Primary suite bathroom" draggable="false" loading="lazy">
         </div>
       </div>
       <div class="suite-details">
         <div class="suite-detail">
           <div class="detail-label">Suite Type</div>
-          <div class="detail-value">Main Floor</div>
+          <div class="detail-value">Primary Suite</div>
         </div>
         <div class="suite-detail">
-          <div class="detail-label">Bedrooms</div>
-          <div class="detail-value">2 – 3 Bed</div>
+          <div class="detail-label">Bedrooms / Baths</div>
+          <div class="detail-value">3 Bed · 2.5 Bath</div>
         </div>
         <div class="suite-detail">
           <div class="detail-label">Finish Level</div>
@@ -274,34 +278,37 @@
       </div>
     </div>
 
-    <!-- BASEMENT SUITE -->
-    <div class="suite-panel" id="tab-basement">
+    <!-- SECONDARY SUITE -->
+    <div class="suite-panel" id="tab-secondary">
       <div class="suite-header">
-        <div class="suite-title">Basement Suite</div>
-        <div class="suite-desc">Below-grade suites with full egress windows, modern finishes, and a private entrance — popular with young professionals and couples.</div>
+        <div class="suite-title">Secondary Suite</div>
+        <div class="suite-desc">2-bedroom, 1-bathroom secondary suite with full egress windows, modern finishes, private entrance, and in-suite laundry — popular with young professionals and couples.</div>
       </div>
       <div class="gallery-grid">
         <div class="gallery-card featured">
-          <img src="images/inglewood/basement/01.jpg" alt="Basement suite kitchen and living" draggable="false" loading="lazy">
+          <img src="images/inglewood/basement/01.jpg" alt="Secondary suite exterior entrance" draggable="false" loading="lazy">
         </div>
         <div class="gallery-card">
-          <img src="images/inglewood/basement/02.jpg" alt="Basement suite bedroom" draggable="false" loading="lazy">
+          <img src="images/inglewood/basement/02.jpg" alt="Secondary suite kitchen" draggable="false" loading="lazy">
         </div>
         <div class="gallery-card">
-          <img src="images/inglewood/basement/03.jpg" alt="Basement suite bathroom" draggable="false" loading="lazy">
+          <img src="images/inglewood/basement/03.jpg" alt="Secondary suite living area" draggable="false" loading="lazy">
         </div>
         <div class="gallery-card">
-          <img src="images/inglewood/basement/04.jpg" alt="Basement suite common area" draggable="false" loading="lazy">
+          <img src="images/inglewood/basement/04.jpg" alt="Secondary suite bedroom" draggable="false" loading="lazy">
+        </div>
+        <div class="gallery-card">
+          <img src="images/inglewood/basement/05.jpg" alt="Secondary suite bathroom" draggable="false" loading="lazy">
         </div>
       </div>
       <div class="suite-details">
         <div class="suite-detail">
           <div class="detail-label">Suite Type</div>
-          <div class="detail-value">Below Grade</div>
+          <div class="detail-value">Secondary Suite</div>
         </div>
         <div class="suite-detail">
-          <div class="detail-label">Bedrooms</div>
-          <div class="detail-value">1 – 2 Bed</div>
+          <div class="detail-label">Bedrooms / Baths</div>
+          <div class="detail-value">2 Bed · 1 Bath</div>
         </div>
         <div class="suite-detail">
           <div class="detail-label">Finish Level</div>
@@ -314,11 +321,11 @@
     <div class="suite-panel" id="tab-garden">
       <div class="suite-header">
         <div class="suite-title">Garden Suite</div>
-        <div class="suite-desc">Detached rear suites with private yards and dedicated parking. High demand, low turnover — the most desirable unit type in the portfolio.</div>
+        <div class="suite-desc">2-bedroom, 1-bathroom detached rear suite with private yard and dedicated parking. High demand, low turnover — the most desirable unit type in the complex.</div>
       </div>
       <div class="gallery-grid">
         <div class="gallery-card featured">
-          <img src="images/inglewood/garden/01.jpg" alt="Garden suite exterior and entrance" draggable="false" loading="lazy">
+          <img src="images/inglewood/garden/01.jpg" alt="Garden suite exterior" draggable="false" loading="lazy">
         </div>
         <div class="gallery-card">
           <img src="images/inglewood/garden/02.jpg" alt="Garden suite living area" draggable="false" loading="lazy">
@@ -329,6 +336,9 @@
         <div class="gallery-card">
           <img src="images/inglewood/garden/04.jpg" alt="Garden suite bedroom" draggable="false" loading="lazy">
         </div>
+        <div class="gallery-card">
+          <img src="images/inglewood/garden/05.jpg" alt="Garden suite bathroom" draggable="false" loading="lazy">
+        </div>
       </div>
       <div class="suite-details">
         <div class="suite-detail">
@@ -336,8 +346,8 @@
           <div class="detail-value">Detached Rear</div>
         </div>
         <div class="suite-detail">
-          <div class="detail-label">Bedrooms</div>
-          <div class="detail-value">1 – 2 Bed</div>
+          <div class="detail-label">Bedrooms / Baths</div>
+          <div class="detail-value">2 Bed · 1 Bath</div>
         </div>
         <div class="suite-detail">
           <div class="detail-label">Finish Level</div>
