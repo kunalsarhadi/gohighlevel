@@ -108,6 +108,11 @@
     /* CARDS GRID */
     .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
 
+    /* AVAILABLE SECTION — open gap + card borders */
+    #available .cards-grid { gap: 1.2rem; background: transparent; border: none; }
+    #available .asset-card { border: 1px solid var(--navy-border); border-top: 2px solid rgba(201,168,76,0.25); }
+    #available .asset-card:hover { border-color: rgba(201,168,76,0.45); border-top-color: var(--gold); background: #0F1E35; }
+
     /* ASSET CARD */
     .asset-card { background: var(--navy-card); display: flex; flex-direction: column; position: relative; transition: background 0.2s; cursor: pointer; }
     .asset-card:hover { background: #0F1E35; }
