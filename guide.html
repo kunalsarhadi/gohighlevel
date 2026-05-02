@@ -21,7 +21,7 @@
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
-    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
     .nav-logo span { color: var(--text-primary); font-weight: 400; }
     .nav-links { display: flex; gap: 0.5rem; list-style: none; }
@@ -147,9 +147,12 @@
 
     /* PRINT */
     @media print {
-      nav, .mobile-nav, .hero-cta-box, .btn-primary, .btn-ghost, footer, .guide-divider { display: none !important; }
+      nav, .mobile-nav, .hero-cta-box, .btn-primary, .btn-ghost, footer { display: none !important; }
+      .guide-divider { display: block !important; height: 0 !important; border: none !important; margin: 0 !important; break-after: page; page-break-after: always; }
       body { background: #fff; color: #111; font-size: 11pt; }
-      .page-hero { background: #fff; padding: 2rem 0 1.5rem; }
+      .page-hero { background: #fff; padding: 2rem 0 2rem; break-after: page; page-break-after: always; }
+      .guide-body { padding: 1.5rem 2rem 3rem; }
+      .guide-section { margin-bottom: 2rem; }
       .page-title { color: #111; font-size: 20pt; }
       .page-subtitle, .guide-p { color: #333; }
       .guide-section-label, .guide-section h2 { color: #8B6914; }
@@ -161,7 +164,7 @@
       .stat-row { break-inside: avoid; page-break-inside: avoid; }
       .stat-cell { background: #f4f4f4; border: 1px solid #ddd; }
       .stat-value { color: #8B6914; }
-      .compare-grid { break-inside: avoid; page-break-inside: avoid; }
+      .compare-grid { break-inside: auto; page-break-inside: auto; }
       .compare-cell { background: #f4f4f4; border: 1px solid #ddd; }
       .compare-cell.header { background: #eee; }
       .compare-cell.highlight { background: #fffde7; }
@@ -172,16 +175,9 @@
       .reveal { opacity: 1; transform: none; }
       .page-hero::before { display: none; }
 
-      /* Each section starts on a new page */
+      /* Section top padding in print */
       .guide-section {
-        break-before: page;
-        page-break-before: always;
         padding-top: 1rem;
-      }
-      /* First section can follow the hero without a forced break */
-      .guide-section:first-child {
-        break-before: auto;
-        page-break-before: auto;
       }
       /* Prevent heading from stranding at bottom of page without any content */
       .guide-section-label, .guide-section h2 {
