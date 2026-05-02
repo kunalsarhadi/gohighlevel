@@ -90,3 +90,22 @@ git push origin main   # this makes it live
 
 Never push directly to main without reviewing changes first.
 Use feature branches for multi-step work, merge to main when confirmed clean.
+
+## Google Sheets — Inventory Hotlist
+
+The live inventory data is managed in Google Sheets. Read it at the start of any inventory-related task.
+
+- **Spreadsheet ID:** `1rv3GdNkdN89AmNthj1JeL2ulSgKL9x3NnIL7UxCbn20`
+- **Tab name:** `CMHC MLI Inventory List`
+- **API Key:** `AIzaSyC3Ii4Ps8mqlB-sCO5DyqFo1HgTyADcxCc`
+
+**To read the sheet:**
+```
+https://sheets.googleapis.com/v4/spreadsheets/1rv3GdNkdN89AmNthj1JeL2ulSgKL9x3NnIL7UxCbn20/values/CMHC%20MLI%20Inventory%20List?key=AIzaSyC3Ii4Ps8mqlB-sCO5DyqFo1HgTyADcxCc
+```
+
+When the user says "sync inventory", "update inventory", or "update the hotlist":
+1. Fetch the sheet using the URL above
+2. Compare with current inventory.html
+3. Update inventory.html to match the sheet
+4. Commit and push to main
