@@ -11,9 +11,9 @@
   <style>
     :root {
       --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
-      --navy-border: #162438; --gold: #C9A84C; --gold-light: #E2C97A;
+      --navy-border: #162438; --gold: #C4934A; --gold-light: #DBA868;
       --gold-muted: #9A7A34; --text-primary: #EEF2F7;
-      --text-muted: #7A95B0; --text-subtle: #4A6480;
+      --text-muted: #9AAABB; --text-subtle: #6B8BA4; --accent-warm: #C4783A;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
@@ -52,8 +52,8 @@
     .status-pills { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
     .status-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
     .status-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; display: block; }
-    .status-pill.available { color: #4CAF8A; }
-    .status-pill.available::before { background: #4CAF8A; }
+    .status-pill.available { color: #3D9E7A; }
+    .status-pill.available::before { background: #3D9E7A; }
     .status-pill.sc { color: var(--gold-muted); }
     .status-pill.sc::before { background: var(--gold-muted); }
     .status-pill.cs { color: var(--text-subtle); }
@@ -112,7 +112,7 @@
     .asset-card-top { padding: 1.8rem 1.8rem 1.4rem; border-bottom: 1px solid var(--navy-border); flex: 1; }
     .asset-badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 1px solid; margin-bottom: 1rem; }
     .asset-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; display: block; }
-    .asset-badge.available { color: #4CAF8A; border-color: #4CAF8A; background: rgba(76,175,138,0.08); }
+    .asset-badge.available { color: #3D9E7A; border-color: #3D9E7A; background: rgba(61,158,122,0.08); }
     .asset-badge.sc { color: var(--gold-muted); border-color: var(--gold-muted); background: rgba(154,122,52,0.1); }
     .asset-badge.coming-soon { color: var(--text-subtle); border-color: var(--text-subtle); background: transparent; }
     .asset-badge.sold { color: var(--text-subtle); border-color: #1E3352; background: transparent; }
@@ -240,7 +240,7 @@
     .incentives-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-bottom: 1.5rem; }
     .incentive-item { background: var(--navy-card); padding: 1.2rem 1.4rem; display: flex; align-items: flex-start; gap: 0.75rem; }
     .incentive-item.incentive-peace { background: rgba(201,168,76,0.04); }
-    .incentive-check { width: 1.1rem; height: 1.1rem; flex-shrink: 0; color: #4CAF8A; margin-top: 0.1rem; }
+    .incentive-check { width: 1.1rem; height: 1.1rem; flex-shrink: 0; color: #3D9E7A; margin-top: 0.1rem; }
     .incentive-check.gold { color: var(--gold); }
     .incentive-name { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); letter-spacing: 0.02em; margin-bottom: 0.2rem; }
     .incentive-note { font-size: 0.73rem; font-weight: 300; color: var(--text-subtle); line-height: 1.5; }
