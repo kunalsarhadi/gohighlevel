@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Alberta & Edmonton — Multi Family Deals</title>
+  <meta name="description" content="Alberta and Edmonton's market fundamentals make the strongest case for multi-family investment in Canada. Population surge, rental demand, GDP diversification, and the tax advantage." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
+      --navy-border: #162438; --gold: #C9A84C; --gold-light: #E2C97A;
+      --gold-muted: #9A7A34; --text-primary: #EEF2F7;
+      --text-muted: #7A95B0; --text-subtle: #4A6480;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-decoration: none; }
+    .nav-logo span { color: var(--text-primary); font-weight: 400; }
+    .nav-links { display: flex; gap: 0.9rem; list-style: none; }
+    .nav-links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s; }
+    .nav-cta:hover { background: var(--gold); color: var(--navy-deep); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 22px; height: 1px; background: var(--text-muted); display: block; }
+    .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); z-index: 49; padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.2rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* HERO */
+    .page-hero { padding: 9rem 2rem 6rem; background: var(--navy-deep); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 65% at 75% 35%, rgba(201,168,76,0.07) 0%, transparent 65%), radial-gradient(ellipse 35% 45% at 15% 80%, rgba(201,168,76,0.04) 0%, transparent 55%); pointer-events: none; }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    .page-hero-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+    .page-title { font-size: clamp(2.4rem, 5.5vw, 4.5rem); font-weight: 700; line-height: 1.06; margin-bottom: 1.5rem; max-width: 820px; }
+    .page-title span { color: var(--gold); }
+    .page-subtitle { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; max-width: 600px; letter-spacing: 0.02em; margin-bottom: 3.5rem; }
+
+    /* HERO STATS */
+    .hero-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); max-width: 900px; }
+    .hero-metric { background: var(--navy-card); padding: 1.8rem 1.6rem; }
+    .hero-metric-value { font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+    .hero-metric-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-subtle); line-height: 1.4; }
+
+    /* SECTION SHARED */
+    .section-label { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: currentColor; }
+
+    /* MARKET FUNDAMENTALS GRID */
+    .fundamentals { padding: 6rem 2rem; background: var(--navy-primary); }
+    .fundamentals-inner { max-width: 1280px; margin: 0 auto; }
+    .fundamentals-header { margin-bottom: 3.5rem; }
+    .fundamentals-title { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; margin-bottom: 0.6rem; }
+    .fundamentals-subtitle { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; max-width: 640px; }
+    .fundamentals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
+    .fund-card { background: var(--navy-card); padding: 2.2rem 2rem; display: flex; flex-direction: column; gap: 0.8rem; transition: background 0.2s; }
+    .fund-card:hover { background: #0F1E35; }
+    .fund-card-icon { width: 1.6rem; height: 1.6rem; color: var(--gold-muted); flex-shrink: 0; }
+    .fund-card-title { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
+    .fund-card-stat { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .fund-card-stat-sub { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); }
+    .fund-card-body { font-size: 0.82rem; font-weight: 300; color: var(--text-subtle); line-height: 1.7; flex: 1; }
+    .fund-card-source { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-subtle); opacity: 0.7; margin-top: auto; padding-top: 0.5rem; border-top: 1px solid var(--navy-border); }
+
+    /* DETAILED NARRATIVE */
+    .narrative { padding: 6rem 2rem; background: var(--navy-deep); border-top: 1px solid var(--navy-border); }
+    .narrative-inner { max-width: 1100px; margin: 0 auto; }
+    .narrative-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 5rem; }
+    .narrative-item {}
+    .narrative-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 0.5rem; }
+    .narrative-heading { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--text-primary); }
+    .narrative-body { font-size: 0.85rem; font-weight: 300; color: var(--text-muted); line-height: 1.85; }
+    .narrative-body strong { color: var(--text-primary); font-weight: 500; }
+    .narrative-callout { display: flex; align-items: flex-start; gap: 0.8rem; margin-top: 1rem; background: rgba(201,168,76,0.05); border-left: 2px solid var(--gold-muted); padding: 0.9rem 1rem; }
+    .narrative-callout-text { font-size: 0.78rem; font-weight: 400; color: var(--text-subtle); line-height: 1.6; }
+
+    /* COMPARISON TABLE */
+    .comparison { padding: 6rem 2rem; background: var(--navy-primary); border-top: 1px solid var(--navy-border); }
+    .comparison-inner { max-width: 1100px; margin: 0 auto; }
+    .comparison-title { font-size: clamp(1.3rem, 2.5vw, 1.9rem); font-weight: 600; margin-bottom: 0.5rem; }
+    .comparison-sub { font-size: 0.88rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; max-width: 560px; margin-bottom: 2.5rem; }
+    .comparison-table { width: 100%; border-collapse: collapse; border: 1px solid var(--navy-border); }
+    .comparison-table th { background: var(--navy-card); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-subtle); padding: 1rem 1.4rem; text-align: left; border-bottom: 1px solid var(--navy-border); }
+    .comparison-table th.highlight { color: var(--gold); background: rgba(201,168,76,0.06); }
+    .comparison-table td { padding: 1rem 1.4rem; font-size: 0.85rem; border-bottom: 1px solid var(--navy-border); color: var(--text-muted); vertical-align: middle; }
+    .comparison-table td.row-label { font-weight: 500; color: var(--text-primary); font-size: 0.8rem; letter-spacing: 0.04em; }
+    .comparison-table td.highlight { background: rgba(201,168,76,0.04); color: var(--gold); font-weight: 500; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table tr:hover td { background: rgba(255,255,255,0.01); }
+
+    /* NEWS CARDS */
+    .news-section { padding: 6rem 2rem; background: var(--navy-deep); border-top: 1px solid var(--navy-border); }
+    .news-inner { max-width: 1280px; margin: 0 auto; }
+    .news-header { margin-bottom: 2.8rem; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .news-title { font-size: clamp(1.3rem, 2.5vw, 1.9rem); font-weight: 600; }
+    .news-update-note { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); }
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); }
+    .news-card { background: var(--navy-card); padding: 2rem; display: flex; flex-direction: column; gap: 0.9rem; transition: background 0.2s; }
+    .news-card:hover { background: #0F1E35; }
+    .news-category { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .news-category::before { content: ''; width: 0.5rem; height: 1px; background: var(--gold); display: block; }
+    .news-headline { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
+    .news-excerpt { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.72; flex: 1; }
+    .news-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 0.8rem; border-top: 1px solid var(--navy-border); }
+    .news-source { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); }
+    .news-date { font-size: 0.68rem; font-weight: 400; color: var(--text-subtle); }
+
+    /* CTA STRIP */
+    .cta-strip { padding: 5rem 2rem; background: var(--navy-primary); border-top: 1px solid var(--navy-border); }
+    .cta-strip-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .cta-strip-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 1rem; }
+    .cta-strip-title { font-size: clamp(1.4rem, 2.8vw, 2rem); font-weight: 600; margin-bottom: 1rem; }
+    .cta-strip-sub { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--gold); color: var(--navy-deep); padding: 1rem 2.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--text-muted); padding: 1rem 2rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--navy-border); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.2s, border-color 0.2s; }
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold-muted); }
+
+    footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 3rem 2rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; }
+    .footer-logo span { color: var(--text-subtle); font-weight: 400; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.78rem; color: var(--text-subtle); letter-spacing: 0.05em; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    @media (max-width: 1100px) {
+      .fundamentals-grid { grid-template-columns: repeat(2, 1fr); }
+      .narrative-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .news-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 1200px) { .nav-links { display: none; } .nav-cta { display: none; } .hamburger { display: flex; } }
+    @media (max-width: 860px) {
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      .fundamentals-grid { grid-template-columns: 1fr; }
+      .comparison-table { font-size: 0.78rem; }
+      .comparison-table th, .comparison-table td { padding: 0.8rem 1rem; }
+    }
+    @media (max-width: 600px) {
+      .page-hero { padding: 7rem 1.5rem 4rem; }
+      .fundamentals { padding: 4rem 1.5rem; }
+      .narrative { padding: 4rem 1.5rem; }
+      .comparison { padding: 4rem 1.5rem; }
+      .news-section { padding: 4rem 1.5rem; }
+      .hero-metrics { grid-template-columns: 1fr 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (min-width: 1440px) { html { font-size: 17px; } }
+    @media (min-width: 1920px) { html { font-size: 18.5px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MULTI FAMILY <span>DEALS</span></a>
+      <ul class="nav-links">
+        <li><a href="about.html">The Strategy</a></li>
+        <li><a href="why-alberta.html" class="active">Why Alberta</a></li>
+        <li><a href="inventory.html">Active Inventory</a></li>
+        <li><a href="buying-process.html">Buying Process</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="guide.html" style="color:var(--gold)">Free Guide</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="about.html">The Strategy</a>
+      <a href="why-alberta.html">Why Alberta</a>
+      <a href="inventory.html">Active Inventory</a>
+      <a href="buying-process.html">Buying Process</a>
+      <a href="faq.html">FAQ</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="guide.html" style="color:var(--gold)">Free Investor Guide</a>
+      <a href="contact.html">Book a Call</a>
+    </nav>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="page-hero-inner">
+      <div class="page-eyebrow">Market Fundamentals</div>
+      <h1 class="page-title">Why <span>Alberta</span> &amp; Why <span>Edmonton</span></h1>
+      <p class="page-subtitle">The mortgage product is only half the thesis. The other half is the market. Alberta — and Edmonton specifically — is producing the strongest rental demand fundamentals of any major Canadian city.</p>
+      <div class="hero-metrics reveal">
+        <div class="hero-metric">
+          <div class="hero-metric-value">#1</div>
+          <div class="hero-metric-label">Interprovincial Migration Destination in Canada</div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric-value">2.4%</div>
+          <div class="hero-metric-label">Edmonton Rental Vacancy — Near Decade Low</div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric-value">$0</div>
+          <div class="hero-metric-label">Provincial Sales Tax — No PST, No HST</div>
+        </div>
+        <div class="hero-metric">
+          <div class="hero-metric-value">47%</div>
+          <div class="hero-metric-label">Lower Home Prices vs Toronto</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET FUNDAMENTALS GRID -->
+  <section class="fundamentals">
+    <div class="fundamentals-inner">
+      <div class="fundamentals-header reveal">
+        <div class="section-label">The Numbers</div>
+        <h2 class="fundamentals-title">Seven Reasons Investors Are Moving Capital to Alberta</h2>
+        <p class="fundamentals-subtitle">These aren't projections or optimistic estimates. They are documented market conditions — confirmed by Statistics Canada, CMHC, and provincial data — that existed before the investment thesis was built.</p>
+      </div>
+      <div class="fundamentals-grid">
+
+        <div class="fund-card reveal" style="transition-delay:0.04s">
+          <svg class="fund-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+          <div class="fund-card-title">Population Surge</div>
+          <div class="fund-card-stat">200K+</div>
+          <div class="fund-card-stat-sub">Net new Albertans per year</div>
+          <div class="fund-card-body">Alberta has been the #1 destination for interprovincial migration in Canada for multiple consecutive years. High cost of living in Ontario and BC is pushing families and workers west. Edmonton's metro population crossed 1.6 million and is growing faster than city infrastructure can supply housing.</div>
+          <div class="fund-card-source">Source: Statistics Canada · 2023–2024 data</div>
+        </div>
+
+        <div class="fund-card reveal" style="transition-delay:0.08s">
+          <svg class="fund-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+          <div class="fund-card-title">Rental Vacancy Crisis</div>
+          <div class="fund-card-stat">2.4%</div>
+          <div class="fund-card-stat-sub">Edmonton vacancy rate</div>
+          <div class="fund-card-body">Edmonton's rental vacancy rate has dropped near decade lows. Landlords are routinely receiving multiple applications per unit. A vacancy rate below 3% is the threshold at which landlords hold pricing power — Edmonton is well below it with no near-term supply relief in sight.</div>
+          <div class="fund-card-source">Source: CMHC Rental Market Report · 2023</div>
+        </div>
+
+        <div class="fund-card reveal" style="transition-delay:0.12s">
+          <svg class="fund-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+          <div class="fund-card-title">Rent Growth</div>
+          <div class="fund-card-stat">+12%</div>
+          <div class="fund-card-stat-sub">Average YoY rent growth</div>
+          <div class="fund-card-body">Average rents across Edmonton have risen approximately 10–15% year-over-year since 2022. Purpose-built multi-family units — which offer longer tenancy stability than basement suites — are commanding premium rents and showing lower vacancy than the broader market average.</div>
+          <div class="fund-card-source">Source: CMHC / Rentals.ca National Rent Report · 2024</div>
+        </div>
+
+        <div class="fund-card reveal" style="transition-delay:0.16s">
+          <svg class="fund-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605"/></svg>
+          <div class="fund-card-title">GDP Diversification</div>
+          <div class="fund-card-stat">3.8%</div>
+          <div class="fund-card-stat-sub">Alberta GDP growth 2023</div>
+          <div class="fund-card-body">Alberta is no longer solely an energy economy. Healthcare, financial services, agri-technology, and an emerging tech sector have broadened the economic base. Amazon's regional cloud infrastructure, AI research institutions, and provincial cleantech investment are all drawing new employment sectors to Edmonton.</div>
+          <div class="fund-card-source">Source: Alberta Treasury Board · 2023 Annual Report</div>
+        </div>
+
+        <div class="fund-card reveal" style="transition-delay:0.20s">
+          <svg class="fund-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/></svg>
+          <div class="fund-card-title">Infrastructure Investment</div>
+          <div class="fund-card-stat">$16B+</div>
+          <div class="fund-card-stat-sub">Capital projects underway</div>
+          <div class="fund-card-body">Edmonton's Valley Line LRT West expansion, the Yellowhead Trail freeway conversion, major hospital expansions, and the continued buildout of the ICE District represent over $16 billion in committed public infrastructure. Infrastructure spending is a leading indicator for rental demand — it creates jobs, attracts workers, and requires housing.</div>
+          <div class="fund-card-source">Source: City of Edmonton Capital Budget · 2023–2026</div>
+        </div>
+
+        <div class="fund-card reveal" style="transition-delay:0.24s">
+          <svg class="fund-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="fund-card-title">Tax Advantage</div>
+          <div class="fund-card-stat">$0</div>
+          <div class="fund-card-stat-sub">Provincial sales tax</div>
+          <div class="fund-card-body">Alberta has no provincial sales tax. There is no HST — only the 5% federal GST, which is also eliminated on new purpose-built rental housing of 4+ units under the September 2023 federal Excise Tax Act amendment. That is a direct saving of up to 5% of purchase price that investors in Ontario or BC do not receive.</div>
+          <div class="fund-card-source">Source: Canada Revenue Agency · Excise Tax Act Amendment, Sept 2023</div>
+        </div>
+
+        <div class="fund-card reveal" style="transition-delay:0.28s">
+          <svg class="fund-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>
+          <div class="fund-card-title">Employment Stability</div>
+          <div class="fund-card-stat">4.2%</div>
+          <div class="fund-card-stat-sub">Edmonton unemployment rate</div>
+          <div class="fund-card-body">Edmonton's unemployment rate has held below the national average, supported by public sector employment (government, healthcare, education), a resilient energy sector, and growing private sector diversification. Employed populations rent — and Edmonton's job market is producing the type of stable, long-term tenant that makes rental income reliable.</div>
+          <div class="fund-card-source">Source: Statistics Canada Labour Force Survey · 2024</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NARRATIVE DEEP DIVE -->
+  <section class="narrative">
+    <div class="narrative-inner">
+      <div class="reveal" style="margin-bottom:3rem">
+        <div class="section-label">Context Matters</div>
+        <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:600">What the Numbers Actually Mean for a Landlord</h2>
+      </div>
+      <div class="narrative-grid">
+        <div class="narrative-item reveal" style="transition-delay:0.06s">
+          <div class="narrative-eyebrow">Population</div>
+          <h3 class="narrative-heading">Migration Creates Renters, Not Just Residents</h3>
+          <p class="narrative-body">When 200,000 people move to Alberta in a year, they don't arrive with a house. They arrive looking for somewhere to live — and in a market where home prices are already elevated relative to income, most of them rent first. <strong>New arrivals are among the most stable rental tenants:</strong> they have stable employment (which drew them here), they are financially motivated to stay, and they are not yet positioned to purchase in a new market. Purpose-built multi-family housing captures this cohort at the highest concentration.</p>
+        </div>
+        <div class="narrative-item reveal" style="transition-delay:0.10s">
+          <div class="narrative-eyebrow">Vacancy Rate</div>
+          <h3 class="narrative-heading">A 2.4% Vacancy Rate Is a Landlord's Market</h3>
+          <p class="narrative-body">Real estate economists define a balanced rental market at approximately 3% vacancy. Below that threshold, landlords hold pricing power — they can apply for above-guideline increases, face shorter vacancy periods between tenants, and receive multiple applications per unit. At 2.4%, Edmonton is structurally undersupplied. <strong>No significant supply relief is projected in the near term</strong> because purpose-built rental construction takes 18–36 months to deliver, and the pipeline is not keeping pace with population growth.</p>
+        </div>
+        <div class="narrative-item reveal" style="transition-delay:0.14s">
+          <div class="narrative-eyebrow">Affordability Gap</div>
+          <h3 class="narrative-heading">Alberta's Affordability Attracts Buyers and Preserves Cap Rates</h3>
+          <p class="narrative-body">Edmonton residential properties trade at 40–50% less than comparable Toronto or Vancouver assets. This matters in two directions: it attracts buyers who cannot afford Ontario, growing the renter pool further — <strong>and it preserves cap rates for investors</strong>. Multi-family cap rates in Edmonton run approximately 4.5–5.5%, compared to 3.0–3.5% in Toronto. Higher entry-level cap rates combined with rent growth create a compressing yield environment that builds equity faster.</p>
+        </div>
+        <div class="narrative-item reveal" style="transition-delay:0.18s">
+          <div class="narrative-eyebrow">Tax Environment</div>
+          <h3 class="narrative-heading">No Provincial Tax — A Structural, Not Temporary, Advantage</h3>
+          <p class="narrative-body">The absence of provincial sales tax is not a promotional incentive — it is written into Alberta's constitution and would require a provincial referendum to change. <strong>The federal GST exemption on purpose-built rental housing is a direct incentive</strong> for exactly these CMHC MLI Select builds — the policy was designed to encourage construction of this type of rental stock. Both advantages are structural and durable, not subject to withdrawal by a future government budget cycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="comparison">
+    <div class="comparison-inner">
+      <div class="reveal">
+        <div class="section-label">City Comparison</div>
+        <h2 class="comparison-title">Edmonton vs Other Major Canadian Markets</h2>
+        <p class="comparison-sub">The same investment strategy applied to a Toronto or Vancouver asset would produce materially different — and significantly worse — outcomes.</p>
+      </div>
+      <div class="reveal" style="transition-delay:0.08s;overflow-x:auto;margin-top:2.5rem">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th class="highlight">Edmonton</th>
+              <th>Toronto</th>
+              <th>Vancouver</th>
+              <th>Calgary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">Avg. Multi-Family Cap Rate</td>
+              <td class="highlight">4.5–5.5%</td>
+              <td>3.0–3.5%</td>
+              <td>2.8–3.2%</td>
+              <td>4.0–4.8%</td>
+            </tr>
+            <tr>
+              <td class="row-label">Provincial Sales Tax</td>
+              <td class="highlight">None</td>
+              <td>HST 13%</td>
+              <td>GST + PST 12%</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td class="row-label">Provincial Income Tax</td>
+              <td class="highlight">Lowest in Canada</td>
+              <td>Highest in Canada</td>
+              <td>High</td>
+              <td>Lowest in Canada</td>
+            </tr>
+            <tr>
+              <td class="row-label">Rental Vacancy Rate</td>
+              <td class="highlight">~2.4%</td>
+              <td>~1.5%</td>
+              <td>~0.9%</td>
+              <td>~3.1%</td>
+            </tr>
+            <tr>
+              <td class="row-label">Avg. Detached Home Price</td>
+              <td class="highlight">~$470K</td>
+              <td>~$1.1M</td>
+              <td>~$1.4M</td>
+              <td>~$600K</td>
+            </tr>
+            <tr>
+              <td class="row-label">Avg. 2BR Market Rent</td>
+              <td class="highlight">~$1,600/mo</td>
+              <td>~$2,800/mo</td>
+              <td>~$3,200/mo</td>
+              <td>~$1,900/mo</td>
+            </tr>
+            <tr>
+              <td class="row-label">Population Growth (2023)</td>
+              <td class="highlight">4.8% metro</td>
+              <td>3.2%</td>
+              <td>2.9%</td>
+              <td>5.1%</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.68rem;color:var(--text-subtle);margin-top:0.8rem;letter-spacing:0.03em">All figures are approximate and based on publicly available data from CMHC, Statistics Canada, and provincial sources. Figures are illustrative and subject to change.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURATED NEWS CARDS -->
+  <section class="news-section">
+    <div class="news-inner">
+      <div class="news-header reveal">
+        <div>
+          <div class="section-label">Market Updates</div>
+          <h2 class="news-title">What's Happening in Alberta Right Now</h2>
+        </div>
+        <div class="news-update-note">Curated monthly · Last updated May 2025</div>
+      </div>
+      <div class="news-grid">
+
+        <div class="news-card reveal" style="transition-delay:0.06s">
+          <div class="news-category">Population &amp; Migration</div>
+          <h3 class="news-headline">Alberta Tops Canada for Net Interprovincial Migration for the Third Consecutive Year</h3>
+          <p class="news-excerpt">Statistics Canada confirmed Alberta received more net interprovincial migrants than any other province in 2023–2024, driven by housing affordability pressures in Ontario and British Columbia. Edmonton specifically absorbed a significant share of new arrivals, with the metro area recording population growth rates among the highest for any major Canadian city. Demand for rental housing — particularly purpose-built multi-unit properties — has outpaced supply as the housing stock struggles to absorb new residents at the pace of arrivals.</p>
+          <div class="news-meta">
+            <span class="news-source">Statistics Canada</span>
+            <span class="news-date">Q1 2025</span>
+          </div>
+        </div>
+
+        <div class="news-card reveal" style="transition-delay:0.10s">
+          <div class="news-category">Rental Market</div>
+          <h3 class="news-headline">Edmonton Rental Vacancy Remains Near Historic Lows as Purpose-Built Supply Lags Demand</h3>
+          <p class="news-excerpt">CMHC's spring 2025 Rental Market Report identified Edmonton as one of Canada's most supply-constrained rental markets. The vacancy rate for purpose-built rental apartments held below 3%, with newer and larger units showing the strongest absorption. Landlords of 6–20 unit properties have reported average time-to-lease of under two weeks for vacant units and consistent multiple-application scenarios — conditions that have sustained above-guideline rent growth for two consecutive years.</p>
+          <div class="news-meta">
+            <span class="news-source">CMHC Rental Market Report</span>
+            <span class="news-date">Spring 2025</span>
+          </div>
+        </div>
+
+        <div class="news-card reveal" style="transition-delay:0.14s">
+          <div class="news-category">Economic Growth</div>
+          <h3 class="news-headline">Alberta Projects Strongest Provincial GDP Growth in Canada Through 2026</h3>
+          <p class="news-excerpt">Alberta's provincial government and major financial institutions have projected Alberta to lead Canadian provinces in real GDP growth through 2025–2026, supported by continued energy sector activity, accelerating private sector investment, and one of the country's most competitive business tax environments. Edmonton's public sector and healthcare employment base provides a stable anchor, while emerging technology and agri-business sectors are contributing new employment streams that reinforce rental housing demand across all unit types.</p>
+          <div class="news-meta">
+            <span class="news-source">Alberta Treasury Board &amp; Finance</span>
+            <span class="news-date">April 2025</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <div class="cta-strip-inner">
+      <div class="reveal">
+        <div class="cta-strip-eyebrow">Ready to Invest in Edmonton</div>
+        <h2 class="cta-strip-title">The Market is Right. The Product is Right. The Window is Open.</h2>
+        <p class="cta-strip-sub">View the current inventory of pre-analyzed CMHC MLI Select multi-family properties in Edmonton's highest-demand corridors, or book a strategy call to discuss your specific situation.</p>
+        <div class="cta-actions">
+          <a href="inventory.html" class="btn-primary">View Active Inventory</a>
+          <a href="contact.html" class="btn-ghost">Book a Strategy Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:0.85rem;height:0.85rem"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MULTI FAMILY <span>DEALS</span></div>
+      <ul class="footer-links">
+        <li><a href="about.html">Strategy</a></li>
+        <li><a href="why-alberta.html">Why Alberta</a></li>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="buying-process.html">Buying Process</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2025 Multi Family Deals. Not financial or investment advice. Statistics are sourced from publicly available government and industry reports and are subject to change.</div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => { mobileNav.classList.toggle('open'); });
+    hamburger.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); mobileNav.classList.toggle('open'); } });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
