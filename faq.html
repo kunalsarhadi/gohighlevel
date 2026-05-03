@@ -16,7 +16,8 @@
       --text-muted: #9AAABB; --text-subtle: #6B8BA4; --accent-warm: #C4783A;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    html { overflow-x: hidden; min-width: 320px; }
+    body { background-color: var(--navy-primary); color: var(--text-primary); font-family: 'Josefin Sans', sans-serif; font-weight: 400; overflow-x: hidden; min-width: 320px; width: 100%; }
     h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(7,15,28,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); }
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 4rem; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
