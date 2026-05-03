@@ -1105,8 +1105,8 @@
           </select>
         </div>
         <div class="gatekeeper-item gatekeeper-full" style="padding-top:0.5rem">
-          <a href="contact.html" class="btn-primary">Book Strategy Call to Receive Full Details</a>
-          <p class="gatekeeper-note">By submitting, you'll be directed to book a 30-minute strategy call where all details are shared. No spam. No unsolicited calls.</p>
+          <button type="button" id="gateSubmit" class="btn-primary">Book Strategy Call to Receive Full Details</button>
+          <p class="gatekeeper-note" id="gateNote">By submitting, you'll be directed to book a 30-minute strategy call where all details are shared. No spam. No unsolicited calls.</p>
         </div>
       </div>
     </div>
@@ -1126,12 +1126,12 @@
         <li><a href="guide.html">Free Guide</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2025 Multi Family Deals. Not financial or investment advice. CMHC MLI Select program terms subject to change.</div>
+      <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2026 Multi Family Deals. Not financial or investment advice. CMHC MLI Select program terms subject to change.</div>
     </div>
   </footer>
 
   <script>
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     const now = new Date();
     document.getElementById('inventoryDate').textContent = months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
 
@@ -1159,6 +1159,25 @@
       const expanded = soldToggle.getAttribute('aria-expanded') === 'true';
       soldToggle.setAttribute('aria-expanded', String(!expanded));
       soldGrid.classList.toggle('open', !expanded);
+    });
+
+    document.getElementById('gateSubmit').addEventListener('click', function() {
+      const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        asset: document.getElementById('asset').value,
+        capital: document.getElementById('capital2').value,
+        timestamp: new Date().toISOString(),
+        source: 'inventory-gatekeeper'
+      };
+      console.log('[MFD Lead]', JSON.stringify(data));
+      // TODO: wire GHL webhook — replace the line below with:
+      // fetch('GHL_WEBHOOK_URL', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
+      const note = document.getElementById('gateNote');
+      note.textContent = 'Received — redirecting to schedule your call…';
+      note.style.color = 'var(--gold)';
+      this.disabled = true;
+      setTimeout(() => { window.location.href = 'contact.html'; }, 900);
     });
   </script>
 </body>
