@@ -32,8 +32,12 @@
     .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.4rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background 0.2s, color 0.2s; }
     .nav-cta:hover { background: var(--gold); color: var(--navy-deep); }
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .hamburger span { width: 22px; height: 1.5px; background: var(--text-muted); display: block; transition: all 0.2s; }
-    .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid var(--navy-border); z-index: 49; padding: 1.5rem 2rem 2rem; flex-direction: column; gap: 1.2rem; }
+    .hamburger span { width: 22px; height: 1px; background: var(--text-muted); display: block; transition: all 0.25s ease; }
+    .hamburger.is-open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.is-open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+    body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
+    .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: rgba(7,15,28,0.98); backdrop-filter: blur(16px); z-index: 49; padding: 2rem 2rem 3rem; flex-direction: column; gap: 0; overflow-y: auto; }
     .mobile-nav.open { display: flex; }
     .mobile-nav a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding: 0.5rem 0; border-bottom: 1px solid var(--navy-border); transition: color 0.2s; }
     .mobile-nav a:hover, .mobile-nav a.active { color: var(--gold); }
@@ -430,8 +434,14 @@
   // Hamburger
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
-  hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-  hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') mobileNav.classList.toggle('open'); });
+    function openMenu() { mobileNav.classList.add('open'); hamburger.classList.add('is-open'); document.body.classList.add('no-scroll'); }
+    function closeMenu() { mobileNav.classList.remove('open'); hamburger.classList.remove('is-open'); document.body.classList.remove('no-scroll'); }
+    function toggleMenu() { mobileNav.classList.contains('open') ? closeMenu() : openMenu(); }
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') toggleMenu(); });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    let _lastScroll = 0;
+    window.addEventListener('scroll', () => { if (Math.abs(window.scrollY - _lastScroll) > 60) { closeMenu(); } _lastScroll = window.scrollY; }, { passive: true });
 
   // Suite tabs
   document.querySelectorAll('.suite-tab').forEach(tab => {
