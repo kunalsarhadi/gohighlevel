@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
+      --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828; --navy-alt: #0F1E35;
       --navy-border: #162438; --gold: #C4934A; --gold-light: #DBA868;
       --gold-muted: #9A7A34; --slate: #2A3F58; --text-primary: #EEF2F7; --status-live: #2AAF72;
       --text-muted: #9AAABB; --text-subtle: #8BA0B8; --accent-warm: #C4783A;
@@ -68,7 +68,7 @@
     .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
     .section-title { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 600; line-height: 1.15; margin-bottom: 1rem; }
     .section-subtitle { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; max-width: 560px; letter-spacing: 0.02em; }
-    .comparison-section { background: var(--navy-deep); padding: 7rem 2rem; }
+    .comparison-section { background: var(--navy-alt); padding: 7rem 2rem; }
     .comparison-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--navy-border); border: 1px solid var(--navy-border); margin-top: 4rem; }
     .comparison-header { background: var(--navy-card); padding: 1.5rem 2rem; text-align: center; }
     .comparison-header.highlight { background: linear-gradient(135deg, #0C1828 0%, #0F1E35 100%); border-top: 2px solid var(--gold); }
