@@ -25,7 +25,7 @@
     :root {
       --navy-deep: #03080F; --navy-primary: #070F1C; --navy-card: #0C1828;
       --navy-border: #162438; --gold: #C4934A; --gold-light: #DBA868;
-      --gold-muted: #9A7A34; --slate: #2A3F58; --text-primary: #EEF2F7;
+      --gold-muted: #9A7A34; --slate: #2A3F58; --text-primary: #EEF2F7; --status-live: #2AAF72;
       --text-muted: #9AAABB; --text-subtle: #8BA0B8; --accent-warm: #C4783A;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -102,11 +102,11 @@
     .network-strip { background: var(--navy-card); border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); padding: 1.8rem 2rem; }
     .network-strip-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
     .network-strip-left { display: flex; align-items: center; gap: 1rem; }
-    .network-strip-dot { width: 8px; height: 8px; border-radius: 50%; background: #2AAF72; flex-shrink: 0; animation: pulse 2s infinite; }
+    .network-strip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--status-live); flex-shrink: 0; animation: pulse 2s infinite; }
     .network-strip-text { font-size: 0.82rem; color: var(--text-muted); letter-spacing: 0.02em; }
     .network-strip-text strong { color: var(--text-primary); font-weight: 600; }
-    .network-strip-cta { background: transparent; border: 1px solid #2AAF72; color: #2AAF72; padding: 0.6rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: background 0.2s, color 0.2s; white-space: nowrap; flex-shrink: 0; }
-    .network-strip-cta:hover { background: #2AAF72; color: #000; }
+    .network-strip-cta { background: transparent; border: 1px solid var(--status-live); color: var(--status-live); padding: 0.6rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: background 0.2s, color 0.2s; white-space: nowrap; flex-shrink: 0; }
+    .network-strip-cta:hover { background: var(--status-live); color: #000; }
     @media (max-width: 640px) { .network-strip-inner { flex-direction: column; align-items: flex-start; } .network-strip-cta { width: 100%; justify-content: center; } }
     .cta-section { padding: 6rem 2rem; background: var(--navy-deep); border-top: 1px solid var(--navy-border); border-bottom: 1px solid var(--navy-border); text-align: center; position: relative; overflow: hidden; }
     .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
