@@ -510,55 +510,27 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
   <section class="qualifier">
     <div class="qualifier-inner reveal">
       <div class="qualifier-title">Before You Book</div>
-      <div class="qualifier-grid">
-        <div class="qualifier-item">
-          <label for="capital">Available Investment Capital</label>
-          <select id="capital" name="capital">
-            <option value="" disabled selected>Select your range</option>
-            <option>$50,000 – $100,000</option>
-            <option>$100,000 – $250,000</option>
-            <option>$250,000 – $500,000</option>
-            <option>$500,000 – $1,000,000</option>
-            <option>$1,000,000+</option>
-          </select>
-        </div>
-        <div class="qualifier-item">
-          <label for="doors">Current Door Count</label>
-          <select id="doors" name="doors">
-            <option value="" disabled selected>Select your current portfolio</option>
-            <option>0 — Getting started</option>
-            <option>1–5 doors</option>
-            <option>6–15 doors</option>
-            <option>16–30 doors</option>
-            <option>30+ doors</option>
-          </select>
-        </div>
-        <div class="qualifier-item">
-          <label for="province">Current Province of Residence</label>
-          <select id="province" name="province">
-            <option value="" disabled selected>Select your province</option>
-            <option>Ontario</option>
-            <option>British Columbia</option>
-            <option>Alberta</option>
-            <option>Quebec</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="qualifier-item">
-          <label for="timeline">Investment Timeline</label>
-          <select id="timeline" name="timeline">
-            <option value="" disabled selected>When are you ready to move?</option>
-            <option>Ready now — actively looking</option>
-            <option>Within 3 months</option>
-            <option>Within 6 months</option>
-            <option>Researching for now</option>
-          </select>
-        </div>
+      <div style="margin-top:1.5rem;">
+        <iframe
+            src="https://api.leadconnectorhq.com/widget/form/vP9PwFhTgisGUe7787YO"
+            style="width:100%;height:100%;border:none;border-radius:8px"
+            id="inline-vP9PwFhTgisGUe7787YO"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="MFD - Website Contact - Strategy Call Qualifier"
+            data-height="undefined"
+            data-layout-iframe-id="inline-vP9PwFhTgisGUe7787YO"
+            data-form-id="vP9PwFhTgisGUe7787YO"
+            title="MFD - Website Contact - Strategy Call Qualifier"
+        ></iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
       </div>
-      <div style="margin-top:1.5rem">
-        <button type="button" id="qualifierSubmit" class="btn-primary">Continue to Schedule</button>
-        <p id="qualifierNote" style="font-size:0.72rem;color:var(--text-subtle);margin-top:0.8rem;letter-spacing:0.04em;">Your answers help us tailor the call to your situation. No obligation, no spam.</p>
-      </div>
+      <p style="font-size:0.72rem;color:var(--text-subtle);margin-top:0.8rem;letter-spacing:0.04em;">Your answers help us tailor the call to your situation. No obligation, no spam.</p>
     </div>
   </section>
 
@@ -711,24 +683,6 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
       setTimeout(dismissSkel, 5000);
     }
 
-    document.getElementById('qualifierSubmit').addEventListener('click', function() {
-      const data = {
-        capital: document.getElementById('capital').value,
-        doors: document.getElementById('doors').value,
-        province: document.getElementById('province').value,
-        timeline: document.getElementById('timeline').value,
-        timestamp: new Date().toISOString(),
-        source: 'contact-qualifier'
-      };
-      console.log('[MFD Lead]', JSON.stringify(data));
-      // TODO: wire GHL webhook — replace the line below with:
-      // fetch('GHL_WEBHOOK_URL', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
-      const note = document.getElementById('qualifierNote');
-      note.textContent = 'Noted — scroll down to pick your call slot.';
-      note.style.color = 'var(--gold)';
-      this.disabled = true;
-      document.querySelector('.calendly-section').scrollIntoView({ behavior: 'smooth' });
-    });
   </script>
 <script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69fa444c3cc75785c76e6387"></script>
 </body>
