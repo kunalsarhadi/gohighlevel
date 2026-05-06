@@ -213,6 +213,22 @@
     }
       @media (min-width: 1440px) { html { font-size: 17px; } }
     @media (min-width: 1920px) { html { font-size: 18.5px; } }
+
+    /* PDF GATE MODAL */
+    .pdf-modal-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(3,8,15,0.78); backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 1rem; }
+    .pdf-modal-overlay.open { display: flex; }
+    .pdf-modal { background: #FAFAF7; color: #1A1A1A; border-radius: 4px; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; position: relative; padding: 2.5rem 2.5rem 2rem; box-shadow: 0 24px 80px rgba(0,0,0,0.6); }
+    .pdf-modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; color: #888; font-size: 1.6rem; line-height: 1; padding: 0.2rem 0.5rem; transition: color 0.2s; font-family: serif; }
+    .pdf-modal-close:hover { color: #1A1A1A; }
+    .pdf-modal-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C9A876; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .pdf-modal-eyebrow::before { content: ''; display: block; width: 1rem; height: 1px; background: #C9A876; }
+    .pdf-modal-title { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 600; color: #1A1A1A; margin-bottom: 0.5rem; line-height: 1.2; }
+    .pdf-modal-sub { font-size: 0.85rem; color: #5A5A5A; line-height: 1.65; margin-bottom: 1.75rem; }
+    .pdf-modal-form { min-height: 300px; }
+    @media (max-width: 640px) {
+      .pdf-modal { padding: 2rem 1.25rem 1.5rem; max-height: 95vh; }
+      .pdf-modal-title { font-size: 1.2rem; }
+    }
   </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -275,7 +291,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
         <div class="hero-cta-label">Save or Print</div>
         <div class="hero-cta-title">Download This Guide</div>
         <p class="hero-cta-sub">Print to PDF or save for offline reading. Share with your accountant or spouse before your strategy call.</p>
-        <button onclick="window.print()" class="btn-primary">Print / Save as PDF</button>
+        <button id="pdfGateBtn" class="btn-primary">Download PDF Guide</button>
         <a href="contact.html" class="btn-ghost">Book a Strategy Call</a>
       </div>
     </div>
@@ -618,6 +634,36 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
 
   </div>
 
+  <!-- PDF Gate Modal -->
+  <div class="pdf-modal-overlay" id="pdfModalOverlay" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+    <div class="pdf-modal" id="pdfModal">
+      <button class="pdf-modal-close" id="pdfModalClose" aria-label="Close">&times;</button>
+      <div class="pdf-modal-eyebrow">Free Download</div>
+      <h2 class="pdf-modal-title" id="pdfModalTitle">Get the Free Guide</h2>
+      <p class="pdf-modal-sub">Enter your details below and your PDF will download automatically.</p>
+      <div class="pdf-modal-form">
+        <iframe
+            src="https://api.leadconnectorhq.com/widget/form/w9WSkfoD0lYZLBl9fwv5"
+            style="width:100%;height:100%;border:none;border-radius:8px"
+            id="inline-w9WSkfoD0lYZLBl9fwv5"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="MFD - Guide PDF Download"
+            data-height="undefined"
+            data-layout-iframe-id="inline-w9WSkfoD0lYZLBl9fwv5"
+            data-form-id="w9WSkfoD0lYZLBl9fwv5"
+            title="MFD - Guide PDF Download"
+        ></iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">MULTI FAMILY <span>DEALS</span></div>
@@ -654,6 +700,39 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     window.addEventListener('scroll', () => { document.querySelectorAll('.reveal:not(.visible)').forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight + 50) el.classList.add('visible'); }); }, { passive: true });
     setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')), 1200);
+
+    // PDF Gate Modal
+    const pdfGateBtn = document.getElementById('pdfGateBtn');
+    const pdfModalOverlay = document.getElementById('pdfModalOverlay');
+    const pdfModalClose = document.getElementById('pdfModalClose');
+    function openPdfModal() { pdfModalOverlay.classList.add('open'); document.body.classList.add('no-scroll'); }
+    function closePdfModal() { pdfModalOverlay.classList.remove('open'); document.body.classList.remove('no-scroll'); }
+    pdfGateBtn.addEventListener('click', openPdfModal);
+    pdfModalClose.addEventListener('click', closePdfModal);
+    pdfModalOverlay.addEventListener('click', (e) => { if (e.target === pdfModalOverlay) closePdfModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && pdfModalOverlay.classList.contains('open')) closePdfModal(); });
+    let _pdfTriggered = false;
+    function triggerPdfDownload() {
+      if (_pdfTriggered) return;
+      _pdfTriggered = true;
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = '/assets/CMHC-MLI-Select-Investor-Guide.pdf';
+        a.download = 'CMHC MLI Select Investor Guide — Multi Family Deals.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(closePdfModal, 800);
+        _pdfTriggered = false;
+      }, 1500);
+    }
+    window.addEventListener('message', (e) => {
+      if (e.origin !== 'https://api.leadconnectorhq.com' && e.origin !== 'https://link.msgsndr.com') return;
+      const d = e.data;
+      if (!d) return;
+      const t = typeof d === 'string' ? d : (d.type || d.event || '');
+      if (/submit|success|complete/i.test(String(t))) triggerPdfDownload();
+    });
   </script>
 
 <script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69fa444c3cc75785c76e6387"></script>
