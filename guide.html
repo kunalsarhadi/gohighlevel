@@ -685,8 +685,9 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
-    function openMenu() { mobileNav.classList.add('open'); hamburger.classList.add('is-open'); document.body.classList.add('no-scroll'); }
-    function closeMenu() { mobileNav.classList.remove('open'); hamburger.classList.remove('is-open'); document.body.classList.remove('no-scroll'); }
+    function _syncScrollLock() { document.body.classList.toggle('no-scroll', mobileNav.classList.contains('open') || pdfModalOverlay.classList.contains('open')); }
+    function openMenu() { mobileNav.classList.add('open'); hamburger.classList.add('is-open'); _syncScrollLock(); }
+    function closeMenu() { mobileNav.classList.remove('open'); hamburger.classList.remove('is-open'); _syncScrollLock(); }
     function toggleMenu() { mobileNav.classList.contains('open') ? closeMenu() : openMenu(); }
     hamburger.addEventListener('click', toggleMenu);
     hamburger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') toggleMenu(); });
@@ -705,8 +706,8 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
     const pdfGateBtn = document.getElementById('pdfGateBtn');
     const pdfModalOverlay = document.getElementById('pdfModalOverlay');
     const pdfModalClose = document.getElementById('pdfModalClose');
-    function openPdfModal() { pdfModalOverlay.classList.add('open'); document.body.classList.add('no-scroll'); }
-    function closePdfModal() { pdfModalOverlay.classList.remove('open'); document.body.classList.remove('no-scroll'); }
+    function openPdfModal() { pdfModalOverlay.classList.add('open'); _syncScrollLock(); }
+    function closePdfModal() { pdfModalOverlay.classList.remove('open'); _syncScrollLock(); }
     pdfGateBtn.addEventListener('click', openPdfModal);
     pdfModalClose.addEventListener('click', closePdfModal);
     pdfModalOverlay.addEventListener('click', (e) => { if (e.target === pdfModalOverlay) closePdfModal(); });
