@@ -84,8 +84,8 @@
     .status-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; display: block; }
     .status-pill.available { color: #3D9E7A; }
     .status-pill.available::before { background: #3D9E7A; }
-    .status-pill.sc { color: var(--gold-muted); }
-    .status-pill.sc::before { background: var(--gold-muted); }
+    .status-pill.sc { color: var(--gold); }
+    .status-pill.sc::before { background: var(--gold); }
     .status-pill.cs { color: var(--text-subtle); }
     .status-pill.cs::before { background: var(--text-subtle); border: 1px solid var(--text-subtle); background: transparent; }
     .status-updated { font-size: 0.85rem; letter-spacing: 0.08em; color: var(--text-subtle); }
@@ -143,11 +143,11 @@
     .asset-badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.3rem 0.7rem; border: 1px solid; margin-bottom: 1rem; }
     .asset-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; display: block; }
     .asset-badge.available { color: #3D9E7A; border-color: #3D9E7A; background: rgba(61,158,122,0.08); }
-    .asset-badge.sc { color: var(--gold-muted); border-color: var(--gold-muted); background: rgba(154,122,52,0.1); }
+    .asset-badge.sc { color: var(--gold); border-color: var(--gold); background: rgba(196,147,74,0.1); }
     .asset-badge.coming-soon { color: var(--text-subtle); border-color: var(--text-subtle); background: transparent; }
     .asset-badge.sold { color: var(--text-subtle); border-color: #1E3352; background: transparent; }
     .asset-name { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.2rem; line-height: 1.3; }
-    .asset-package { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 0.4rem; }
+    .asset-package { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
     .asset-location { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 1.4rem; }
     /* STATS BLOCK — hero layout */
     .asset-stats { border: 1px solid var(--navy-border); overflow: hidden; }
@@ -155,7 +155,7 @@
     .asset-stat-hero-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 0.35rem; }
     .asset-stat-hero-value { font-family: 'Cinzel', serif; font-size: 1.7rem; font-weight: 700; color: var(--gold); line-height: 1; letter-spacing: 0.02em; }
     .asset-stat-hero-value.neutral { color: var(--text-muted); font-size: 1.05rem; font-weight: 400; font-family: 'Josefin Sans', sans-serif; letter-spacing: 0.08em; }
-    .asset-stat-hero-sub { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-subtle); margin-top: 0.3rem; opacity: 0.75; }
+    .asset-stat-hero-sub { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; }
     .asset-stat-row { display: grid; grid-template-columns: 1fr 1px 1fr; background: var(--navy-border); }
     .asset-stat-row .asset-stat { background: var(--navy-primary); padding: 0.75rem 0.9rem; text-align: center; }
     .asset-stat-deposit { background: var(--navy-primary); border-top: 1px solid var(--navy-border); padding: 0.55rem 1.1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
@@ -174,7 +174,7 @@
 
     /* SC SECTION — dimmed */
     .sc-section { background: var(--navy-deep); }
-    .sc-section .cards-grid { opacity: 0.65; }
+    .sc-section .cards-grid { opacity: 1; }
     .sc-section .asset-card:hover { background: #0A1525; }
     .sc-section .asset-stat { background: #070F1C; }
     .sc-section .asset-stat-hero { background: rgba(154,122,52,0.04); }
@@ -182,7 +182,7 @@
 
     /* COMING SOON SECTION */
     .cs-section { background: var(--navy-deep); }
-    .cs-section .cards-grid { opacity: 0.5; }
+    .cs-section .cards-grid { opacity: 1; }
     .cs-section .asset-card { cursor: default; pointer-events: none; }
     .cs-section .asset-card-bottom a { pointer-events: auto; cursor: pointer; }
     .cs-section .asset-stat { background: #070F1C; }
@@ -201,7 +201,7 @@
     .collapse-btn[aria-expanded="true"] .collapse-icon { transform: rotate(180deg); }
     .sold-grid-wrap { display: none; margin-top: 1px; }
     .sold-grid-wrap.open { display: block; }
-    .sold-section .cards-grid { opacity: 0.4; }
+    .sold-section .cards-grid { opacity: 1; }
     .sold-section .asset-card { cursor: default; pointer-events: none; }
     .sold-section .asset-stat { background: #070F1C; }
     .sold-section .asset-stat-hero { background: rgba(60,70,90,0.1); }
@@ -746,18 +746,18 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
             <div class="asset-stats">
               <div class="asset-stat-hero">
                 <div class="asset-stat-hero-label">Annual Cash Flow</div>
-                <div class="asset-stat-hero-value" style="color:var(--gold-muted);font-size:1.05rem;font-family:'Josefin Sans',sans-serif;font-weight:400;letter-spacing:0.1em">Upon Request</div>
+                <div class="asset-stat-hero-value" style="color:var(--gold);font-size:1.05rem;font-family:'Josefin Sans',sans-serif;font-weight:400;letter-spacing:0.1em">Upon Request</div>
                 <div class="asset-stat-hero-sub">Details available on waitlist</div>
               </div>
               <div class="asset-stat-row">
-                <div class="asset-stat"><div class="asset-stat-label">DSCR</div><div class="asset-stat-value" style="color:var(--gold-muted)">1.21</div></div>
+                <div class="asset-stat"><div class="asset-stat-label">DSCR</div><div class="asset-stat-value" style="color:var(--gold)">1.21</div></div>
                 <div></div>
-                <div class="asset-stat"><div class="asset-stat-label">Completion</div><div class="asset-stat-value" style="color:var(--gold-muted)">Fall 2026</div></div>
+                <div class="asset-stat"><div class="asset-stat-label">Completion</div><div class="asset-stat-value" style="color:var(--gold)">Fall 2026</div></div>
               </div>
             </div>
           </div>
           <div class="asset-card-bottom">
-            <a href="contact.html" class="asset-cta" style="color:var(--gold-muted)">Join Waitlist — May Become Available <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
+            <a href="contact.html" class="asset-cta" style="color:var(--gold)">Join Waitlist — May Become Available <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
           </div>
         </div>
 
@@ -771,18 +771,18 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
             <div class="asset-stats">
               <div class="asset-stat-hero">
                 <div class="asset-stat-hero-label">Annual Cash Flow</div>
-                <div class="asset-stat-hero-value" style="color:var(--gold-muted)">$13,378</div>
+                <div class="asset-stat-hero-value" style="color:var(--gold)">$13,378</div>
                 <div class="asset-stat-hero-sub">Pre-tax · Pro-forma estimate</div>
               </div>
               <div class="asset-stat-row">
-                <div class="asset-stat"><div class="asset-stat-label">DSCR</div><div class="asset-stat-value" style="color:var(--gold-muted)">1.16</div></div>
+                <div class="asset-stat"><div class="asset-stat-label">DSCR</div><div class="asset-stat-value" style="color:var(--gold)">1.16</div></div>
                 <div></div>
-                <div class="asset-stat"><div class="asset-stat-label">Completion</div><div class="asset-stat-value" style="color:var(--gold-muted)">Fall 2026</div></div>
+                <div class="asset-stat"><div class="asset-stat-label">Completion</div><div class="asset-stat-value" style="color:var(--gold)">Fall 2026</div></div>
               </div>
             </div>
           </div>
           <div class="asset-card-bottom">
-            <a href="contact.html" class="asset-cta" style="color:var(--gold-muted)">Join Waitlist — May Become Available <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
+            <a href="contact.html" class="asset-cta" style="color:var(--gold)">Join Waitlist — May Become Available <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
           </div>
         </div>
 
@@ -796,18 +796,18 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
             <div class="asset-stats">
               <div class="asset-stat-hero">
                 <div class="asset-stat-hero-label">Annual Cash Flow</div>
-                <div class="asset-stat-hero-value" style="color:var(--gold-muted)">$36,955</div>
+                <div class="asset-stat-hero-value" style="color:var(--gold)">$36,955</div>
                 <div class="asset-stat-hero-sub">Pre-tax · Pro-forma estimate</div>
               </div>
               <div class="asset-stat-row">
-                <div class="asset-stat"><div class="asset-stat-label">DSCR</div><div class="asset-stat-value" style="color:var(--gold-muted)">1.27</div></div>
+                <div class="asset-stat"><div class="asset-stat-label">DSCR</div><div class="asset-stat-value" style="color:var(--gold)">1.27</div></div>
                 <div></div>
-                <div class="asset-stat"><div class="asset-stat-label">Completion</div><div class="asset-stat-value" style="color:var(--gold-muted)">Fall 2026</div></div>
+                <div class="asset-stat"><div class="asset-stat-label">Completion</div><div class="asset-stat-value" style="color:var(--gold)">Fall 2026</div></div>
               </div>
             </div>
           </div>
           <div class="asset-card-bottom">
-            <a href="contact.html" class="asset-cta" style="color:var(--gold-muted)">Join Waitlist — May Become Available <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
+            <a href="contact.html" class="asset-cta" style="color:var(--gold)">Join Waitlist — May Become Available <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
           </div>
         </div>
 
@@ -821,18 +821,18 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
             <div class="asset-stats">
               <div class="asset-stat-hero">
                 <div class="asset-stat-hero-label">Annual Cash Flow</div>
-                <div class="asset-stat-hero-value" style="color:var(--gold-muted)">$17,508</div>
+                <div class="asset-stat-hero-value" style="color:var(--gold)">$17,508</div>
                 <div class="asset-stat-hero-sub">Pre-tax · Pro-forma estimate</div>
               </div>
               <div class="asset-stat-row">
-                <div class="asset-stat"><div class="asset-stat-label">DSCR</div><div class="asset-stat-value" style="color:var(--gold-muted)">1.18</div></div>
+                <div class="asset-stat"><div class="asset-stat-label">DSCR</div><div class="asset-stat-value" style="color:var(--gold)">1.18</div></div>
                 <div></div>
-                <div class="asset-stat"><div class="asset-stat-label">Completion</div><div class="asset-stat-value" style="color:var(--gold-muted)">Summer 2026</div></div>
+                <div class="asset-stat"><div class="asset-stat-label">Completion</div><div class="asset-stat-value" style="color:var(--gold)">Summer 2026</div></div>
               </div>
             </div>
           </div>
           <div class="asset-card-bottom">
-            <a href="contact.html" class="asset-cta" style="color:var(--gold-muted)">Join Waitlist — May Become Available <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
+            <a href="contact.html" class="asset-cta" style="color:var(--gold)">Join Waitlist — May Become Available <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
           </div>
         </div>
 
@@ -1034,7 +1034,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
   <section class="eligibility-section">
     <div class="eligibility-inner">
       <div class="reveal">
-        <div class="section-label" style="color:var(--gold-muted)">Qualification Requirements</div>
+        <div class="section-label" style="color:var(--gold)">Qualification Requirements</div>
         <h2 class="eligibility-title">This Program Isn't for Everyone</h2>
         <p class="eligibility-subtitle">CMHC MLI Select has strict qualification criteria. We'd rather you know now than find out at application stage. If you meet these requirements, you're exactly who this is built for.</p>
       </div>
