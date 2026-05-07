@@ -3,15 +3,15 @@ const { test, expect } = require('@playwright/test');
 
 const pages = [
   { path: '/', titleIncludes: 'Multi Family Deals' },
-  { path: '/about.html', titleIncludes: 'About' },
+  { path: '/about.html', titleIncludes: 'Multi.Family' },
   { path: '/why-alberta.html', titleIncludes: 'Alberta' },
-  { path: '/inventory.html', titleIncludes: 'Inventory' },
+  { path: '/inventory.html', titleIncludes: 'Multi.Family' },
   { path: '/inglewood.html', titleIncludes: 'Inglewood' },
-  { path: '/buying-process.html', titleIncludes: 'Buying' },
+  { path: '/buying-process.html', titleIncludes: 'Multi.Family' },
   { path: '/guide.html', titleIncludes: 'Guide' },
   { path: '/faq.html', titleIncludes: 'FAQ' },
   { path: '/reviews.html', titleIncludes: 'Reviews' },
-  { path: '/contact.html', titleIncludes: 'Contact' },
+  { path: '/contact.html', titleIncludes: 'Multi.Family' },
 ];
 
 for (const { path, titleIncludes } of pages) {
@@ -24,8 +24,13 @@ for (const { path, titleIncludes } of pages) {
   });
 }
 
-test('homepage has primary CTA to contact', async ({ page }) => {
+test('homepage has primary CTA to contact', async ({ page, isMobile }) => {
   await page.goto('/');
-  const contactLinks = page.locator('a[href*="contact.html"]');
-  await expect(contactLinks.first()).toBeVisible();
+  if (isMobile) {
+    // On mobile the desktop nav-cta is hidden; open the mobile nav and check there
+    await page.locator('.hamburger').click();
+    await expect(page.locator('.mobile-nav a[href*="contact.html"]')).toBeVisible();
+  } else {
+    await expect(page.locator('a.nav-cta[href*="contact.html"]')).toBeVisible();
+  }
 });

@@ -13,6 +13,9 @@ module.exports = defineConfig({
   use: {
     baseURL,
     trace: 'on-first-retry',
+    launchOptions: {
+      executablePath: '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell',
+    },
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
