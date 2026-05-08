@@ -1200,5 +1200,47 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
     });
   </script>
 <script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69fa444c3cc75785c76e6387"></script>
+
+<script>
+// Meta Pixel — Contact event tracking
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (typeof fbq === 'function') {
+        var eventId = 'contact-tel-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        fbq('track', 'Contact', {
+          contact_method: 'phone',
+          phone_number: link.getAttribute('href').replace('tel:', '')
+        }, {eventID: eventId});
+      }
+    });
+  });
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (typeof fbq === 'function') {
+        var eventId = 'contact-email-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        fbq('track', 'Contact', {
+          contact_method: 'email',
+          email: link.getAttribute('href').replace('mailto:', '')
+        }, {eventID: eventId});
+      }
+    });
+  });
+});
+</script>
+
+<script>
+// Meta Pixel — ViewContent for high-intent pages
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof fbq === 'function') {
+    var eventId = 'viewcontent-' + window.location.pathname.replace(/[^a-z0-9]/gi, '') + '-' + Date.now();
+    fbq('track', 'ViewContent', {
+      content_name: document.title,
+      content_category: 'multi-family-investment',
+      content_type: 'inventory_page'
+    }, {eventID: eventId});
+  }
+});
+</script>
 </body>
 </html>
