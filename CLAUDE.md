@@ -15,7 +15,7 @@ The target investor wants to scale to 50+ doors in 4 years.
 - **Live URL:** https://multi-family-deals.ca
 - **Hosting:** GitHub Pages (the CNAME file points the domain to GitHub Pages)
 - **Repository:** https://github.com/kunalsarhadi/multifamilydeals
-- **Local files:** `/home/user/gohighlevel/`
+- **Local files:** `/home/user/multifamilydeals/`
 - **Default branch for deploys:** `main` — pushing to `main` makes changes live within 1–2 minutes
 - **Feature branches:** use `fix/` or `feat/` prefix, merge to `main` when ready
 
@@ -77,19 +77,26 @@ Always tell the user whether a change is local-only or has been pushed live.
 ## Inventory
 
 - The "Last Updated" date on the inventory page updates automatically via JavaScript (`new Date()`) — no manual work needed
-- Inventory data is managed separately in Google Sheets (Claude does not have access to this)
+- Inventory data is managed in Google Sheets — see the Google Sheets section below for API access
 
 ## Git Workflow
 
+Always use feature branches — never push directly to main.
+
 ```bash
-# Make changes to local files
+git checkout -b feat/description origin/main
 git add <files>
 git commit -m "description"
-git push origin main   # this makes it live
+git push -u origin feat/description
 ```
 
-Never push directly to main without reviewing changes first.
-Use feature branches for multi-step work, merge to main when confirmed clean.
+Then open a PR via `mcp__github__create_pull_request` and squash-merge via `mcp__github__merge_pull_request`.
+
+**Notes:**
+- `git push` works fine through the local proxy — use it for all file commits including images
+- Do NOT use `mcp__github__push_files` for large files (>50KB) — it cannot reliably handle them
+- Do NOT use background agents to push files — they truncate large files
+- Large MCP tool outputs (>25K tokens) auto-persist to a file path shown in the result — always read from that path using `jq`, never try to capture the raw output directly
 
 ## Google Sheets — Inventory Hotlist
 
@@ -99,13 +106,22 @@ The live inventory data is managed in Google Sheets. Read it at the start of any
 - **Tab name:** `CMHC MLI Inventory List`
 - **API Key:** `AIzaSyC3Ii4Ps8mqlB-sCO5DyqFo1HgTyADcxCc`
 
-**To read the sheet:**
+**To read the sheet (always use `includeGridData=true` — required to get Drive folder hyperlinks embedded in cells):**
 ```
-https://sheets.googleapis.com/v4/spreadsheets/1rv3GdNkdN89AmNthj1JeL2ulSgKL9x3NnIL7UxCbn20/values/CMHC%20MLI%20Inventory%20List?key=AIzaSyC3Ii4Ps8mqlB-sCO5DyqFo1HgTyADcxCc
+https://sheets.googleapis.com/v4/spreadsheets/1rv3GdNkdN89AmNthj1JeL2ulSgKL9x3NnIL7UxCbn20?key=AIzaSyC3Ii4Ps8mqlB-sCO5DyqFo1HgTyADcxCc&includeGridData=true&ranges=CMHC%20MLI%20Inventory%20List!A1:Z60
 ```
 
-When the user says "sync inventory", "update inventory", or "update the hotlist":
-1. Fetch the sheet using the URL above
-2. Compare with current inventory.html
-3. Update inventory.html to match the sheet
-4. Commit and push to main
+Save the response to `/tmp/hotlist.json` and use `jq` to read it — the output is large and will auto-persist.
+
+**When the user says "upload line N" (single property):**
+1. Extract row N-1 (0-indexed) from `/tmp/hotlist.json` — get plex type, status, package name + Drive folder hyperlink, neighbourhood, city, cash flow, DSCR, completion
+2. If `AVAILABLE`: find the image in the Drive folder via `mcp__565775ac-*__search_files` with `parentId = '<folder_id>'` and `mimeType contains 'image/'` — pick whichever result is a JPEG or PNG (any filename)
+3. Download via `mcp__565775ac-*__download_file_content` — output persists to file; decode with `jq -r '.content' <path> | base64 -d > images/<slug>.png`
+4. **Phase A PR:** branch `feat/add-<slug>-image` off main → commit image → push → PR → squash-merge
+5. **Phase B PR:** branch `feat/add-<plex>-<slug>` off main → insert card → bump status pill + count + dropdown + JSON-LD → push → PR → squash-merge
+6. Cards with 6–12 units go in the first tier; 15+ units go in the second tier (Institutional-Scale)
+
+**When the user says "sync inventory":**
+1. Re-fetch the sheet into `/tmp/hotlist.json`
+2. Diff all rows against inventory.html (Available, SC, CS sections + status pill + dropdown + JSON-LD)
+3. If more than ~3 properties changed, report the planned diff before opening any PRs
