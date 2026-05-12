@@ -116,6 +116,8 @@
     .section-label.subtle { color: var(--text-subtle); }
     .section-title { font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 600; }
     .inventory-count { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; color: var(--text-subtle); }
+    .inventory-header-right { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: flex-end; }
+    @media (max-width: 1200px) { .inventory-header-right { justify-content: flex-start; width: 100%; } }
     .inventory-count span { color: var(--gold); }
     .inventory-count span.muted { color: var(--gold-muted); }
     .inventory-count span.subtle { color: var(--text-subtle); }
@@ -542,7 +544,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
           <div class="section-label">Active Listings</div>
           <div class="section-title">Available Now</div>
         </div>
-        <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;justify-content:flex-end;">
+        <div class="inventory-header-right">
           <div class="inventory-count"><span>11</span> Properties Ready to Acquire</div>
           <div class="sort-controls">
             <span class="sort-label">Sort by</span>
