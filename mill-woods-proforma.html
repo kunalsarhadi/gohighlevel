@@ -406,20 +406,53 @@
     }
     .doc-foot .footnote-line .page-num { color: var(--gold-deep); font-weight: 600; }
 
-    /* PRINT */
+    /* PRINT — letter page with real margins, content flows freely */
+    @page {
+      size: letter;
+      margin: 0.55in 0.65in;
+    }
     @media print {
-      @page { size: letter; margin: 0; }
       html, body { background: #FFFFFF; }
+      body { padding: 0; margin: 0; }
+
+      /* Pages become flowing sections; @page margin handles all spacing */
       .page {
         margin: 0;
-        box-shadow: none;
+        padding: 0;
         max-width: none;
-        width: 8.5in;
-        min-height: 11in;
-        padding: 0.65in 0.7in 0.55in;
-        page-break-after: always;
+        width: 100%;
+        min-height: 0;
+        box-shadow: none;
+        page-break-after: auto;
       }
-      .page:last-child { page-break-after: auto; }
+      /* Force a fresh page only between the two top-level articles */
+      .page + .page { page-break-before: always; }
+
+      /* Repeat the doc header at the top of every printed sheet */
+      .doc-head { margin-top: 0; }
+
+      /* Don't let these split mid-element */
+      .stats,
+      .returns,
+      .concessions,
+      .formulas,
+      .doc-foot,
+      .sensitivity-block,
+      table.data,
+      table.projection-table,
+      table.sensitivity {
+        page-break-inside: avoid;
+      }
+      .section { page-break-inside: auto; }
+      .section-label { page-break-after: avoid; }
+
+      /* Slightly tighter spacing in print so things don't sprawl */
+      .page-section, .section { margin-top: 1.2rem; }
+      .hero { margin-bottom: 1.2rem; }
+      .hero h1 { font-size: 2.1rem; }
+
+      /* No clickable color hints on print */
+      a { color: inherit; text-decoration: none; }
     }
 
     /* SMALL SCREENS */
@@ -545,10 +578,10 @@
   </section>
 
   <footer class="doc-foot">
-    <div>For informational purposes only. Figures are based on assumptions and are not a guarantee of future performance. See full disclaimer on page 2.</div>
+    <div>For informational purposes only. Figures are based on assumptions and are not a guarantee of future performance. See full disclaimer on the following page.</div>
     <div class="footnote-line">
       <span>8-Plex Mill Woods · Edmonton, Alberta</span>
-      <span class="page-num">Page 1 of 2</span>
+      <span class="page-num">Investment Summary</span>
     </div>
   </footer>
 
@@ -556,7 +589,7 @@
 
 
 <!-- ============================================================
-     PAGE 2 — UNDERWRITING
+     UNDERWRITING & RETURNS
 ============================================================ -->
 <article class="page">
 
@@ -830,7 +863,7 @@
     </div>
     <div class="footnote-line">
       <span>8-Plex Mill Woods · Edmonton, Alberta · CMHC MLI Select</span>
-      <span class="page-num">Page 2 of 2</span>
+      <span class="page-num">Underwriting &amp; Returns</span>
     </div>
   </footer>
 
