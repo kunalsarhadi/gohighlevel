@@ -61,6 +61,18 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://multi-family-deals.ca/ontario-investors.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://multi-family-deals.ca/blog/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://multi-family-deals.ca/blog/cmhc-mli-select-guide.html</loc>
     <lastmod>2026-05-13</lastmod>
     <priority>0.8</priority>
