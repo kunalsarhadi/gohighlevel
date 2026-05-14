@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBW5QJQT');</script>
+<!-- End Google Tag Manager -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE1S1R0BD4"></script>
 <script>
@@ -184,6 +191,10 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://multi-family-deals.ca/"},{"@type":"ListItem","position":2,"name":"Buying Process","item":"https://multi-family-deals.ca/buying-process.html"}]}</script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBW5QJQT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <nav>
     <div class="nav-inner">
@@ -200,7 +211,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
         <li><a href="guide.html">Free Guide</a></li>
         
       </ul>
-      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <a href="contact.html" data-conversion="book_call" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -214,7 +225,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
       <a href="reviews.html">Reviews</a>
       <a href="blog/index.html">Blog</a>
       <a href="guide.html">Free Guide</a>
-      <a href="contact.html" class="mobile-nav-cta">Book Strategy Call</a>
+      <a href="contact.html" data-conversion="book_call" class="mobile-nav-cta">Book Strategy Call</a>
     </div>
 
   <section class="page-hero">
@@ -401,7 +412,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
       <h2 class="reveal" style="font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;margin-bottom:1rem;transition-delay:0.05s">Begin with a Strategy Call</h2>
       <p class="reveal" style="font-size:0.95rem;font-weight:300;color:var(--text-muted);line-height:1.75;transition-delay:0.1s">Step 1 starts with a 30-minute call where we assess your eligibility and walk you through the right property for your goals. No commitment required.</p>
       <div class="cta-buttons reveal" style="transition-delay:0.15s">
-        <a href="contact.html" class="btn-primary">Book Your Strategy Call</a>
+        <a href="contact.html" data-conversion="book_call" class="btn-primary">Book Your Strategy Call</a>
         <a href="inventory.html" class="btn-ghost">View Active Inventory <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg></a>
       </div>
     </div>
@@ -421,7 +432,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="guide.html">Free Guide</a></li>
         <li><a href="blog/index.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" data-conversion="book_call">Contact</a></li>
       </ul>
       <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2026 Multi Family Deals. Not financial or investment advice. CMHC MLI Select program terms subject to change.</div>
     </div>
@@ -476,5 +487,23 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<!-- Conversion Event Listener -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-conversion]');
+    if(!el) return;
+    var eventName = el.getAttribute('data-conversion');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': eventName,
+      'event_category': 'engagement',
+      'event_label': el.textContent.trim().substring(0, 50),
+      'page_path': window.location.pathname
+    });
+  });
+})();
+</script>
+<!-- End Conversion Event Listener -->
 </body>
 </html>

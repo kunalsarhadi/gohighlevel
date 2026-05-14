@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBW5QJQT');</script>
+<!-- End Google Tag Manager -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE1S1R0BD4"></script>
 <script>
@@ -263,6 +270,10 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://multi-family-deals.ca/"},{"@type":"ListItem","position":2,"name":"Free Guide","item":"https://multi-family-deals.ca/guide.html"}]}</script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBW5QJQT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <nav>
     <div class="nav-inner">
@@ -278,7 +289,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="guide.html" class="active">Free Guide</a></li>
       </ul>
-      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <a href="contact.html" data-conversion="book_call" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -292,7 +303,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
       <a href="reviews.html">Reviews</a>
       <a href="blog/index.html">Blog</a>
       <a href="guide.html" class="active">Free Guide</a>
-      <a href="contact.html" class="mobile-nav-cta">Book Strategy Call</a>
+      <a href="contact.html" data-conversion="book_call" class="mobile-nav-cta">Book Strategy Call</a>
     </div>
 
   <section class="page-hero">
@@ -308,7 +319,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
         <div class="hero-cta-title">Download This Guide</div>
         <p class="hero-cta-sub">Print to PDF or save for offline reading. Share with your accountant or spouse before your strategy call.</p>
         <button id="pdfGateBtn" class="btn-primary">Download PDF Guide</button>
-        <a href="contact.html" class="btn-ghost">Book a Strategy Call</a>
+        <a href="contact.html" data-conversion="book_call" class="btn-ghost">Book a Strategy Call</a>
       </div>
     </div>
   </section>
@@ -629,18 +640,18 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
             <div class="contact-info-name">Kunal Sarhadi</div>
             <div class="contact-info-role">Real Estate Broker</div>
             <div class="contact-info-brokerage">Homelife Miracle Realty Inc.</div>
-            <div class="contact-info-phone"><a href="tel:4162007010" style="color:inherit;text-decoration:none;">416-200-7010</a></div>
+            <div class="contact-info-phone"><a href="tel:4162007010" data-conversion="phone_click" style="color:inherit;text-decoration:none;">416-200-7010</a></div>
             <div class="contact-info-phone" style="font-size:0.78rem;margin-top:0.25rem;"><a href="mailto:sales@teamsarhadi.com" style="color:var(--gold);text-decoration:none;">sales@teamsarhadi.com</a></div>
           </div>
           <div>
             <div class="contact-info-name">Ankit Sarhadi</div>
             <div class="contact-info-role">Real Estate Broker</div>
             <div class="contact-info-brokerage">Homelife Miracle Realty Inc.</div>
-            <div class="contact-info-phone"><a href="tel:4162002620" style="color:inherit;text-decoration:none;">416-200-2620</a></div>
+            <div class="contact-info-phone"><a href="tel:4162002620" data-conversion="phone_click" style="color:inherit;text-decoration:none;">416-200-2620</a></div>
             <div class="contact-info-phone" style="font-size:0.78rem;margin-top:0.25rem;"><a href="mailto:info@teamsarhadi.com" style="color:var(--gold);text-decoration:none;">info@teamsarhadi.com</a></div>
           </div>
         </div>
-        <a href="contact.html" class="btn-primary" style="align-self:center;">Book a Strategy Call</a>
+        <a href="contact.html" data-conversion="book_call" class="btn-primary" style="align-self:center;">Book a Strategy Call</a>
       </div>
     </div>
 
@@ -694,7 +705,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="guide.html">Free Guide</a></li>
         <li><a href="blog/index.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" data-conversion="book_call">Contact</a></li>
       </ul>
       <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2026 Multi Family Deals. Not financial or investment advice. CMHC MLI Select program terms subject to change.</div>
     </div>
@@ -783,5 +794,23 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<!-- Conversion Event Listener -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-conversion]');
+    if(!el) return;
+    var eventName = el.getAttribute('data-conversion');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': eventName,
+      'event_category': 'engagement',
+      'event_label': el.textContent.trim().substring(0, 50),
+      'page_path': window.location.pathname
+    });
+  });
+})();
+</script>
+<!-- End Conversion Event Listener -->
 </body>
 </html>

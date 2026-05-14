@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBW5QJQT');</script>
+<!-- End Google Tag Manager -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE1S1R0BD4"></script>
 <script>
@@ -189,6 +196,10 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"The Multi Family Deals Strategy \u2014 Edmonton CMHC MLI Select","url":"https://multi-family-deals.ca/about.html","description":"How Multi Family Deals helps investors scale to 50+ doors using CMHC MLI Select purpose-built multi-family properties in Edmonton, Alberta.","mainEntity":{"@type":"Person","name":"Kunal Sarhadi","jobTitle":"Real Estate Broker","worksFor":{"@type":"Organization","name":"Homelife Miracle Realty Inc."},"description":"Edmonton-based real estate broker specializing in CMHC MLI Select multi-family acquisitions for out-of-province investors.","knowsAbout":["CMHC MLI Select","Multi-family real estate","Edmonton real estate","Purpose-built rental","50-year amortization"],"colleague":{"@type":"Person","name":"Ankit Sarhadi","description":"Co-founder of Multi Family Deals, specializing in investor relations and acquisition support."}}}</script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBW5QJQT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">MULTI FAMILY <span>DEALS</span></a>
@@ -204,7 +215,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
         <li><a href="guide.html">Free Guide</a></li>
         
       </ul>
-      <a href="contact.html" class="nav-cta">Book Strategy Call</a>
+      <a href="contact.html" data-conversion="book_call" class="nav-cta">Book Strategy Call</a>
       <div class="hamburger" id="hamburger" role="button" aria-label="Open menu" tabindex="0"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -218,7 +229,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
       <a href="reviews.html">Reviews</a>
       <a href="blog/index.html">Blog</a>
       <a href="guide.html">Free Guide</a>
-      <a href="contact.html" class="mobile-nav-cta">Book Strategy Call</a>
+      <a href="contact.html" data-conversion="book_call" class="mobile-nav-cta">Book Strategy Call</a>
     </div>
 
   <section class="page-hero">
@@ -408,7 +419,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
       <div class="section-label" style="justify-content:center"><span style="width:1.5rem;height:1px;background:var(--gold);display:block"></span>Ready to Start</div>
       <h2 class="cta-title">Let's Map Out Your<br />50-Door Roadmap</h2>
       <p class="cta-sub">Book a free 30-minute strategy call. We'll show you exactly how your available capital translates into doors — and build your acquisition timeline from day one.</p>
-      <a href="contact.html" class="btn-primary">Book Your Strategy Call</a>
+      <a href="contact.html" data-conversion="book_call" class="btn-primary">Book Your Strategy Call</a>
     </div>
   </section>
 
@@ -426,7 +437,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="guide.html">Free Guide</a></li>
         <li><a href="blog/index.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" data-conversion="book_call">Contact</a></li>
       </ul>
       <div class="footer-copy">Kunal Sarhadi, Real Estate Broker &nbsp;|&nbsp; Homelife Miracle Realty Inc. &nbsp;|&nbsp; © 2026 Multi Family Deals. Not financial or investment advice. CMHC MLI Select program terms subject to change.</div>
     </div>
@@ -479,5 +490,23 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<!-- Conversion Event Listener -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-conversion]');
+    if(!el) return;
+    var eventName = el.getAttribute('data-conversion');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': eventName,
+      'event_category': 'engagement',
+      'event_label': el.textContent.trim().substring(0, 50),
+      'page_path': window.location.pathname
+    });
+  });
+})();
+</script>
+<!-- End Conversion Event Listener -->
 </body>
 </html>
