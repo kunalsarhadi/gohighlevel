@@ -265,7 +265,7 @@ src="https://www.facebook.com/tr?id=3083326175185716&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":["RealEstateAgent","LocalBusiness"],"name":"Multi Family Deals","description":"Edmonton-based real estate investment firm specializing in purpose-built CMHC MLI Select multi-family properties. 5% down, 50-year amortization.","url":"https://multi-family-deals.ca","telephone":"+14162007010","email":"sales@teamsarhadi.com","address":{"@type":"PostalAddress","addressLocality":"Edmonton","addressRegion":"AB","addressCountry":"CA"},"founder":{"@type":"Person","name":"Kunal Sarhadi","jobTitle":"Real Estate Broker","worksFor":{"@type":"Organization","name":"Homelife Miracle Realty Inc."}},"areaServed":{"@type":"City","name":"Edmonton"},"knowsAbout":["Multi-family real estate","CMHC MLI Select","Real estate investment","Alberta real estate"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"10","bestRating":"5","worstRating":"1"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":["RealEstateAgent","LocalBusiness"],"name":"Multi Family Deals","description":"Edmonton-based real estate investment firm specializing in purpose-built CMHC MLI Select multi-family properties. 5% down, 50-year amortization.","url":"https://multi-family-deals.ca","telephone":"+14162007010","email":"sales@teamsarhadi.com","address":{"@type":"PostalAddress","addressLocality":"Edmonton","addressRegion":"AB","addressCountry":"CA"},"founder":{"@type":"Person","name":"Kunal Sarhadi","jobTitle":"Real Estate Broker","worksFor":{"@type":"Organization","name":"Homelife Miracle Realty Inc."}},"areaServed":{"@type":"City","name":"Edmonton"},"knowsAbout":["Multi-family real estate","CMHC MLI Select","Real estate investment","Alberta real estate"],"priceRange":"$$$$","image":"https://multi-family-deals.ca/images/jasper-park.png","sameAs":["https://www.instagram.com/kunalsarhadi/","https://www.facebook.com/multifamilydeals"],"geo":{"@type":"GeoCoordinates","latitude":53.5461,"longitude":-113.4938}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"CMHC MLI Select Investor Guide","description":"The complete guide to acquiring Edmonton multi-family properties with 5% down and 50-year amortization via CMHC MLI Select. Covers program mechanics, eligibility, debt structuring, cash flow modelling, and the 9-step acquisition process.","url":"https://multi-family-deals.ca/guide.html","author":{"@type":"Person","name":"Kunal Sarhadi","jobTitle":"Real Estate Broker"},"publisher":{"@type":"Organization","name":"Multi Family Deals","url":"https://multi-family-deals.ca"},"inLanguage":"en-CA","isAccessibleForFree":true,"keywords":["CMHC MLI Select","multi-family investment","Edmonton real estate","5% down payment","50-year amortization","purpose-built rental"],"about":{"@type":"Thing","name":"CMHC MLI Select program"},"educationalLevel":"General public","audience":{"@type":"Audience","audienceType":"Real estate investors"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://multi-family-deals.ca/"},{"@type":"ListItem","position":2,"name":"Free Guide","item":"https://multi-family-deals.ca/guide.html"}]}</script>
 </head>
@@ -812,5 +812,47 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <!-- End Conversion Event Listener -->
+<!-- GHL Booking Completion Listener -->
+<script>
+(function(){
+  window.addEventListener('message', function(event){
+    // Verify origin is from GoHighLevel
+    if (!event.origin || event.origin.indexOf('leadconnectorhq.com') === -1) return;
+
+    // Detect booking completion events from GHL
+    var data = event.data;
+    var isBookingComplete = false;
+
+    // GHL fires multiple event types; check common patterns
+    if (typeof data === 'string') {
+      if (data.indexOf('appointment-booked') !== -1 ||
+          data.indexOf('booking-confirmed') !== -1 ||
+          data.indexOf('form-submitted') !== -1) {
+        isBookingComplete = true;
+      }
+    } else if (data && typeof data === 'object') {
+      if (data.event === 'appointment_booked' ||
+          data.event === 'booking_complete' ||
+          data.event === 'form_submit' ||
+          data.type === 'appointment-booked') {
+        isBookingComplete = true;
+      }
+    }
+
+    if (isBookingComplete) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'form_submit_contact',
+        'event_category': 'engagement',
+        'event_label': 'GHL booking iframe completion',
+        'page_path': window.location.pathname,
+        'ghl_event_data': typeof data === 'string' ? data : JSON.stringify(data)
+      });
+      console.log('[MFD] form_submit_contact event fired from GHL iframe');
+    }
+  });
+})();
+</script>
+<!-- End GHL Booking Completion Listener -->
 </body>
 </html>
